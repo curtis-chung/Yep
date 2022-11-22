@@ -29,6 +29,7 @@ class Business(db.Model):
 
     # relationship attributes
     user = db.relationship("User", back_populates="businesses")
+    reviews = db.relationship("Review", back_populates="businesses")
 
 
 

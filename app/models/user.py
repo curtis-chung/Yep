@@ -20,6 +20,7 @@ class User(db.Model, UserMixin):
 
     # relationship attributes
     businesses = db.relationship("Business", back_populates="user")
+    reviews = db.relationship("Review", back_populates="user")
 
 
 
