@@ -25,9 +25,10 @@ class BusinessForm(FlaskForm):
     phone_number = StringField(
         'phone_number', validators=[DataRequired(), Length(min=10, max=10, message='Phone number must be 10 digits.'), Regexp(regex='^[0-9]$')])
     web_address = StringField(
-        'web_address', validators=[DataRequired(), Email(message='The web address you entered is invalid. Please try again.')])
+        'web_address')
+        # validators=[DataRequired(message='The web address you entered is invalid. Please try again.')]
     menu_web_address = StringField(
-        'menu_web_address', validators=[DataRequired(), Email(message='The web address you entered is invalid. Please try again.')])
+        'menu_web_address')
     operating_time = StringField('operating_time', validators=[DataRequired()])
     business_type = StringField('business_type', validators=[DataRequired()])
     price = IntegerField(

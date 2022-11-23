@@ -10,7 +10,7 @@ class Business(db.Model):
 
     id = db.Column(db.Integer, primary_key=True)
     user_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod("users.id")), nullable=False)
-    review_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod("reviews.id")), nullable=False)
+    # review_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod("reviews.id")), nullable=True)
     business_name = db.Column(db.String(255), nullable=False, unique=True)
     address = db.Column(db.String(255), nullable=False)
     city = db.Column(db.String(255), nullable=False)
@@ -19,8 +19,8 @@ class Business(db.Model):
     lat = db.Column(db.Float, nullable=True)
     lng = db.Column(db.Float, nullable=True)
     phone_number = db.Column(db.String(255), nullable=False, unique=True)
-    web_address = db.Column(db.String(255), nullable=True unique=True)
-    menu_web_address = db.Column(db.String(255), nullable=True unique=True)
+    web_address = db.Column(db.String(255), nullable=True, unique=True)
+    menu_web_address = db.Column(db.String(255), nullable=True, unique=True)
     operating_time = db.Column(db.String(255), nullable=False)
     business_type = db.Column(db.String(255), nullable=False)
     price = db.Column(db.Integer, nullable=False)
@@ -37,7 +37,7 @@ class Business(db.Model):
         return {
             'id': self.id,
             'user_id': self.user_id,
-            'review_id': self.review_id,
+            # 'review_id': self.review_id,
             'business_name': self.business_name,
             'address': self.address,
             'city': self.city,
