@@ -27,7 +27,7 @@ Query for all businesses owned by current user and returns them in a dictionary
 """
 @business_routes.route('/my-listings')
 @login_required
-def all_businesses():
+def my_listings():
     curr_user = current_user.id
     businesses = Business.query.filter_by(
         user_id = int(curr_user)
