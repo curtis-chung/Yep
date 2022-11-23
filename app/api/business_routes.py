@@ -47,16 +47,14 @@ Post a new business
 """
 @business_routes.route('', methods=["POST"])
 @login_required
-def create_buy_transaction(symbol):
+def create_new_business():
     curr_user = current_user.id
-    # LookupSymbol = symbol.upper()
-
     form = BusinessForm()
     form['csrf_token'].data = request.cookies['csrf_token']
+
     if form.validate_on_submit():
         data = form.data
 
-        # insert data into UserTransactions model
         new_business = BusinessForm(
             user_id = int(curr_user),
             business_name = data["business_name"],
@@ -75,3 +73,42 @@ def create_buy_transaction(symbol):
         db.session.add(new_business)
         db.session.commit()
         return new_business.to_dict()
+
+
+
+"""
+Edit an existing business owned by current user
+"""
+@business_routes.route('/<int:id>', methods=["PUT"])
+@login_required
+def update_business(id):
+    data = request.get_json()
+    curr_business = Business.query.get(id)
+
+    curr_business.business_name = data["business_name"],
+    curr_business.address = data["address"],
+    curr_business.city = data["city"],
+    curr_business.state = data["state"],
+    curr_business.postal_code = data["postal_code"],
+    curr_business.lat = data["lat"],
+    curr_business.lng = data["lng"],
+    curr_business.phone_number = data["phone_number"],
+    curr_business.web_address = data["web_address"],
+    curr_business.operating_time = data["operating_time"],
+    curr_business.business_type = data["business_type"],
+    curr_business.price = data["price"],
+
+    db.session.commit()
+    return curr_business.to_dict()
+
+
+
+"""
+Delete an existing business owned by current user
+"""
+@business_routes.route('/<int:id>', methods=["DELETE"])
+def delete_business(id):
+    curr_business = Business.query.get(id)
+    db.session.delete(curr_business)
+    db.session.commit()
+    return dict(message="Business successfully deleted")
