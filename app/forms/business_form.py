@@ -12,28 +12,24 @@ def business_exists(form, field):
         raise ValidationError('Business already exist.')
 
 
-
-v = [DataRequired()]
-
 class BusinessForm(FlaskForm):
     business_name = StringField(
-        "business_name", validators=[DataRequired('Please enter your Business name.'), Length(min=1, max=100, message='Your business name cannot be greater than 100 characters.')])
-    address = StringField("address", v)
-    city = StringField('city', validators=[DataRequired(), Regexp(regex='^[A-Za-z]$')])
-    state = StringField('state', validators=[DataRequired(), Length(min=2, max=2, message='The state you entered is invalid.'), Regexp(regex='^[A-Za-z]$')])
+        "business_name", validators=[DataRequired(), Length(min=1, max=100, message='Business name must be between 1 and 100 characters.'), business_exists])
+    address = StringField("address", validators=[DataRequired()])
+    city = StringField('city', validators=[DataRequired(), Regexp(regex='^[A-Za-z]$', message="City must be alphabetical letters.")])
+    state = StringField('state', validators=[DataRequired(), Length(min=2, max=2, message='State must be 2 alphabetical letters.'), Regexp(regex='^[A-Za-z]$')])
     postal_code = StringField(
-        'postal_code', validators=[DataRequired(), Length(min=5, max=5, message='The ZIP code you entered is invalid.'), Regexp(regex='^[0-9]$')])
+        'postal_code', validators=[DataRequired(), Length(min=5, max=5, message='ZIP code must be 5 digits.'), Regexp(regex='^[0-9]$')])
     lat = FloatField('lat')
     lng = FloatField('lng')
     phone_number = StringField(
-        'phone_number', validators=[DataRequired(), Length(min=10, max=10, message='The phone number you entered is invalid. Did you include the area code?'), Regexp(regex='^[+-]?[0-9]$')])
+        'phone_number', validators=[DataRequired(), Length(min=10, max=10, message='Phone number must be 10 digits.'), Regexp(regex='^[0-9]$')])
     web_address = StringField(
         'web_address', validators=[DataRequired(), Email(message='The web address you entered is invalid. Please try again.')])
     menu_web_address = StringField(
         'menu_web_address', validators=[DataRequired(), Email(message='The web address you entered is invalid. Please try again.')])
-    operating_time = StringField('operating_time', v)
-    business_type = StringField(
-        'business_type', validators=[NumberRange(min=1, max=4, message='The categories entered are invalid.')])
+    operating_time = StringField('operating_time', validators=[DataRequired()])
+    business_type = StringField('business_type', validators=[DataRequired()])
     price = IntegerField(
-        'price', validators=[NumberRange(min=1, max=4, message='Price must be between 1 to 4.')])
+        'price', validators=[DataRequired(), NumberRange(min=1, max=4, message='Price must be between 1 to 4.')])
     submit = SubmitField("submit")

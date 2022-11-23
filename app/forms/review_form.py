@@ -16,24 +16,8 @@ def business_exists(form, field):
 v = [DataRequired()]
 
 class BusinessForm(FlaskForm):
-    business_name = StringField(
-        "business_name", validators=[DataRequired('Please enter your Business name.'), Length(min=1, max=100, message='Your business name cannot be greater than 100 characters.')])
-    address = StringField("address", v)
-    city = StringField('city', validators=[DataRequired(), Regexp(regex='^[A-Za-z]$')])
-    state = StringField('state', validators=[DataRequired(), Length(min=2, max=2, message='The state you entered is invalid.'), Regexp(regex='^[A-Za-z]$')])
-    postal_code = StringField(
-        'postal_code', validators=[DataRequired(), Length(min=5, max=5, message='The ZIP code you entered is invalid.'), Regexp(regex='^[0-9]$')])
-    lat = FloatField('lat')
-    lng = FloatField('lng')
-    phone_number = StringField(
-        'phone_number', validators=[DataRequired(), Length(min=10, max=10, message='The phone number you entered is invalid. Did you include the area code?'), Regexp(regex='^[+-]?[0-9]$')])
-    web_address = StringField(
-        'web_address', validators=[DataRequired(), Email(message='The web address you entered is invalid. Please try again.')])
-    menu_web_address = StringField(
-        'menu_web_address', validators=[DataRequired(), Email(message='The web address you entered is invalid. Please try again.')])
-    operating_time = StringField('operating_time', v)
-    business_type = StringField(
-        'business_type', validators=[NumberRange(min=1, max=4, message='The categories entered are invalid.')])
-    price = IntegerField(
-        'price', validators=[NumberRange(min=1, max=4, message='Price must be between 1 to 4.')])
+    review_content = StringField(
+        "review_content", validators=[DataRequired('To submit your review, please explain your ratings to others.'), Length(min=1, max=255, message='Review must be between 1 and 255 characters.')])
+    stars = IntegerField(
+        'stars', validators=[DataRequired('To submit your review, please select a star rating for this business.'), NumberRange(min=1, max=5, message='Rating must be between 1 and 5 stars.')])
     submit = SubmitField("submit")
