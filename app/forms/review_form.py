@@ -4,18 +4,10 @@ from wtforms.validators import DataRequired, Email, ValidationError, Length, Num
 from app.models import Business
 
 
-def business_exists(form, field):
-    # Checking if business exists
-    name = field.data
-    business = Business.query.filter(Business.business_name == name).first()
-    if business:
-        raise ValidationError('Business already exist.')
-
-
 
 v = [DataRequired()]
 
-class BusinessForm(FlaskForm):
+class ReviewForm(FlaskForm):
     review_content = StringField(
         "review_content", validators=[DataRequired('To submit your review, please explain your ratings to others.'), Length(min=1, max=255, message='Review must be between 1 and 255 characters.')])
     stars = IntegerField(

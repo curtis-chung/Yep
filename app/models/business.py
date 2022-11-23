@@ -42,7 +42,7 @@ class Business(db.Model):
             'address': self.address,
             'city': self.city,
             'state': self.state,
-            'postal_code': self.zip,
+            'postal_code': self.postal_code,
             'lat': self.lat,
             'lng': self.lng,
             'phone_number': self.phone_number,
