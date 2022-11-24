@@ -1,3 +1,23 @@
+.sign-in-page {
+    /* border: 3px solid blue; */
+    display: flex;
+    height: 771px;
+    justify-content: center;
+    align-items: center;
+}
+
+.sign-in-picture-div {
+    /* border: 3px solid orange; */
+    height: 100%;
+    margin-left: 90px;
+}
+
+.sign-in-picture-container {
+    /* border: 3px solid blue; */
+    display: flex;
+    padding-top: 150px;
+}
+
 .sign-in-container {
     width: 359px;
     /* height: 537px; */
@@ -6,7 +26,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin: 30px;
+    /* margin: 30px; */
 }
 
 .sign-in-container-top {
@@ -57,17 +77,33 @@
 
 .login-button {
     background-color: #d32323;
-    margin: 24px 0 12px 0;
+    margin: 24px 0 24px 0;
+}
+
+.login-button:hover {
+    background-color: rgba(211, 35, 35, .9);
 }
 
 .demo-button {
     background-color: black;
 }
 
+.demo-button:hover {
+    background-color: rgba(0, 0, 0, 0.9);
+}
+
 .input-fields {
-    width: 97%;
+    width: 99%;
     text-indent: 5px;
     margin-bottom: 9px;
+    padding: 6px 0;
+    font-size: 14px;
+    border: 1px solid gray;
+    border-radius: 3px;
+}
+
+.input-fields:focus {
+    outline: 1px solid #a5d6ff;
 }
 
 .login-separator {
@@ -80,6 +116,7 @@
     margin: 24px 0;
     font-size: 14px;
     font-weight: 300;
+    color: gray;
 }
 
 .login-separator:before,
@@ -95,4 +132,30 @@
     display: flex;
     justify-content: flex-end;
     font-size: 12px;
+    font-weight: 400;
+    color: rgb(151, 151, 151);
+}
+
+.sign-up-navlink {
+    text-decoration: none;
+    color: #0073bb;
+}
+
+.sign-up-navlink:hover {
+    text-decoration: underline;
+}
+
+.sign-up-form-names {
+    display: flex;
+    justify-content: space-between;
+}
+
+.input-fields-name {
+    width: 48%;
+}
+
+.errors {
+    color: red;
+    font-size: 12px;
+    margin-bottom: 6px;
 }

@@ -9,7 +9,7 @@ import UsersList from './components/UsersList';
 import User from './components/User';
 import { authenticate } from './store/session';
 import BottomNav from './components/BottomNav';
-import SignInForm from './components/SignInForm';
+import TopRedNav from './components/TopRedNav';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -28,12 +28,13 @@ function App() {
 
   return (
     <BrowserRouter>
-      <NavBar />
       <Switch>
         <Route path='/login' exact={true}>
+          <TopRedNav />
           <LoginForm />
         </Route>
         <Route path='/sign-up' exact={true}>
+          <TopRedNav />
           <SignUpForm />
         </Route>
         <ProtectedRoute path='/users' exact={true} >
@@ -44,10 +45,9 @@ function App() {
         </ProtectedRoute>
         <Route path='/' exact={true} >
           <h1>My Home Page</h1>
-          <SignInForm />
-          <BottomNav />
         </Route>
       </Switch>
+      <BottomNav />
     </BrowserRouter>
   );
 }
