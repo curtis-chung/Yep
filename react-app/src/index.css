@@ -1,1 +1,8 @@
 /* TODO Add site wide styles */
+* {
+    font-family: Roboto;
+}
+
+button {
+    cursor: pointer;
+}
