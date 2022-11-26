@@ -116,7 +116,7 @@
     background-color: #ffffff;
     width: 79px;
     color: black;
-    border: 1px solid lightgray;
+    border: 1px solid #eeeeef;
 }
 
 .small-login-button:hover {
@@ -153,7 +153,7 @@
 }
 
 .search-bar-divider {
-    background-color: lightgray;
+    background-color: #eeeeef;
     width: 2px;
     height: 24px;
     align-items: center;

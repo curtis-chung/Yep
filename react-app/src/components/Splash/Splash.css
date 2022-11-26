@@ -1,0 +1,96 @@
+.charts-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 538px;
+    border: 3px solid blue;
+}
+
+.charts-container {
+    /* border: 3px solid green; */
+    width: 55%;
+    max-width: 1400px;
+    min-width: 945px;
+    height: 488px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.splash-chart {
+    border: 1px solid #eeeeef;
+    min-height: 488px;
+    max-height: 488px;
+    width: 31%;
+    min-width: 300px;
+    max-width: 440px;
+    display: flex;
+    flex-direction: column;
+    border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+}
+
+.splash-chart-title {
+    /* border: 1px solid purple; */
+    border-bottom: 1px solid #eeeeef;
+    height: 138px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 28px;
+    font-weight: 700;
+    color: #f8121a;
+}
+
+.splash-chart-body {
+    min-height: 350px;
+    max-height: 350px;
+    display: flex;
+    flex-direction: column;
+}
+
+.splash-chart-body-card {
+    border-top: 1px solid #eeeeef;
+    border-bottom: 1px solid #eeeeef;
+    max-height: 70px;
+    min-height: 70px;
+    display: flex;
+    align-items: center;
+    box-sizing: border-box;
+}
+
+.splash-chart-body-card-image {
+    border: 1px solid black;
+    width: 58px;
+    height: 58px;
+    margin-left: 4px;
+}
+
+.splash-chart-body-card-details {
+    border: 1px solid black;
+    height: 58px;
+    width: 280px;
+    margin-left: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.splash-chart-body-card-details-div {
+    /* border: 1px solid black; */
+    height: 33%;
+    display: flex;
+    align-items: center;
+}
+
+.splash-chart-body-card-name {
+    font-size: 16px;
+    font-weight: 700;
+}
+
+.splash-chart-body-card-rating {
+    font-size: 12px;
+}
+
+.splash-chart-body-card-location {
+    font-size: 12px;
+}

@@ -124,7 +124,7 @@
     content: "";
     border-top: 1px solid;
     flex: 1 0 20px;
-    color: lightgray;
+    color: #eeeeef;
 }
 
 .sign-in-container-bottom-text {

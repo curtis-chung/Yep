@@ -10,6 +10,7 @@ import User from './components/User';
 import { authenticate } from './store/session';
 import BottomNav from './components/BottomNav';
 import TopRedNav from './components/TopRedNav';
+import Splash from './components/Splash';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -45,6 +46,7 @@ function App() {
         </ProtectedRoute>
         <Route path='/' exact={true} >
           <NavBar />
+          <Splash />
         </Route>
       </Switch>
       <BottomNav />
