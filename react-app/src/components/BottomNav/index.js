@@ -14,7 +14,7 @@ function BottomNav() {
                     <div className='bottom-text-box'>
                         <span className='bottom-link-titles' style={{ color: 'black', marginBottom: '6px' }}>About</span>
                         <div className='bottom-link-list'>
-                            <span className='hover-underline'>About Yelp</span>
+                            <span className='hover-underline'>About Yep</span>
                             <span className='hover-underline'>Careers</span>
                             <span className='hover-underline'>Press</span>
                             <span className='hover-underline'>Investor Relations</span>
@@ -30,27 +30,27 @@ function BottomNav() {
                     <div className='bottom-text-box'>
                         <span className='bottom-link-titles' style={{ color: 'black', marginBottom: '6px' }}>Discover</span>
                         <div className='bottom-link-list'>
-                            <span className='hover-underline'>Yelp Project Cost Guides</span>
+                            <span className='hover-underline'>Yep Project Cost Guides</span>
                             <span className='hover-underline'>Collections</span>
                             <span className='hover-underline'>Talk</span>
                             <span className='hover-underline'>Events</span>
-                            <span className='hover-underline'>Yelp Blog</span>
+                            <span className='hover-underline'>Yep Blog</span>
                             <span className='hover-underline'>Support</span>
-                            <span className='hover-underline'>Yelp Mobile</span>
+                            <span className='hover-underline'>Yep Mobile</span>
                             <span className='hover-underline'>Developers</span>
                             <span className='hover-underline'>RSS</span>
                         </div>
                     </div>
                     <div className='bottom-text-box'>
-                        <span className='bottom-link-titles' style={{ color: 'black', marginBottom: '6px' }}>Yelp for Business</span>
+                        <span className='bottom-link-titles' style={{ color: 'black', marginBottom: '6px' }}>Yep for Business</span>
                         <div className='bottom-link-list'>
                             <span className='hover-underline'>Claim your Business Page</span>
-                            <span className='hover-underline'>Advertise on Yelp</span>
-                            <span className='hover-underline'>Yelp for Restaurant Owners</span>
+                            <span className='hover-underline'>Advertise on Yep</span>
+                            <span className='hover-underline'>Yep for Restaurant Owners</span>
                             <span className='hover-underline'>Table Management</span>
                             <span className='hover-underline'>Business Success Stories</span>
                             <span className='hover-underline'>Business Support</span>
-                            <span className='hover-underline'>Yelp Blog for Business</span>
+                            <span className='hover-underline'>Yep Blog for Business</span>
                         </div>
                     </div>
                     <div className='last-bottom-text-box'>
@@ -66,7 +66,7 @@ function BottomNav() {
                 </div>
                 <div className='bottom-div'>
                     <div className='bottom-copyright'>
-                        <span className='bottom-copyright-list'>Copyright © 2004-2022 Yelp Inc. &nbsp; <img className="bottom-nav-img" src={logo} />, <img className="bottom-nav-img" src={burst} /> &nbsp; and related marks are registered trademarks of Yelp.</span>
+                        <span className='bottom-copyright-list'>Copyright © 2004-2022 Yep Inc. &nbsp; <img className="bottom-nav-img" src={logo} />, <img className="bottom-nav-img" src={burst} /> &nbsp; and related marks are registered trademarks of Yep.</span>
                     </div>
                 </div>
             </div>

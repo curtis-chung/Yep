@@ -8,7 +8,7 @@ const TopRedNav = () => {
 
     return (
         <div className="top-red-nav-container">
-            yelp
+            Yep
         </div>
     );
 };

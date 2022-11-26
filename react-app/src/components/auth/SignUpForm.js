@@ -48,9 +48,9 @@ const SignUpForm = () => {
       <div className='sign-in-container'>
         <div className="sign-in-container-top">
           <div className='sign-in-container-top-text'>
-            <div className="sign-in-text-title">Sign Up for Yelp</div>
+            <div className="sign-in-text-title">Sign Up for Yep</div>
             <div className="sign-in-text" style={{ fontSize: "14px", fontWeight: "600", height: "17px" }}>Connect with great local businesses</div>
-            <div className="sign-in-text" style={{ fontSize: "12px", height: "36px", textAlign: "center" }}>By logging in, you agree to Yelp's Terms of Service and Privacy Policy.</div>
+            <div className="sign-in-text" style={{ fontSize: "12px", height: "36px", textAlign: "center" }}>By logging in, you agree to Yep's Terms of Service and Privacy Policy.</div>
           </div>
 
           <button type="submit" className="sign-in-button demo-button">Continue as Demo User</button>
@@ -112,7 +112,7 @@ const SignUpForm = () => {
 
         <div className="sign-in-container-bottom">
           <div className='sign-in-container-bottom-text'>
-            Already on Yelp? &nbsp;
+            Already on Yep? &nbsp;
             <NavLink to="/login" className="sign-up-navlink">
               Log In
             </NavLink>

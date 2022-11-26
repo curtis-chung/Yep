@@ -38,13 +38,13 @@ const LoginForm = () => {
       <div className='sign-in-container'>
         <div className="sign-in-container-top">
           <div className='sign-in-container-top-text'>
-            <div className="sign-in-text-title">Log in to Yelp</div>
-            <div className="sign-in-text" style={{ fontSize: "14px", fontWeight: "600", height: "17px" }}>New to Yelp? &nbsp;
+            <div className="sign-in-text-title">Log in to Yep</div>
+            <div className="sign-in-text" style={{ fontSize: "14px", fontWeight: "600", height: "17px" }}>New to Yep? &nbsp;
               <NavLink to="/sign-up" className="sign-up-navlink">
                 Sign up
               </NavLink>
             </div>
-            <div className="sign-in-text" style={{ fontSize: "12px", height: "36px", textAlign: "center" }}>By logging in, you agree to Yelp's Terms of Service and Privacy Policy.</div>
+            <div className="sign-in-text" style={{ fontSize: "12px", height: "36px", textAlign: "center" }}>By logging in, you agree to Yep's Terms of Service and Privacy Policy.</div>
           </div>
 
           <button type="submit" className="sign-in-button demo-button">Continue as Demo User</button>
@@ -82,7 +82,7 @@ const LoginForm = () => {
 
         <div className="sign-in-container-bottom">
           <div className='sign-in-container-bottom-text'>
-            New to Yelp? &nbsp;
+            New to Yep? &nbsp;
             <NavLink to="/sign-up" className="sign-up-navlink">
               Sign up
             </NavLink>
