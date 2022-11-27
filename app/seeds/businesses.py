@@ -3,6 +3,8 @@ from app.models import db, Business, environment, SCHEMA
 
 # Adds a demo Business, you can add other businesses here if you want
 def seed_businesses():
+
+    # 3 Michelin Stars
     Masa = Business(
         user_id="1",
         business_name='Masa',
@@ -19,7 +21,163 @@ def seed_businesses():
         price="4"
     )
 
+    LeBernardin = Business(
+        user_id="1",
+        business_name='Le Bernardin',
+        address="155 W. 51st St",
+        city='New York',
+        state="NY",
+        postal_code="10019",
+        lat="40.76166559137585",
+        lng="-73.98175579999999",
+        phone_number="2125541515",
+        web_address="https://www.le-bernardin.com/",
+        operating_time="Tuesday 12PM-8PM",
+        business_type="Seafood",
+        price="4"
+    )
+
+    ElevenMadisonPark = Business(
+        user_id="1",
+        business_name='Eleven Madison Park',
+        address="11 Madison Ave.",
+        city='New York',
+        state="NY",
+        postal_code="10010",
+        lat="40.74176568258326",
+        lng="-73.98721384354972",
+        phone_number="2128890905",
+        web_address="https://www.elevenmadisonpark.com/",
+        operating_time="Tuesday 12PM-8PM",
+        business_type="Innovative",
+        price="4"
+    )
+
+    PerSe = Business(
+        user_id="1",
+        business_name='Per Se',
+        address="10 Columbus Circle.",
+        city='New York',
+        state="NY",
+        postal_code="10010",
+        lat="40.76830716046298",
+        lng="-73.98284515704037",
+        phone_number="2128239335",
+        web_address="https://www.thomaskeller.com/perseny",
+        operating_time="Tuesday 12PM-8PM",
+        business_type="French",
+        price="4"
+    )
+
+    ChefTable = Business(
+        user_id="1",
+        business_name="Chef's Table at Brooklyn Fare",
+        address="431 W. 37th St.",
+        city='New York',
+        state="NY",
+        postal_code="10018",
+        lat="40.756202549700845",
+        lng="-73.99658970122222",
+        phone_number="7182430050",
+        web_address="https://www.brooklynfare.com/",
+        operating_time="Tuesday 12PM-8PM",
+        business_type="Contemporary",
+        price="4"
+    )
+
+    # 2 Michelin Stars
+    TheModern = Business(
+        user_id="1",
+        business_name="The Modern",
+        address="9 W. 53rd St.",
+        city='New York',
+        state="NY",
+        postal_code="10019",
+        lat="40.76112754971007",
+        lng="-73.97675518648421",
+        phone_number="2123331220",
+        web_address="https://www.themodernnyc.com/",
+        operating_time="Tuesday 12PM-8PM",
+        business_type="Contemporary",
+        price="4"
+    )
+
+    Atomix = Business(
+        user_id="1",
+        business_name="Atomix",
+        address="104 E. 30th St.",
+        city='New York',
+        state="NY",
+        postal_code="10016",
+        lat="40.74436986360897",
+        lng="-73.98279655704071",
+        phone_number="6464767217",
+        web_address="https://www.atomixnyc.com/",
+        operating_time="Tuesday 12PM-8PM",
+        business_type="Korean",
+        price="4"
+    )
+
+    # 1 Michelin Star
+    DonAngie = Business(
+        user_id="1",
+        business_name="Don Angie",
+        address="103 Greenwich Ave.",
+        city='New York',
+        state="NY",
+        postal_code="10014",
+        lat="40.737925618434154",
+        lng="-74.00204025704075",
+        phone_number="2128898884",
+        web_address="https://www.donangie.com/",
+        operating_time="Tuesday 12PM-8PM",
+        business_type="Italian",
+        price="3"
+    )
+
+    JejuNoodleBar = Business(
+        user_id="1",
+        business_name="Jeju Noodle Bar",
+        address="679 Greenwich St.",
+        city='New York',
+        state="NY",
+        postal_code="10014",
+        lat="40.733143280562274",
+        lng="-74.00730952348195",
+        phone_number="6466660947",
+        web_address="https://www.jejunoodlebar.com/",
+        operating_time="Tuesday 12PM-8PM",
+        business_type="Korean",
+        price="3"
+    )
+
+    MusketRoom = Business(
+        user_id="1",
+        business_name="The Musket Room",
+        address="265 Elizabeth St.",
+        city='New York',
+        state="NY",
+        postal_code="10012",
+        lat="40.72413768438767",
+        lng="-73.99377888587742",
+        phone_number="2122190764",
+        web_address="https://www.musketroom.com/",
+        operating_time="Tuesday 12PM-8PM",
+        business_type="American Contemporary",
+        price="3"
+    )
+
+
     db.session.add(Masa)
+    db.session.add(LeBernardin)
+    db.session.add(ElevenMadisonPark)
+    db.session.add(PerSe)
+    db.session.add(ChefTable)
+    db.session.add(TheModern)
+    db.session.add(Atomix)
+    db.session.add(DonAngie)
+    db.session.add(JejuNoodleBar)
+    db.session.add(MusketRoom)
     db.session.commit()
 
 

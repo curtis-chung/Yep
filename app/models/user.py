@@ -19,8 +19,8 @@ class User(db.Model, UserMixin):
     updated_at = db.Column(db.DateTime, nullable=False, default=datetime.utcnow)
 
     # relationship attributes
-    businesses = db.relationship("Business", back_populates="user")
-    reviews = db.relationship("Review", back_populates="user")
+    businesses = db.relationship("Business", cascade="all, delete", back_populates="user")
+    reviews = db.relationship("Review", cascade="all, delete", back_populates="user")
 
 
 

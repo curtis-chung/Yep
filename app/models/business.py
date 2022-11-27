@@ -29,7 +29,9 @@ class Business(db.Model):
 
     # relationship attributes
     user = db.relationship("User", back_populates="businesses")
-    reviews = db.relationship("Review", back_populates="businesses")
+    reviews = db.relationship("Review", cascade="all, delete", back_populates="businesses")
+    businessimages = db.relationship("BusinessImage", cascade="all, delete", back_populates="businesses")
+
 
 
 
