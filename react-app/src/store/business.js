@@ -2,6 +2,7 @@ const GET_ALL_BUSINESSES = "businesses/GET_ALL_BUSINESSES";
 const GET_ALL_OF_MY_BUSINESSES = "businesses/GET_ALL_OF_MY_BUSINESSES";
 const GET_CURR_BUSINESS = "businesses/GET_CURR_BUSINESS"
 const UPDATE_BUSINESS = "businesses/UPDATE_BUSINESS";
+const GET_ALL_BUSINESS_IMAGES = "businesses/GET_ALL_BUSINESS_IMAGES";
 const CLEAN_UP_BUSINESSES = "businesses/CLEANUP";
 
 const getAllBusinessesAction = (payload) => ({
@@ -23,6 +24,11 @@ const updateBusinessAction = (payload) => ({
     type: UPDATE_BUSINESS,
     payload
 })
+
+const getAllBusinessImagesAction = (payload) => ({
+    type: GET_ALL_BUSINESS_IMAGES,
+    payload
+});
 
 export const cleanUpBusinessesAction = () => {
     return {
@@ -64,7 +70,7 @@ export const getCurrBusiness = (id) => async (dispatch) => {
 
     if (response.ok) {
         const currBusiness = await response.json()
-        dispatch(getCurrBusiness(currBusiness))
+        dispatch(getCurrBusinessAction(currBusiness))
     }
 }
 
@@ -92,11 +98,21 @@ export const deleteBusiness = (businessId) => async (dispatch) => {
     return response
 }
 
+export const getAllBusinessImages = () => async (dispatch) => {
+    const response = await fetch("/api/businesses/images")
+
+    if (response.ok) {
+        const allBusinessImages = await response.json()
+        dispatch(getAllBusinessImagesAction(allBusinessImages))
+    }
+}
+
 const initialState = {
     // allBusinesses: {},
     allBusinesses: {},
     allOfMyBusinesses: {},
-    businessById: {}
+    businessById: {},
+    allBusinessImages: {}
 }
 
 const business = (state = initialState, action) => {
@@ -122,9 +138,15 @@ const business = (state = initialState, action) => {
             newState.businessById[action.business.id] = action.business
             return newState
 
+        case GET_ALL_BUSINESS_IMAGES:
+            newState.allBusinessImages = action.payload
+            return newState
+
         case CLEAN_UP_BUSINESSES:
             newState.currentStockBusinessesByUserId = {}
             newState.allOfMyBusinesses = {}
+            newState.businessById = {}
+            newState.allBusinessImages = {}
             return newState
 
         default:

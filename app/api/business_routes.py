@@ -1,7 +1,7 @@
 from flask import Blueprint, jsonify, redirect, request
 from flask_login import current_user, login_required
-from app.models import Business, db
-from app.forms import BusinessForm
+from app.models import Business, BusinessImage, db
+from app.forms import BusinessForm, BusinessImageForm
 
 business_routes = Blueprint('business', __name__)
 
@@ -123,3 +123,18 @@ def delete_business(id):
     db.session.delete(curr_business)
     db.session.commit()
     return dict(message="Business successfully deleted")
+
+
+
+"""
+Query for all business images and returns them in a dictionary
+"""
+@business_routes.route('/images')
+def all_business_images():
+    business_images = BusinessImage.query.all()
+    business_images_dict = {}
+
+    for business_image in business_images:
+        business_images_dict[business_image.to_dict()["id"]] = business_image.url
+
+    return business_images_dict
