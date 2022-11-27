@@ -23,6 +23,17 @@ def all_businesses():
 
 
 """
+Query for business by business id
+"""
+@business_routes.route('/<int:id>')
+def current_business():
+    curr_business = Business.query.get(id)
+
+    return curr_business.to_dict()
+
+
+
+"""
 Query for all businesses owned by current user and returns them in a dictionary
 """
 @business_routes.route('/my-listings')
