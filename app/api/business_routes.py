@@ -144,7 +144,7 @@ def all_business_images():
 Query for climbing
 """
 @business_routes.route('/images')
-def all_business_images():
+def climbing_business():
     business_images = BusinessImage.query.all()
     business_images_dict = {}
 
@@ -160,7 +160,7 @@ def all_business_images():
 Query for top rated
 """
 @business_routes.route('/images')
-def all_business_images():
+def top_rated_business():
     business_images = BusinessImage.query.all()
     business_images_dict = {}
 
@@ -175,7 +175,7 @@ def all_business_images():
 Query for new
 """
 @business_routes.route('/images')
-def all_business_images():
+def new_business():
     business_images = BusinessImage.query.all()
     business_images_dict = {}
 
