@@ -19,9 +19,74 @@
 }
 
 .image-slideshow {
-    border: 3px solid orange;
+    /* border: 3px solid orange; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
     min-height: 682px;
-    max-height:
+    max-height: 682px;
+    width: 100vw;
+    position: relative;
+    border: none;
+    animation: slideshow 50s infinite ease-in-out 1s;
+}
+
+@keyframes slideshow {
+
+    0% {
+        background: url(https://i.imgur.com/d19P7Cr.jpg);
+        background-repeat: no-repeat;
+        background-position: center center;
+        background-attachment: fixed;
+        background-size: cover;
+        -webkit-transform: translate3d(0, 0, 0);
+    }
+
+    20% {
+        background: url(https://i.imgur.com/XTs52ep.jpg);
+        background-repeat: no-repeat;
+        background-position: center center;
+        background-attachment: fixed;
+        background-size: cover;
+        -webkit-transform: translate3d(0, 0, 0);
+    }
+
+    40% {
+        background: url(https://i.imgur.com/Tz6dChJ.jpg);
+        background-repeat: no-repeat;
+        background-position: center center;
+        background-attachment: fixed;
+        background-size: cover;
+        -webkit-transform: translate3d(0, 0, 0);
+    }
+
+    60% {
+        background: url(https://i.imgur.com/ahN5Xo4.jpg);
+        background-repeat: no-repeat;
+        background-position: center center;
+        background-attachment: fixed;
+        background-size: cover;
+        -webkit-transform: translate3d(0, 0, 0);
+    }
+
+    80% {
+        background: url(https://i.imgur.com/nCo5g2H.jpg);
+        background-repeat: no-repeat;
+        background-position: center center;
+        background-attachment: fixed;
+        background-size: cover;
+        -webkit-transform: translate3d(0, 0, 0);
+    }
+
+    100% {
+        background: url(https://i.imgur.com/d19P7Cr.jpg);
+        background-repeat: no-repeat;
+        background-position: center center;
+        background-attachment: fixed;
+        background-size: cover;
+        -webkit-transform: translate3d(0, 0, 0);
+    }
+
 }
 
 .splash-chart {
@@ -100,4 +165,9 @@
 
 .splash-chart-body-card-location {
     font-size: 12px;
+}
+
+.splash-wrapper {
+    z-index: -1;
+    width: 100%;
 }

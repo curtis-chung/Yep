@@ -1,14 +1,31 @@
 import React from 'react';
-import { useState } from 'react';
-import { useHistory, NavLink } from 'react-router-dom';
+import { useState, useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { useHistory, NavLink, Redirect, useParams } from 'react-router-dom';
+import * as businessActions from "../../store/business"
 import './Splash.css';
 
 function Splash() {
+    const dispatch = useDispatch();
+
+    const businessImagesArray = useSelector((state) => {
+        let urlArray = Object.values(state?.business?.allBusinessImages)
+        console.log(urlArray)
+        return urlArray
+    })
+
+    useEffect(() => {
+        dispatch(businessActions.getAllBusinessImages())
+    }, [dispatch]);
+
+    if (!businessImagesArray) {
+        console.log("BIA", businessImagesArray)
+        return null
+    }
 
     return (
         <div className='splash-wrapper'>
-            <div className='image-slideshow'>
-            </div>
+            <div className='image-slideshow'></div>
             <div className='charts-wrapper'>
                 <div className='charts-container'>
                     <div className='splash-chart climbing'>

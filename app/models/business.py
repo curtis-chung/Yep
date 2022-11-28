@@ -10,7 +10,6 @@ class Business(db.Model):
 
     id = db.Column(db.Integer, primary_key=True)
     user_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod("users.id")), nullable=False)
-    # review_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod("reviews.id")), nullable=True)
     business_name = db.Column(db.String(255), nullable=False, unique=True)
     address = db.Column(db.String(255), nullable=False)
     city = db.Column(db.String(255), nullable=False)
@@ -31,7 +30,6 @@ class Business(db.Model):
     user = db.relationship("User", back_populates="businesses")
     reviews = db.relationship("Review", cascade="all, delete", back_populates="businesses")
     businessimages = db.relationship("BusinessImage", cascade="all, delete", back_populates="businesses")
-
 
 
 

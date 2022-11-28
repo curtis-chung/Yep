@@ -135,6 +135,51 @@ def all_business_images():
     business_images_dict = {}
 
     for business_image in business_images:
-        business_images_dict[business_image.to_dict()["id"]] = business_image.url
+        business_images_dict[business_image.to_dict()["id"]] = business_image.to_dict()
+
+    return business_images_dict
+
+
+"""
+Query for climbing
+"""
+@business_routes.route('/images')
+def all_business_images():
+    business_images = BusinessImage.query.all()
+    business_images_dict = {}
+
+    for business_image in business_images:
+        business_images_dict[business_image.to_dict()["id"]] = business_image.to_dict()
+
+    return business_images_dict
+
+
+
+
+"""
+Query for top rated
+"""
+@business_routes.route('/images')
+def all_business_images():
+    business_images = BusinessImage.query.all()
+    business_images_dict = {}
+
+    for business_image in business_images:
+        business_images_dict[business_image.to_dict()["id"]] = business_image.to_dict()
+
+    return business_images_dict
+
+
+
+"""
+Query for new
+"""
+@business_routes.route('/images')
+def all_business_images():
+    business_images = BusinessImage.query.all()
+    business_images_dict = {}
+
+    for business_image in business_images:
+        business_images_dict[business_image.to_dict()["id"]] = business_image.to_dict()
 
     return business_images_dict
