@@ -31,7 +31,26 @@ class Business(db.Model):
     reviews = db.relationship("Review", cascade="all, delete", back_populates="businesses")
     businessimages = db.relationship("BusinessImage", cascade="all, delete", back_populates="businesses")
 
+    def avg_rating(self):
+        if (self.reviews):
+            reviews_to_dict = round(sum([review.stars for review in self.reviews]) / len(self.reviews), 2)
+            return reviews_to_dict
+        else:
+            return 0
 
+    def business_images(self):
+        if (self.businessimages):
+            image_to_dict = [image.url for image in self.businessimages]
+            print(image_to_dict)
+            return image_to_dict
+        else:
+            return None
+
+    def num_reviews(self):
+        if (self.reviews):
+            return len(self.reviews)
+        else:
+            return None
 
     def to_dict(self):
         return {
@@ -51,6 +70,9 @@ class Business(db.Model):
             'operating_time': self.operating_time,
             'business_type': self.business_type,
             'price': self.price,
+            'avg_rating': self.avg_rating(),
+            'prev_image': self.business_images(),
+            'num_reviews': self.num_reviews(),
             'created_at': self.created_at,
             'updated_at': self.updated_at
         }

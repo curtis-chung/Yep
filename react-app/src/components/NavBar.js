@@ -23,7 +23,7 @@ const NavBar = () => {
             <input
               id="type-search"
               placeholder="food, drinks"
-              className='search-bar-input'
+              className='search-bar-input search-bar-input-left'
             />
           </div>
           <div className='search-bar-divider'></div>

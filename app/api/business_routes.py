@@ -13,12 +13,13 @@ Query for all businesses and returns them in a dictionary
 @business_routes.route('')
 def all_businesses():
     businesses = Business.query.all()
-    businesses_dict = {}
+    businesses_dict = []
 
     for business in businesses:
-        businesses_dict[business.to_dict()["id"]] = business.to_dict()
+        businesses_dict.append(business.to_dict())
+        # print(business.preview_image())
 
-    return businesses_dict
+    return {"businesses": businesses_dict}
 
 
 

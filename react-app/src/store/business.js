@@ -52,6 +52,7 @@ export const getAllBusinesses = () => async (dispatch) => {
 
     if (response.ok) {
         const allBusinesses = await response.json()
+        // console.log("res", allBusinesses)
         dispatch(getAllBusinessesAction(allBusinesses))
     }
 }
@@ -120,7 +121,7 @@ const business = (state = initialState, action) => {
     switch (action.type) {
         case GET_ALL_BUSINESSES:
             const allBusinesses = {};
-            action.payload.Businesses.forEach(business => {
+            action.payload.businesses.forEach(business => {
                 allBusinesses[business.id] = business
             })
             newState.allBusinesses = allBusinesses
