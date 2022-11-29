@@ -97,18 +97,18 @@ def update_business(id):
     data = request.get_json()
     curr_business = Business.query.get(id)
 
-    curr_business.business_name = data["business_name"],
-    curr_business.address = data["address"],
-    curr_business.city = data["city"],
-    curr_business.state = data["state"],
-    curr_business.postal_code = data["postal_code"],
-    curr_business.lat = data["lat"],
-    curr_business.lng = data["lng"],
-    curr_business.phone_number = data["phone_number"],
-    curr_business.web_address = data["web_address"],
-    curr_business.operating_time = data["operating_time"],
-    curr_business.business_type = data["business_type"],
-    curr_business.price = data["price"],
+    curr_business.business_name = data["business_name"]
+    curr_business.address = data["address"]
+    curr_business.city = data["city"]
+    curr_business.state = data["state"]
+    curr_business.postal_code = data["postal_code"]
+    curr_business.lat = data["lat"]
+    curr_business.lng = data["lng"]
+    curr_business.phone_number = data["phone_number"]
+    curr_business.web_address = data["web_address"]
+    curr_business.operating_time = data["operating_time"]
+    curr_business.business_type = data["business_type"]
+    curr_business.price = data["price"]
 
     db.session.commit()
     return curr_business.to_dict()

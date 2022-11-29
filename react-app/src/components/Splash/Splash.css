@@ -170,6 +170,11 @@
     font-size: 12px;
 }
 
+.splash-navlink {
+    text-decoration: none;
+    color: black;
+}
+
 .splash-wrapper {
     z-index: -1;
     width: 100%;

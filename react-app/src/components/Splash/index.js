@@ -87,7 +87,7 @@ function Splash() {
                         <div className='splash-chart-body'>
                             {businessesSortedByReviewsDes.map(business => {
                                 return (
-                                    <div className='splash-chart-body-card'>
+                                    <NavLink to={`/biz/${business.id}`} className='splash-chart-body-card splash-navlink'>
                                         <div className='splash-chart-body-card-image'>
                                             <img src={business.prev_image[0]} style={myStyle} />
                                         </div>
@@ -124,7 +124,7 @@ function Splash() {
                                                 {business.city}, {business.state}
                                             </div>
                                         </div>
-                                    </div>
+                                    </NavLink>
                                 )
                             })}
                         </div>
@@ -137,7 +137,7 @@ function Splash() {
                         <div className='splash-chart-body'>
                             {businessesSortedByRating.map(business => {
                                 return (
-                                    <div className='splash-chart-body-card'>
+                                    <NavLink to={`/biz/${business.id}`} className='splash-chart-body-card splash-navlink'>
                                         <div className='splash-chart-body-card-image'>
                                             <img src={business.prev_image[0]} style={myStyle} />
                                         </div>
@@ -174,7 +174,7 @@ function Splash() {
                                                 {business.city}, {business.state}
                                             </div>
                                         </div>
-                                    </div>
+                                    </NavLink>
                                 )
                             })}
                         </div>
@@ -187,7 +187,7 @@ function Splash() {
                         <div className='splash-chart-body'>
                             {businessesSortedByReviewsAsc.map(business => {
                                 return (
-                                    <div className='splash-chart-body-card'>
+                                    <NavLink to={`/biz/${business.id}`} className='splash-chart-body-card splash-navlink'>
                                         <div className='splash-chart-body-card-image'>
                                             <img src={business.prev_image[0]} style={myStyle} />
                                         </div>
@@ -224,14 +224,14 @@ function Splash() {
                                                 {business.city}, {business.state}
                                             </div>
                                         </div>
-                                    </div>
+                                    </NavLink>
                                 )
                             })}
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
+        </div >
     )
 }
 
