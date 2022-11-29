@@ -26,9 +26,9 @@ def all_businesses():
 """
 Query for business by business id
 """
-@business_routes.route('/<int:id>')
-def current_business():
-    curr_business = Business.query.get(id)
+@business_routes.route('/<int:bizId>')
+def current_business(bizId):
+    curr_business = Business.query.get(bizId)
 
     return curr_business.to_dict()
 

@@ -2,11 +2,14 @@ import React from 'react';
 import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory, NavLink, Redirect, useParams } from 'react-router-dom';
-import * as businessActions from "../../store/business"
+import business, * as businessActions from "../../store/business"
 import './Business.css';
 
 function Business() {
     const dispatch = useDispatch();
+    const { bizId } = useParams();
+
+    // console.log("bizId", bizId)
 
     const businessImagesArray = useSelector((state) => {
         let urlArray = Object.values(state?.business?.allBusinessImages)
@@ -14,26 +17,32 @@ function Business() {
         return urlArray
     })
 
-    const businessesSortedByRating = useSelector((state) => {
-        let businessArray = Object.values(state?.business?.allBusinesses)
-        // console.log(businessArray)
-        return businessArray.sort((a, b) => parseFloat(b.avg_rating) - parseFloat(a.avg_rating)).slice(0, 5)
+    const businessById = useSelector((state) => {
+        return state?.business?.businessById
     })
 
-    const businessesSortedByReviewsDes = useSelector((state) => {
-        let businessArray = Object.values(state?.business?.allBusinesses)
-        // console.log(businessArray)
-        return businessArray.sort((a, b) => parseFloat(b.num_reviews) - parseFloat(a.num_reviews)).slice(0, 5)
+    const currBizImages = useSelector((state) => {
+        return state?.business?.businessById?.prev_image
     })
 
-    const businessesSortedByReviewsAsc = useSelector((state) => {
-        let businessArray = Object.values(state?.business?.allBusinesses)
-        // console.log(businessArray)
-        return businessArray.sort((a, b) => parseFloat(a.num_reviews) - parseFloat(b.num_reviews)).slice(0, 5)
+    // console.log("currBizImages", currBizImages)
+
+    const currBizRating = useSelector((state) => {
+        return state?.business?.businessById?.avg_rating
     })
 
-    // console.log("AAA", businessesSortedByReviewsAsc)
-    // console.log("BBB", businessesSortedByReviewsDes)
+    // console.log("currBizRating", currBizRating)
+    // if (currBizRating) {
+    //     const numStars = () => {
+    //         if (currBizRating < 2) return 'oneStar';
+    //         if (currBizRating < 3) return 'twoStars';
+    //         if (currBizRating < 4) return 'threeStars';
+    //         if (currBizRating < 5) return 'fourStars';
+    //         else return 'fiveStars';
+    //     }
+    // }
+
+    // console.log("numStars", numStars())
 
     // Styles for JSX
     const myStyle = {
@@ -52,7 +61,7 @@ function Business() {
 
     const circleStyle = {
         fontSize: "3px",
-        color: "gray"
+        color: "white"
     }
 
     const numDollarSigns = {
@@ -62,20 +71,78 @@ function Business() {
         4: "$$$$"
     }
 
-    // console.log("AAA", businessesSortedByRating)
-
     useEffect(() => {
         dispatch(businessActions.getAllBusinessImages())
-        dispatch(businessActions.getAllBusinesses())
+        dispatch(businessActions.getCurrBusiness(bizId))
     }, [dispatch]);
 
-    if (!businessImagesArray || !businessesSortedByRating || !businessesSortedByReviewsDes) {
-        // console.log("BIA", businessImagesArray, "ABA", businessesSortedByRating)
+    if (!businessImagesArray || !businessById || !currBizImages) {
         return null
     }
 
+    let rating = currBizRating
+
     return (
         <div className='biz-wrapper'>
+            <div className='biz-image-wrapper'>
+                <div className='biz-image-slideshow'>
+                    <div className="biz-image-info">
+                        <div className="biz-image-info-1">
+                            {businessById.business_name}
+                        </div>
+                        <div className="biz-image-info-2">
+                            <div className={currBizRating}>
+                                {[...Array(5)].map((star, i) => {
+                                    console.log("rating", rating)
+                                    if (i < Math.floor(rating)) return <i class="fa-solid fa-star" />;
+                                    else if (rating % Math.floor(rating) >= 0.5) {
+                                        rating = 0;
+                                        return <i class="fa-regular fa-star-half-stroke" />;
+                                    } else return <i class="fa-regular fa-star" />;
+                                })}
+                            </div>
+                            &nbsp;
+                            <div>
+                                {businessById.num_reviews} Reviews
+                            </div>
+                        </div>
+                        <div className="biz-image-info-3">
+                            <div className='biz-image-claimed'>
+                                <i class="fa-solid fa-circle-check"></i>
+                                &nbsp;
+                                Claimed
+                            </div>
+                            &nbsp;
+                            &nbsp;
+                            <i class="fa-solid fa-circle" style={circleStyle}></i>
+                            &nbsp;
+                            &nbsp;
+                            {numDollarSigns[businessById.price]}
+                            &nbsp;
+                            &nbsp;
+                            <i class="fa-solid fa-circle" style={circleStyle}></i>
+                            &nbsp;
+                            &nbsp;
+                            {businessById.business_type}
+                        </div>
+                        <div className="biz-image-info-4">
+                            {businessById.operating_time}
+                        </div>
+                    </div>
+                    <div className='biz-image-image'>
+                        <div className='biz-image-empty'></div>
+                        {currBizImages.map(image => {
+                            return (
+                                <img className="biz-image" src={image} />
+                            )
+                        })}
+                    </div>
+                </div>
+                <div className='biz-body-wrapper'>
+                    <div className='biz-body-container-left'></div>
+                    <div className='biz-body-container-right'></div>
+                </div>
+            </div>
         </div>
     )
 }
