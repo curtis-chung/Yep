@@ -1,0 +1,26 @@
+.biz-small-login-button {
+    background-color: transparent;
+    width: 79px;
+    color: black;
+    border: 2px solid #eeeeef;
+}
+
+.biz-small-login-button:hover {
+    background-color: hsl(240, 3%, 94%, 0.5);
+    transition: 1s;
+}
+
+.biz-fake-buttons {
+    background-color: transparent;
+    color: black;
+    border: none;
+    font-size: 14px;
+    font-weight: 500;
+    border-radius: 4px;
+    height: 40px;
+    width: 116px;
+}
+
+.biz-fake-buttons:hover {
+    background-color: hsl(240, 3%, 94%, 0.5);
+}

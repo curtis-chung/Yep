@@ -4,6 +4,7 @@ import { useDispatch } from 'react-redux';
 import LoginForm from './components/auth/LoginForm';
 import SignUpForm from './components/auth/SignUpForm';
 import SplashNavBar from './components/SplashNavBar';
+import BizNavBar from './components/BizNavBar';
 import ProtectedRoute from './components/auth/ProtectedRoute';
 import UsersList from './components/UsersList';
 import User from './components/User';
@@ -11,6 +12,7 @@ import { authenticate } from './store/session';
 import BottomNav from './components/BottomNav';
 import TopRedNav from './components/TopRedNav';
 import Splash from './components/Splash';
+import Business from './components/Business';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -44,6 +46,10 @@ function App() {
         <ProtectedRoute path='/users/:userId' exact={true} >
           <User />
         </ProtectedRoute>
+        <Route path="/biz/:bizId" exact={true}>
+          <BizNavBar />
+          <Business />
+        </Route>
         <Route path='/' exact={true} >
           <SplashNavBar />
           <Splash />
