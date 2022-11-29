@@ -199,7 +199,7 @@ function Splash() {
                                                 <i class="fa-solid fa-star" style={redStyle}></i>
                                                 &nbsp;
                                                 <div style={redStyle}>
-                                                    {business.avg_rating.toFixed(1)}
+                                                    {business.avg_rating == 0 ? "New" : business.avg_rating.toFixed(1)}
                                                 </div>
                                                 &nbsp;
                                                 <div style={grayStyle}>

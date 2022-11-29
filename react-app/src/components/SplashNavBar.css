@@ -124,14 +124,14 @@
 }
 
 .small-login-button {
-    background-color: #ffffff;
+    background-color: transparent;
     width: 79px;
-    color: black;
-    border: 1px solid #eeeeef;
+    color: white;
+    border: 2px solid #eeeeef;
 }
 
 .small-login-button:hover {
-    background-color: #eeeeef;
+    background-color: hsl(240, 3%, 94%, 0.5);
     transition: 1s;
 }
 

@@ -3,9 +3,9 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import LogoutButton from './auth/LogoutButton';
 import YepLogo from "./yep-logo-transparent.png"
-import "./NavBar.css"
+import "./SplashNavBar.css"
 
-const NavBar = () => {
+const SplashNavBar = () => {
   return (
     <div className='nav-bar-container'>
       <div className='nav-bar-left'>
@@ -83,4 +83,4 @@ const NavBar = () => {
   </ul>
 </nav>
 
-export default NavBar;
+export default SplashNavBar;

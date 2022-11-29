@@ -44,13 +44,13 @@ class Business(db.Model):
             print(image_to_dict)
             return image_to_dict
         else:
-            return None
+            return 0
 
     def num_reviews(self):
         if (self.reviews):
             return len(self.reviews)
         else:
-            return None
+            return 0
 
     def to_dict(self):
         return {
