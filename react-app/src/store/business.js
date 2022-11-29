@@ -38,7 +38,7 @@ export const cleanUpBusinessesAction = () => {
 
 export const createBusiness = (business) => async () => {
     // console.log("buy", transaction)
-    const response = await fetch(`/api/businesses`, {
+    const response = await fetch(`/api/biz`, {
         method: "POST",
         headers: {
             "Content-Type": "application/json"
@@ -48,7 +48,7 @@ export const createBusiness = (business) => async () => {
 }
 
 export const getAllBusinesses = () => async (dispatch) => {
-    const response = await fetch("/api/businesses")
+    const response = await fetch("/api/biz")
 
     if (response.ok) {
         const allBusinesses = await response.json()
@@ -58,7 +58,7 @@ export const getAllBusinesses = () => async (dispatch) => {
 }
 
 export const getAllOfMyBusinesses = () => async (dispatch) => {
-    const response = await fetch(`/api/businesses/my-listings`)
+    const response = await fetch(`/api/biz/my-listings`)
 
     if (response.ok) {
         const allMyBusinesses = await response.json()
@@ -67,7 +67,7 @@ export const getAllOfMyBusinesses = () => async (dispatch) => {
 }
 
 export const getCurrBusiness = (id) => async (dispatch) => {
-    const response = await fetch(`/api/businesses/${id}`)
+    const response = await fetch(`/api/biz/${id}`)
 
     if (response.ok) {
         const currBusiness = await response.json()
@@ -76,7 +76,7 @@ export const getCurrBusiness = (id) => async (dispatch) => {
 }
 
 export const updateBusiness = (business, businessId) => async (dispatch) => {
-    const response = await fetch(`/api/businesses/${businessId}`, {
+    const response = await fetch(`/api/biz/${businessId}`, {
         method: "PUT",
         headers: {
             'Content-Type': 'application/json'
@@ -92,7 +92,7 @@ export const updateBusiness = (business, businessId) => async (dispatch) => {
 }
 
 export const deleteBusiness = (businessId) => async (dispatch) => {
-    const response = await fetch(`/api/businesses/${businessId}`, {
+    const response = await fetch(`/api/biz/${businessId}`, {
         method: "DELETE"
     })
 
@@ -100,7 +100,7 @@ export const deleteBusiness = (businessId) => async (dispatch) => {
 }
 
 export const getAllBusinessImages = () => async (dispatch) => {
-    const response = await fetch("/api/businesses/images")
+    const response = await fetch("/api/biz/images")
 
     if (response.ok) {
         const allBusinessImages = await response.json()

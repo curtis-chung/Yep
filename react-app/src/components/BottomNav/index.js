@@ -66,7 +66,7 @@ function BottomNav() {
                 </div>
                 <div className='bottom-div'>
                     <div className='bottom-copyright'>
-                        <span className='bottom-copyright-list'>Copyright © 2004-2022 Yep Inc. &nbsp; <img className="bottom-nav-img" src={burst} /> &nbsp; and related marks are registered trademarks of Yep.</span>
+                        <span className='bottom-copyright-list'>Copyright © 2022 Yep Inc. &nbsp; <img className="bottom-nav-img" src={burst} /> &nbsp; and related marks are registered trademarks of Yep.</span>
                     </div>
                 </div>
             </div>

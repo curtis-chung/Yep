@@ -10,7 +10,7 @@
 
 .charts-container {
     /* border: 3px solid green; */
-    width: 55%;
+    width: 100%;
     max-width: 1400px;
     min-width: 945px;
     height: 488px;
@@ -97,6 +97,8 @@
     min-width: 300px;
     max-width: 440px;
     display: flex;
+    justify-content: center;
+    align-items: center;
     flex-direction: column;
     border-radius: 10px;
     box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
@@ -111,12 +113,13 @@
     align-items: center;
     font-size: 28px;
     font-weight: 700;
-    color: #f8121a;
+    color: #d32323;
 }
 
 .splash-chart-body {
     min-height: 350px;
     max-height: 350px;
+    width: 100%;
     display: flex;
     flex-direction: column;
 }
@@ -170,4 +173,13 @@
 .splash-wrapper {
     z-index: -1;
     width: 100%;
+}
+
+.fa-wand-sparkles,
+.fa-trophy,
+.fa-bolt {
+    font-size: 24px;
+    color: #d32323;
+    border-radius: 50%;
+    margin-top: 12px;
 }
