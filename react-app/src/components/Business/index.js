@@ -159,7 +159,7 @@ function Business() {
                     <div className='biz-review-container'>
                         {currBizReviews.map(review => {
                             const reviewDate = new Date(review.created_at).toLocaleDateString();
-                            const imgArr = Object.values(review.reviewImages)
+                            const imgArr = Object.values(review.reviewImages).slice(0, 4)
                             return (
                                 <div className="biz-review-card">
                                     <div className='biz-review-author'>
@@ -188,7 +188,7 @@ function Business() {
                                     <div className="biz-review-images">
                                         {imgArr.map(img => {
                                             return (
-                                                <img src={img} alt="Review Image" className='biz-review-image'></img>
+                                                <img src={img} alt="Review Image" className='biz-review-image pop-out'></img>
                                             )
                                         })}
                                     </div>

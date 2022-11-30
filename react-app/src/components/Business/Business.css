@@ -218,13 +218,13 @@
 
 .biz-review-description {
     margin-bottom: 24px;
+    font-size: 14px;
+    line-height: 20px;
 }
 
 .biz-review-images {
     /* border: 3px solid red; */
     display: flex;
-    flex-wrap: nowrap;
-    overflow: hidden;
     max-width: 728px;
 }
 
@@ -245,8 +245,17 @@
     width: 100vw;
 }
 
+.pop-out {
+    transition: transform .25s;
+}
+
+.pop-out:hover {
+    transform: scale(1.5);
+}
+
 .stars {
     margin-bottom: 12px;
+    font-size: 14px;
 }
 
 .user-icon {
