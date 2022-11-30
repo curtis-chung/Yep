@@ -1,36 +1,122 @@
-.biz-image {
-    /* min-height: 400px; */
-    max-height: 400px;
-    flex-grow: 1;
-    object-fit: cover;
-}
-
-.biz-image-empty {
-    border: 3px solid red;
-    position: absolute;
-    height: 400px;
-    width: 100%;
-    background: linear-gradient(0deg, rgba(39, 38, 42, 1) 0%, rgba(255, 255, 255, 0) 70%);
-}
-
-.biz-image-image {
-    border: 5px solid orange;
-    position: absolute;
-    top: 108px;
-    max-height: 400px;
-    max-width: 100%;
-    overflow: hidden;
+.biz-body-wrapper {
+    border: 3px solid pink;
+    min-width: 1144px;
+    max-width: 1144px;
     display: flex;
-    z-index: -1;
+    justify-content: center;
+    padding: 0 40px;
+}
+
+.biz-body-container-left {
+    display: flex;
+    border: 3px solid lawngreen;
+    height: 1000px;
+    min-width: 746px;
+    max-width: 746px;
+}
+
+.biz-body-container-right {
+    /* border: 3px solid red; */
+    min-width: 365px;
+    max-width: 365px;
+    padding: 24px 0 0 16px;
+}
+
+.biz-contact-address {
+    display: flex;
+    flex-direction: column;
+}
+
+.biz-contact {
+    /* border: 3px solid red; */
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.biz-contact-info {
+    border: 1px solid #eeeeef;
+    min-height: 186px;
+    max-height: 186px;
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+}
+
+.biz-contact-website {
+    min-height: 56px;
+    max-height: 56px;
+    color: #027a97;
+    text-decoration: none;
+    font-weight: 600;
+    border-bottom: 1px solid #eeeeef;
+}
+
+.biz-contact-phone {
+    min-height: 56px;
+    max-height: 56px;
+    font-weight: 500;
+    border-bottom: 1px solid #eeeeef;
+}
+
+.biz-contact-address {
+    /* border: 3px solid green; */
+    min-height: 74px;
+    max-height: 74px;
+    font-weight: 500;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    color: #6e7072;
+}
+
+
+.biz-image {
+    min-height: 425px;
+    max-height: 425px;
+    /* flex-grow: 1;
+    object-fit: cover; */
+}
+
+.biz-image-blur {
+    /* border: 3px solid red; */
+    position: absolute;
+    height: 425px;
+    min-width: 1900px;
+    max-width: 1900px;
+    /* background: linear-gradient(0deg, rgba(39, 38, 42, 1) 0%, rgba(255, 255, 255, 0) 100%); */
+    background: linear-gradient(0deg, rgb(12, 11, 12) 5%, rgba(255, 255, 255, 0) 50%);
+}
+
+.biz-image-div {
+    /* border: 5px solid orange; */
+    /* position: absolute; */
+    /* top: 108px; */
+    max-height: 425px;
+    min-width: 100%;
+    display: flex;
+    flex-wrap: nowrap;
+    /* padding-top: 108px; */
+    overflow: hidden;
+    /* display: flex;
+    z-index: -1; */
+    z-index: 2;
 }
 
 .biz-image-info {
+    /* border: 3px solid red; */
     /* position: absolute; */
     display: flex;
     flex-direction: column;
+    justify-content: space-evenly;
+    min-height: 200px;
+    max-height: 200px;
+    /* padding-bottom: 100px; */
     /* bottom: 0; */
-    margin-right: 250px;
-    z-index: 1;
+    /* margin-right: 250px; */
+    /* z-index: 1; */
+    z-index: 3;
 }
 
 .biz-image-info-1 {
@@ -60,28 +146,45 @@
     color: white
 }
 
+.biz-image-info-div {
+    position: absolute;
+    z-index: 4;
+    /* border: 5px solid blue; */
+    min-height: 200px;
+    max-height: 200px;
+    min-width: 1200px;
+    max-width: 1200px;
+    display: flex;
+    align-items: flex-end;
+    padding-bottom: 30px;
+}
+
 .biz-image-claimed {
     color: #58b4ff;
 }
 
 .biz-image-slideshow {
-    border: 3px solid green;
+    /* border: 10px solid green; */
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    object-fit: cover;
+    justify-content: center;
+    align-items: flex-end;
+    /* align-items: center;
+    object-fit: cover; */
 }
 
 .biz-image-wrapper {
-    border: 3px solid blue;
+    /* border: 10px solid blue; */
     padding-top: 108px;
-    min-height: 400px;
-    max-height: 400px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    min-height: 425px;
+    max-height: 425px;
+    min-width: 1900px;
+    max-width: 1900px;
 }
 
 .biz-wrapper {
-    height: fit-content;
+    border: 5px solid pink;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100vw;
 }

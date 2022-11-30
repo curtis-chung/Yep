@@ -31,6 +31,22 @@ function Business() {
         return state?.business?.businessById?.avg_rating
     })
 
+    const currBizPhone = useSelector((state) => {
+        return state?.business?.businessById?.phone_number
+    })
+
+    let phone1 = null;
+    let phone2 = null;
+    let phone3 = null;
+
+    if (currBizPhone) {
+        phone1 = currBizPhone.slice(0, 3)
+        phone2 = currBizPhone.slice(3, 6)
+        phone3 = currBizPhone.slice(6, 10)
+    }
+
+    console.log("currBizPhone", currBizPhone, phone1, phone2, phone3)
+
     // console.log("currBizRating", currBizRating)
     // if (currBizRating) {
     //     const numStars = () => {
@@ -60,7 +76,7 @@ function Business() {
     }
 
     const circleStyle = {
-        fontSize: "3px",
+        fontSize: "4px",
         color: "white"
     }
 
@@ -86,51 +102,54 @@ function Business() {
         <div className='biz-wrapper'>
             <div className='biz-image-wrapper'>
                 <div className='biz-image-slideshow'>
-                    <div className="biz-image-info">
-                        <div className="biz-image-info-1">
-                            {businessById.business_name}
-                        </div>
-                        <div className="biz-image-info-2">
-                            <div className={currBizRating}>
-                                {[...Array(5)].map((star, i) => {
-                                    console.log("rating", rating)
-                                    if (i < Math.floor(rating)) return <i class="fa-solid fa-star" />;
-                                    else if (rating % Math.floor(rating) >= 0.5) {
-                                        rating = 0;
-                                        return <i class="fa-regular fa-star-half-stroke" />;
-                                    } else return <i class="fa-regular fa-star" />;
-                                })}
+                    <div className="biz-image-info-div">
+                        <div className="biz-image-info">
+                            <div className="biz-image-info-1">
+                                {businessById.business_name}
                             </div>
-                            &nbsp;
-                            <div>
-                                {businessById.num_reviews} Reviews
-                            </div>
-                        </div>
-                        <div className="biz-image-info-3">
-                            <div className='biz-image-claimed'>
-                                <i class="fa-solid fa-circle-check"></i>
+                            <div className="biz-image-info-2">
+                                <div className={currBizRating}>
+                                    {[...Array(5)].map((star, i) => {
+                                        {/* console.log("rating", rating) */ }
+                                        if (i < Math.floor(rating)) return <i class="fa-solid fa-star" />;
+                                        else if (rating % Math.floor(rating) >= 0.5) {
+                                            rating = 0;
+                                            return <i class="fa-regular fa-star-half-stroke" />;
+                                        } else return <i class="fa-regular fa-star" />;
+                                    })}
+                                </div>
                                 &nbsp;
-                                Claimed
+                                &nbsp;
+                                <div>
+                                    {businessById.num_reviews} reviews
+                                </div>
                             </div>
-                            &nbsp;
-                            &nbsp;
-                            <i class="fa-solid fa-circle" style={circleStyle}></i>
-                            &nbsp;
-                            &nbsp;
-                            {numDollarSigns[businessById.price]}
-                            &nbsp;
-                            &nbsp;
-                            <i class="fa-solid fa-circle" style={circleStyle}></i>
-                            &nbsp;
-                            &nbsp;
-                            {businessById.business_type}
-                        </div>
-                        <div className="biz-image-info-4">
-                            {businessById.operating_time}
+                            <div className="biz-image-info-3">
+                                <div className='biz-image-claimed'>
+                                    <i class="fa-solid fa-circle-check"></i>
+                                    &nbsp;
+                                    Claimed
+                                </div>
+                                &nbsp;
+                                &nbsp;
+                                <i class="fa-solid fa-circle" style={circleStyle}></i>
+                                &nbsp;
+                                &nbsp;
+                                {numDollarSigns[businessById.price]}
+                                &nbsp;
+                                &nbsp;
+                                <i class="fa-solid fa-circle" style={circleStyle}></i>
+                                &nbsp;
+                                &nbsp;
+                                {businessById.business_type}
+                            </div>
+                            <div className="biz-image-info-4">
+                                {businessById.operating_time}
+                            </div>
                         </div>
                     </div>
-                    <div className='biz-image-image'>
-                        <div className='biz-image-empty'></div>
+                    <div className='biz-image-div'>
+                        <div className='biz-image-blur'></div>
                         {currBizImages.map(image => {
                             return (
                                 <img className="biz-image" src={image} />
@@ -138,9 +157,30 @@ function Business() {
                         })}
                     </div>
                 </div>
-                <div className='biz-body-wrapper'>
-                    <div className='biz-body-container-left'></div>
-                    <div className='biz-body-container-right'></div>
+            </div>
+            <div className='biz-body-wrapper'>
+                <div className='biz-body-container-left'></div>
+                <div className='biz-body-container-right'>
+                    <div className="biz-contact-info">
+                        <a href={businessById.web_address} className="biz-contact biz-contact-website">
+                            {businessById.web_address}
+                        </a>
+                        <div className="biz-contact biz-contact-phone">
+                            ({phone1})&nbsp;{phone2}-{phone3}
+                        </div>
+                        <div className="biz-contact biz-contact-address">
+                            <div>
+                                {businessById.address}
+                                &nbsp;
+                                {businessById.city},
+                                &nbsp;
+                                {businessById.state}
+                            </div>
+                            <div>
+                                {businessById.postal_code}
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
