@@ -35,13 +35,13 @@ def seed_reviews():
     )
 
     LeBernardinReview1 = Review(
-        user_id="2",
+        user_id="1",
         business_id="2",
         review_content="It lives up to the hype! Exceptional food! Chef's menu with wine pairing.",
         stars="4"
     )
     LeBernardinReview2 = Review(
-        user_id="3",
+        user_id="6",
         business_id="2",
         review_content="Nice place but the food could be better. I expected more of an authentic French flair. It's ok if you want a nice place but wouldn't go out of my way for food.",
         stars="3"
@@ -53,7 +53,7 @@ def seed_reviews():
         stars="4"
     )
     LeBernardinReview4 = Review(
-        user_id="5",
+        user_id="3",
         business_id="2",
         review_content="Le Bernardin is deserving of the Michelin 3 stars because it's simply that outstanding.  Both the lunch and the dinner are impeccable meals and everything on the menu is worthy of trying.",
         stars="5"
@@ -66,7 +66,7 @@ def seed_reviews():
         stars="5"
     )
     ElevenMadisonParkReview2 = Review(
-        user_id="3",
+        user_id="5",
         business_id="3",
         review_content="TOTALLY WORTH IT! I've booked dining in the bar (6-7 courses) to celebrate my 22nd birthday with my boyfriend and totally loved it. Explosive plant-based dishes with amazing flavors. My favorite part? Dessert!",
         stars="5"
@@ -79,7 +79,7 @@ def seed_reviews():
     )
 
     PerSeReview1 = Review(
-        user_id="2",
+        user_id="5",
         business_id="4",
         review_content="A wonderful experience from start to finish. The staff was warm and friendly. The food was absolutely delicious. The wines were great and plentiful. The music was surprisingly eclectic and fun. We couldn't have asked for anything else.",
         stars="5"
@@ -91,7 +91,7 @@ def seed_reviews():
         stars="5"
     )
     PerSeReview3 = Review(
-        user_id="4",
+        user_id="6",
         business_id="4",
         review_content="What an amazing dinner and a top-notch experience. Some dishes on the tasting menu are similar to the French Laundry and some are unique to Per Se. Hard to say which one is better, they both have their own character.",
         stars="5"
@@ -117,32 +117,32 @@ def seed_reviews():
     )
 
     TheModernReview1 = Review(
-        user_id="2",
+        user_id="4",
         business_id="6",
         review_content="I've been coming to the Modern for years now. And I've enjoyed Lunch, Dinner, and the casual Bar Room experience. I can say with the utmost confidence that this is my favorite restaurant In the world.",
         stars="5"
     )
     TheModernReview2 = Review(
-        user_id="2",
+        user_id="3",
         business_id="6",
         review_content="We have been in 5-6 Michelin restaurants this year. The Modern give me the best experience so far. From the food quality and environment to the service, they are all excellent. Every single dish was great, especially the 14 days dry age duck.",
         stars="5"
     )
 
     AtomixReview1 = Review(
-        user_id="2",
+        user_id="6",
         business_id="7",
         review_content="…. I'm utterly speechless. Each course was an explosion of flavor. You have to respect the level of precision at this restaurant along with the presentation of the dishes. Definitely deserves its Two-Michelin Star rating.",
         stars="5"
     )
     AtomixReview2 = Review(
-        user_id="2",
+        user_id="5",
         business_id="7",
         review_content="Best fine dinning experience at the bar, period. Everything was great: food, cocktails, and service. My only complaint is that it's too hard to reserve a seat and we do want to visit again!",
         stars="5"
     )
     DonAngieReview1 = Review(
-        user_id="4",
+        user_id="2",
         business_id="8",
         review_content="Don Angie is a Michelin-star restaurant and it's one of my favorite Italian restaurants in NYC. It's incredibly hard to get a reservation. I tried making a reservation on Resy for a while and setting alerts for multiple days but it didn't work. One day I just randomly opened the Resy app and took a look at Don Angie and saw an open slot at 4:30 pm a couple of days later on Saturday, and I immediately booked that time slot. The restaurant was almost full when we got there around 4:30 pm on Saturday. We ordered two cocktails, amberjack Crudo as the appetizer, lasagna as the main course, caramelized pear sorbet, and black cocoa tiramisu as dessert. The amberjack crudo was quite unique - its mushrooms wrapped in crudo and it's tasty. 'Our lasagna for two' was creamy and mouthwatering. It's one of the best lasagnas I've ever had. If you are planning to order only one dish, definitely try the lasagna. It's served with garlic flatbread which was also delicious. In terms of the desserts, I like the tiramisu better than the sorbet, but they were both good. We were stuffed after dinner. We definitely ordered too much food since it's so hard to get a reservation and we don't know when we'll come back again. The service was good. I'd highly recommend this restaurant.",
         stars="5"
@@ -154,7 +154,7 @@ def seed_reviews():
         stars="5"
     )
     MusketRoomImage1 = Review(
-        user_id="5",
+        user_id="4",
         business_id="10",
         review_content="Really enjoyed the iberico, tartare and caviar bite that all really stood out. Loved the dim lit dark wood ambiance that was sophisticated without being overly stuffy. Not too loud from music but good liveliness from other tables. Amazing service and they accommodated so easily to all dietary restrictions despite it being a set tasting menu, and great service pace.",
         stars="5"

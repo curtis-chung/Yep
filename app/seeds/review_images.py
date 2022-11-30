@@ -150,65 +150,65 @@ def seed_review_images():
     )
 
     DonAngieReviewImage1 = ReviewImage(
-        review_id = "8",
+        review_id = "23",
         url = "https://s3-media0.fl.yelpcdn.com/bphoto/hoUegiqX3aYwtrCHBnlQWA/o.jpg"
     )
     DonAngieReviewImage2 = ReviewImage(
-        review_id = "8",
+        review_id = "23",
         url = "https://s3-media0.fl.yelpcdn.com/bphoto/6_yA5WYPAfQ93vATj8D0Sw/o.jpg"
     )
     DonAngieReviewImage3 = ReviewImage(
-        review_id = "8",
+        review_id = "23",
         url = "https://s3-media0.fl.yelpcdn.com/bphoto/BRtRy7Jmy5nlpfvPDThOwQ/o.jpg"
     )
     DonAngieReviewImage4 = ReviewImage(
-        review_id = "8",
+        review_id = "23",
         url = "https://s3-media0.fl.yelpcdn.com/bphoto/UYr0eqgHR1CPEEfXVvNBQA/o.jpg"
     )
     DonAngieReviewImage5 = ReviewImage(
-        review_id = "8",
+        review_id = "23",
         url = "https://s3-media0.fl.yelpcdn.com/bphoto/eEOrnDm6xft5URFENtC2Yg/o.jpg"
     )
 
     JejuNoodleBarImage1 = ReviewImage(
-        review_id = "9",
+        review_id = "24",
         url = "https://s3-media0.fl.yelpcdn.com/bphoto/VQ4w7eeS8Dr_B5KVoHHqmg/o.jpg"
     )
     JejuNoodleBarImage2 = ReviewImage(
-        review_id = "9",
+        review_id = "24",
         url = "https://s3-media0.fl.yelpcdn.com/bphoto/9diAlFTyIXYeAfFSumMV9Q/o.jpg"
     )
     JejuNoodleBarImage3 = ReviewImage(
-        review_id = "9",
+        review_id = "24",
         url = "https://s3-media0.fl.yelpcdn.com/bphoto/8b_M2nubtByCsOy5xCZosQ/o.jpg"
     )
     JejuNoodleBarImage4 = ReviewImage(
-        review_id = "9",
+        review_id = "24",
         url = "https://s3-media0.fl.yelpcdn.com/bphoto/EQVcYzwvVoXvWh3ttbLM4w/o.jpg"
     )
     JejuNoodleBarImage5 = ReviewImage(
-        review_id = "9",
+        review_id = "24",
         url = "https://s3-media0.fl.yelpcdn.com/bphoto/mixH3VoFaxPUDARbYWlGOA/o.jpg"
     )
 
     MusketRoomImage1 = ReviewImage(
-        review_id = "10",
+        review_id = "25",
         url = "https://s3-media0.fl.yelpcdn.com/bphoto/YkSsKTKv5XlyQWtQoN-W7Q/o.jpg"
     )
     MusketRoomImage2 = ReviewImage(
-        review_id = "10",
+        review_id = "25",
         url = "https://s3-media0.fl.yelpcdn.com/bphoto/SR9oqsx0IsYEWdJszT5bOA/o.jpg"
     )
     MusketRoomImage3 = ReviewImage(
-        review_id = "10",
+        review_id = "25",
         url = "https://s3-media0.fl.yelpcdn.com/bphoto/I3-lqdNuLJrJuwvPGZ0nPw/o.jpg"
     )
     MusketRoomImage4 = ReviewImage(
-        review_id = "10",
+        review_id = "25",
         url = "https://s3-media0.fl.yelpcdn.com/bphoto/z1fu2uz6UKr19ZCdMZINpg/o.jpg"
     )
     MusketRoomImage5 = ReviewImage(
-        review_id = "10",
+        review_id = "25",
         url = "https://s3-media0.fl.yelpcdn.com/bphoto/9dTXAW42ZZadg2Xl65VBWQ/o.jpg"
     )
 
