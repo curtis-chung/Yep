@@ -43,31 +43,6 @@ def my_reviews():
 
 
 """
-Post a new Review
-"""
-@review_routes.route('/<int:id>', methods=["POST"])
-@login_required
-def create_new_review():
-    curr_user = current_user.id
-    form = ReviewForm()
-    form['csrf_token'].data = request.cookies['csrf_token']
-
-    if form.validate_on_submit():
-        data = form.data
-
-        new_review = ReviewForm(
-            user_id = int(curr_user),
-            business_id = int(id),
-            review_content = data["review_content"],
-            stars = data["stars"],
-        )
-        db.session.add(new_review)
-        db.session.commit()
-        return new_review.to_dict()
-
-
-
-"""
 Edit an existing Review owned by current user
 """
 @review_routes.route('/<int:id>', methods=["PUT"])

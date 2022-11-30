@@ -141,6 +141,24 @@ def seed_reviews():
         review_content="Best fine dinning experience at the bar, period. Everything was great: food, cocktails, and service. My only complaint is that it's too hard to reserve a seat and we do want to visit again!",
         stars="5"
     )
+    DonAngieReview1 = Review(
+        user_id="4",
+        business_id="8",
+        review_content="Don Angie is a Michelin-star restaurant and it's one of my favorite Italian restaurants in NYC. It's incredibly hard to get a reservation. I tried making a reservation on Resy for a while and setting alerts for multiple days but it didn't work. One day I just randomly opened the Resy app and took a look at Don Angie and saw an open slot at 4:30 pm a couple of days later on Saturday, and I immediately booked that time slot. The restaurant was almost full when we got there around 4:30 pm on Saturday. We ordered two cocktails, amberjack Crudo as the appetizer, lasagna as the main course, caramelized pear sorbet, and black cocoa tiramisu as dessert. The amberjack crudo was quite unique - its mushrooms wrapped in crudo and it's tasty. 'Our lasagna for two' was creamy and mouthwatering. It's one of the best lasagnas I've ever had. If you are planning to order only one dish, definitely try the lasagna. It's served with garlic flatbread which was also delicious. In terms of the desserts, I like the tiramisu better than the sorbet, but they were both good. We were stuffed after dinner. We definitely ordered too much food since it's so hard to get a reservation and we don't know when we'll come back again. The service was good. I'd highly recommend this restaurant.",
+        stars="5"
+    )
+    JejuNoodleBarReview1 = Review(
+        user_id="5",
+        business_id="9",
+        review_content="After hearing about some of my friends' visits here, I was nervous about coming because as much as I wanted to love it, I heard very mixed reviews. But, even as a girl who grew up eating Korean food all her life (shoutout to my amazing grandma), I am so thankful I got to try this place. Ever since I saw the YouTube video on this place that showed a 'day in the life' of the chefs, I appreciated how much effort went into each dish and had been sincerely waiting to secure a res. Highly recommend checking out the video! It is incredibly hard to get a reservation, but just keep it bookmarked on your phone and casually check on a Wednesday or when reservations drop at midnight EST. I luckily found a dinner res for Friday on a random workday afternoon and came with three of my friends. We ordered all the popular favs. The toro ssambap was worth the hype - the soft fish just melts in your mouth and tastes even better with the seaweed. I was so shocked at the amount of caviar that comes with the fried chicken, but it was the yogurt sauce that really blew me away. It was also one of the juiciest chickens I've tried. NOTHING COMPARES to the jjajang ribs; it's the perfect amount of char and complements the taste of the jjajang paste very well. The ribs just glide off the bone. The wagyu ramen was delicious. Will I be dreaming about it? Eh. My boyfriend loved the family style ramen though. I think the appetizers blew me away more than the ramen, but that's just because I'm not a huge ramen person. The service here was impeccable, with waiters checking in on us and refilling out waters throughout the night. Ambience is also lovely and very intimate. I would love to come back!!!",
+        stars="5"
+    )
+    MusketRoomImage1 = Review(
+        user_id="5",
+        business_id="10",
+        review_content="Really enjoyed the iberico, tartare and caviar bite that all really stood out. Loved the dim lit dark wood ambiance that was sophisticated without being overly stuffy. Not too loud from music but good liveliness from other tables. Amazing service and they accommodated so easily to all dietary restrictions despite it being a set tasting menu, and great service pace.",
+        stars="5"
+    )
 
     db.session.add(MasaReview1)
     db.session.add(MasaReview2)
@@ -164,6 +182,9 @@ def seed_reviews():
     db.session.add(TheModernReview2)
     db.session.add(AtomixReview1)
     db.session.add(AtomixReview2)
+    db.session.add(DonAngieReview1)
+    db.session.add(JejuNoodleBarReview1)
+    db.session.add(MusketRoomImage1)
     db.session.commit()
 
 

@@ -1,36 +1,9 @@
 from flask import Blueprint, jsonify, redirect, request
 from flask_login import current_user, login_required
-from app.models import Business, BusinessImage, db
-from app.forms import BusinessForm, BusinessImageForm
+from app.models import Business, BusinessImage, Review, User, db
+from app.forms import BusinessForm, ReviewForm
 
 business_routes = Blueprint('business', __name__)
-
-
-
-"""
-Query for all businesses and returns them in a dictionary
-"""
-@business_routes.route('')
-def all_businesses():
-    businesses = Business.query.all()
-    businesses_dict = []
-
-    for business in businesses:
-        businesses_dict.append(business.to_dict())
-        # print(business.preview_image())
-
-    return {"businesses": businesses_dict}
-
-
-
-"""
-Query for business by business id
-"""
-@business_routes.route('/<int:bizId>')
-def current_business(bizId):
-    curr_business = Business.query.get(bizId)
-
-    return curr_business.to_dict()
 
 
 
@@ -89,6 +62,22 @@ def create_new_business():
 
 
 """
+Query for all businesses and returns them in a dictionary
+"""
+@business_routes.route('')
+def all_businesses():
+    businesses = Business.query.all()
+    businesses_dict = []
+
+    for business in businesses:
+        businesses_dict.append(business.to_dict())
+        # print(business.preview_image())
+
+    return {"businesses": businesses_dict}
+
+
+
+"""
 Edit an existing business owned by current user
 """
 @business_routes.route('/<int:id>', methods=["PUT"])
@@ -128,6 +117,17 @@ def delete_business(id):
 
 
 """
+Query for business by business id
+"""
+@business_routes.route('/<int:bizId>')
+def current_business(bizId):
+    curr_business = Business.query.get(bizId)
+
+    return curr_business.to_dict()
+
+
+
+"""
 Query for all business images and returns them in a dictionary
 """
 @business_routes.route('/images')
@@ -141,46 +141,58 @@ def all_business_images():
     return business_images_dict
 
 
-"""
-Query for climbing
-"""
-@business_routes.route('/images')
-def climbing_business():
-    business_images = BusinessImage.query.all()
-    business_images_dict = {}
-
-    for business_image in business_images:
-        business_images_dict[business_image.to_dict()["id"]] = business_image.to_dict()
-
-    return business_images_dict
-
-
-
 
 """
-Query for top rated
+Post a new Review
 """
-@business_routes.route('/images')
-def top_rated_business():
-    business_images = BusinessImage.query.all()
-    business_images_dict = {}
+@business_routes.route('/<int:id>/reviews', methods=["POST"])
+@login_required
+def create_new_review(id):
+    curr_user = current_user.id
+    form = ReviewForm()
+    form['csrf_token'].data = request.cookies['csrf_token']
 
-    for business_image in business_images:
-        business_images_dict[business_image.to_dict()["id"]] = business_image.to_dict()
+    if form.validate_on_submit():
+        data = form.data
 
-    return business_images_dict
+        new_review = ReviewForm(
+            user_id = int(curr_user),
+            business_id = int(id),
+            review_content = data["review_content"],
+            stars = data["stars"],
+        )
+        db.session.add(new_review)
+        db.session.commit()
+        return new_review.to_dict()
 
 
 
 """
-Query for new
+Query for all reviews for current biz and returns them in a dictionary
 """
-@business_routes.route('/images')
-def new_business():
-    business_images = BusinessImage.query.all()
-    business_images_dict = {}
+@business_routes.route('/<int:id>/reviews')
+def curr_biz_reviews(id):
+    reviews = Review.query.filter_by(
+        business_id = id
+    )
 
-    for business_image in business_images:
-        business_images_dict[business_image.to_dict()["id"]] = business_image.to_dict()
+    reviews_dict = {}
 
-    return business_images_dict
+    for review in reviews:
+        # reviews_dict["author"] = author
+        author = review.user.to_dict()
+        review_images = review.reviewimages
+
+        images = {}
+        for image in review_images:
+            image_dict = image.to_dict()
+            images[image.to_dict()["id"]] = image_dict["url"]
+
+        # print("review route: get biz images", images)
+
+        res_review = review.to_dict()
+        res_review["author"] = author
+        res_review["reviewImages"] = images
+        reviews_dict[review.to_dict()["id"]] = res_review
+
+    return reviews_dict

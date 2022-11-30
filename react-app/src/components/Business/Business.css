@@ -1,5 +1,5 @@
 .biz-body-wrapper {
-    border: 3px solid pink;
+    /* border: 3px solid pink; */
     min-width: 1144px;
     max-width: 1144px;
     display: flex;
@@ -9,8 +9,7 @@
 
 .biz-body-container-left {
     display: flex;
-    border: 3px solid lawngreen;
-    height: 1000px;
+    /* border: 3px solid lawngreen; */
     min-width: 746px;
     max-width: 746px;
 }
@@ -47,10 +46,17 @@
 .biz-contact-website {
     min-height: 56px;
     max-height: 56px;
+    border-bottom: 1px solid #eeeeef;
+}
+
+.biz-contact-website-anchor {
     color: #027a97;
     text-decoration: none;
     font-weight: 600;
-    border-bottom: 1px solid #eeeeef;
+}
+
+.biz-contact-website-anchor:hover {
+    text-decoration: underline;
 }
 
 .biz-contact-phone {
@@ -62,8 +68,8 @@
 
 .biz-contact-address {
     /* border: 3px solid green; */
-    min-height: 74px;
-    max-height: 74px;
+    min-height: 80px;
+    max-height: 80px;
     font-weight: 500;
     display: flex;
     justify-content: center;
@@ -181,10 +187,69 @@
     max-width: 1900px;
 }
 
+.biz-review-author {
+    /* border: 3px solid orange; */
+    font-size: 16px;
+    font-weight: 600;
+    min-height: 92px;
+    max-height: 92px;
+    display: flex;
+    align-items: flex-start
+}
+
+.biz-review-author-container {
+    display: flex;
+    align-items: center;
+}
+
+.biz-review-card {
+    margin-bottom: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.biz-review-container {
+    /* border: 5px solid blue; */
+    margin-top: 24px;
+    min-width: 746px;
+    max-width: 746px;
+}
+
+.biz-review-description {
+    margin-bottom: 24px;
+}
+
+.biz-review-images {
+    /* border: 3px solid red; */
+    display: flex;
+    flex-wrap: nowrap;
+    overflow: hidden;
+    max-width: 728px;
+}
+
+.biz-review-image {
+    /* border: 5px solid yellow; */
+    min-width: 174px;
+    max-width: 174px;
+    min-height: 132px;
+    max-height: 132px;
+    margin: 0 8px 0 0;
+}
+
 .biz-wrapper {
-    border: 5px solid pink;
+    /* border: 5px solid pink; */
     display: flex;
     flex-direction: column;
     align-items: center;
     width: 100vw;
+}
+
+.stars {
+    margin-bottom: 12px;
+}
+
+.user-icon {
+    max-width: 58px;
+    max-height: 58px;
 }

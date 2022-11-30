@@ -2,8 +2,10 @@ import React from 'react';
 import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory, NavLink, Redirect, useParams } from 'react-router-dom';
-import business, * as businessActions from "../../store/business"
+import * as businessActions from "../../store/business"
+import * as reviewActions from "../../store/review"
 import './Business.css';
+import userLogo from "./amazon-customer-icon.jpg"
 
 function Business() {
     const dispatch = useDispatch();
@@ -45,20 +47,13 @@ function Business() {
         phone3 = currBizPhone.slice(6, 10)
     }
 
-    console.log("currBizPhone", currBizPhone, phone1, phone2, phone3)
+    // console.log("currBizPhone", currBizPhone, phone1, phone2, phone3)
 
-    // console.log("currBizRating", currBizRating)
-    // if (currBizRating) {
-    //     const numStars = () => {
-    //         if (currBizRating < 2) return 'oneStar';
-    //         if (currBizRating < 3) return 'twoStars';
-    //         if (currBizRating < 4) return 'threeStars';
-    //         if (currBizRating < 5) return 'fourStars';
-    //         else return 'fiveStars';
-    //     }
-    // }
+    const currBizReviews = useSelector((state) => {
+        return Object.values(state?.review?.currentBizReviews)
+    })
 
-    // console.log("numStars", numStars())
+    console.log("currBizReviews", currBizReviews)
 
     // Styles for JSX
     const myStyle = {
@@ -90,9 +85,10 @@ function Business() {
     useEffect(() => {
         dispatch(businessActions.getAllBusinessImages())
         dispatch(businessActions.getCurrBusiness(bizId))
+        dispatch(reviewActions.getCurrentBizReviews(bizId))
     }, [dispatch]);
 
-    if (!businessImagesArray || !businessById || !currBizImages) {
+    if (!businessImagesArray || !businessById || !currBizImages || !currBizReviews) {
         return null
     }
 
@@ -159,12 +155,55 @@ function Business() {
                 </div>
             </div>
             <div className='biz-body-wrapper'>
-                <div className='biz-body-container-left'></div>
+                <div className='biz-body-container-left'>
+                    <div className='biz-review-container'>
+                        {currBizReviews.map(review => {
+                            const reviewDate = new Date(review.created_at).toLocaleDateString();
+                            const imgArr = Object.values(review.reviewImages)
+                            return (
+                                <div className="biz-review-card">
+                                    <div className='biz-review-author'>
+                                        <div className="biz-review-author-container">
+                                            <img src={userLogo} className="user-icon" />
+                                            &nbsp;&nbsp;
+                                            {review.author.first_name} {review.author.last_name}
+                                        </div>
+                                    </div>
+                                    <div className="stars">
+                                        {[...Array(5)].map((star, i) => {
+                                            let reviewRating = review.stars
+                                            {/* console.log("rating", rating) */ }
+                                            if (i < Math.floor(reviewRating)) return <i class="fa-solid fa-star" />;
+                                            else if (reviewRating % Math.floor(reviewRating) >= 0.5) {
+                                                reviewRating = 0;
+                                                return <i class="fa-regular fa-star-half-stroke" />;
+                                            } else return <i class="fa-regular fa-star" />;
+                                        })}
+                                        &nbsp;
+                                        {reviewDate}
+                                    </div>
+                                    <div className='biz-review-description'>
+                                        {review.review_content}
+                                    </div>
+                                    <div className="biz-review-images">
+                                        {imgArr.map(img => {
+                                            return (
+                                                <img src={img} alt="Review Image" className='biz-review-image'></img>
+                                            )
+                                        })}
+                                    </div>
+                                </div>
+                            )
+                        })}
+                    </div>
+                </div>
                 <div className='biz-body-container-right'>
                     <div className="biz-contact-info">
-                        <a href={businessById.web_address} className="biz-contact biz-contact-website">
-                            {businessById.web_address}
-                        </a>
+                        <div className="biz-contact biz-contact-website">
+                            <a href={businessById.web_address} className="biz-contact-website-anchor">
+                                {businessById.web_address}
+                            </a>
+                        </div>
                         <div className="biz-contact biz-contact-phone">
                             ({phone1})&nbsp;{phone2}-{phone3}
                         </div>

@@ -15,137 +15,137 @@ def seed_review_images():
         url = "https://s3-media0.fl.yelpcdn.com/bphoto/DQGv9lqt5GgFBSCK56IVEg/o.jpg"
     )
     MasaReviewImage4 = ReviewImage(
-        review_id = "1",
+        review_id = "3",
         url = "https://s3-media0.fl.yelpcdn.com/bphoto/68FGbM-EU7-kyoGv4mitSQ/o.jpg"
     )
     MasaReviewImage5 = ReviewImage(
-        review_id = "1",
+        review_id = "3",
         url = "https://s3-media0.fl.yelpcdn.com/bphoto/DGZg_LwfngFBXH4CRwWMlw/o.jpg"
     )
 
     LeBernardinReviewImage1 = ReviewImage(
-        review_id = "2",
+        review_id = "6",
         url = "https://s3-media0.fl.yelpcdn.com/bphoto/4hIbyRP0OaYYLNMYQZQ0hw/o.jpg"
     )
     LeBernardinReviewImage2 = ReviewImage(
-        review_id = "2",
+        review_id = "6",
         url = "https://s3-media0.fl.yelpcdn.com/bphoto/vfNFO621rP8FwUSy_FEj1w/o.jpg"
     )
     LeBernardinReviewImage3 = ReviewImage(
-        review_id = "2",
+        review_id = "7",
         url = "https://s3-media0.fl.yelpcdn.com/bphoto/Mlm1CZY1VN764BWGdnbu8g/o.jpg"
     )
     LeBernardinReviewImage4 = ReviewImage(
-        review_id = "2",
+        review_id = "8",
         url = "https://s3-media0.fl.yelpcdn.com/bphoto/inOMEtU2G2dHT40h6Auk-Q/o.jpg"
     )
     LeBernardinReviewImage5 = ReviewImage(
-        review_id = "2",
+        review_id = "9",
         url = "https://s3-media0.fl.yelpcdn.com/bphoto/pt4Wj4ltl41atJrUa_3IkA/o.jpg"
     )
 
     ElevenMadisonParkReviewImage1 = ReviewImage(
-        review_id = "3",
+        review_id = "11",
         url = "https://s3-media0.fl.yelpcdn.com/bphoto/MW5SDEu0gP99ezv4hfqdiA/o.jpg"
     )
     ElevenMadisonParkReviewImage2 = ReviewImage(
-        review_id = "3",
+        review_id = "11",
         url = "https://s3-media0.fl.yelpcdn.com/bphoto/oQLh_BYjv0HKte9xZ_qMGA/o.jpg"
     )
     ElevenMadisonParkReviewImage3 = ReviewImage(
-        review_id = "3",
+        review_id = "11",
         url = "https://s3-media0.fl.yelpcdn.com/bphoto/TkYM6no4gF576s9Grb-0iA/o.jpg"
     )
     ElevenMadisonParkReviewImage4 = ReviewImage(
-        review_id = "3",
+        review_id = "11",
         url = "https://s3-media0.fl.yelpcdn.com/bphoto/03HbCmOYyA81L0jijYYo_Q/o.jpg"
     )
     ElevenMadisonParkReviewImage5 = ReviewImage(
-        review_id = "3",
+        review_id = "11",
         url = "https://s3-media0.fl.yelpcdn.com/bphoto/IwGH24hOFbeT8MpyFCtxKA/o.jpg"
     )
 
     PerSeReviewImage1 = ReviewImage(
-        review_id = "4",
+        review_id = "13",
         url = "https://s3-media0.fl.yelpcdn.com/bphoto/6MAS5K4Bo4mJeu2dEKc-SQ/o.jpg"
     )
     PerSeReviewImage2 = ReviewImage(
-        review_id = "4",
+        review_id = "13",
         url = "https://s3-media0.fl.yelpcdn.com/bphoto/I-Sv_w4jLLA6_KtM6ylp0w/o.jpg"
     )
     PerSeReviewImage3 = ReviewImage(
-        review_id = "4",
+        review_id = "14",
         url = "https://s3-media0.fl.yelpcdn.com/bphoto/YsPrAM1rqgqV8B5b0-oX1g/o.jpg"
     )
     PerSeReviewImage4 = ReviewImage(
-        review_id = "4",
+        review_id = "14",
         url = "https://s3-media0.fl.yelpcdn.com/bphoto/g7Z9JxlRSHQZ3h8ER1ca4A/o.jpg"
     )
     PerSeReviewImage5 = ReviewImage(
-        review_id = "4",
+        review_id = "15",
         url = "https://s3-media0.fl.yelpcdn.com/bphoto/hGqa6Y3B5WZ6Nox6vS3zCg/o.jpg"
     )
 
     ChefTableReviewImage1 = ReviewImage(
-        review_id = "5",
+        review_id = "16",
         url = "https://s3-media0.fl.yelpcdn.com/bphoto/aYXXNWaSyP8temktj1MvXA/o.jpg"
     )
     ChefTableReviewImage2 = ReviewImage(
-        review_id = "5",
+        review_id = "17",
         url = "https://s3-media0.fl.yelpcdn.com/bphoto/Oxf6KlzovU1TktErryYD5A/o.jpg"
     )
     ChefTableReviewImage3 = ReviewImage(
-        review_id = "5",
+        review_id = "18",
         url = "https://s3-media0.fl.yelpcdn.com/bphoto/4bu-svqbaDe0R8koxuuF6g/o.jpg"
     )
     ChefTableReviewImage4 = ReviewImage(
-        review_id = "5",
+        review_id = "18",
         url = "https://s3-media0.fl.yelpcdn.com/bphoto/b4ywF5ATf-n60co52d6imw/o.jpg"
     )
     ChefTableReviewImage5 = ReviewImage(
-        review_id = "5",
+        review_id = "19",
         url = "https://s3-media0.fl.yelpcdn.com/bphoto/G1AEGgrnOGH4lgWanZYZuA/o.jpg"
     )
 
     TheModernReviewImage1 = ReviewImage(
-        review_id = "6",
+        review_id = "19",
         url = "https://s3-media0.fl.yelpcdn.com/bphoto/JJQmh-MzcGCcaHsCIoaCJw/o.jpg"
     )
     TheModernReviewImage2 = ReviewImage(
-        review_id = "6",
+        review_id = "19",
         url = "https://s3-media0.fl.yelpcdn.com/bphoto/Tnt4JT48wHJu1aDYzcCFQw/o.jpg"
     )
     TheModernReviewImage3 = ReviewImage(
-        review_id = "6",
+        review_id = "19",
         url = "https://s3-media0.fl.yelpcdn.com/bphoto/rbEprPKH9E_cQy-_wzF5Bw/o.jpg"
     )
     TheModernReviewImage4 = ReviewImage(
-        review_id = "6",
+        review_id = "19",
         url = "https://s3-media0.fl.yelpcdn.com/bphoto/EVHdzX8cbw-PEJMP8-e3Vg/o.jpg"
     )
     TheModernReviewImage5 = ReviewImage(
-        review_id = "6",
+        review_id = "19",
         url = "https://s3-media0.fl.yelpcdn.com/bphoto/_tYmxQWVrtWOGutllQLNwg/o.jpg"
     )
 
     AtomixReviewImage1 = ReviewImage(
-        review_id = "7",
+        review_id = "21",
         url = "https://s3-media0.fl.yelpcdn.com/bphoto/oa19-sVxW7nLthQbVqc-PA/o.jpg"
     )
     AtomixReviewImage2 = ReviewImage(
-        review_id = "7",
+        review_id = "21",
         url = "https://s3-media0.fl.yelpcdn.com/bphoto/qulbIR7hK16d1BQpfs0N5g/o.jpg"
     )
     AtomixReviewImage3 = ReviewImage(
-        review_id = "7",
+        review_id = "21",
         url = "https://s3-media0.fl.yelpcdn.com/bphoto/oHv4B3LZ8EXsnPp2AHvzzQ/o.jpg"
     )
     AtomixReviewImage4 = ReviewImage(
-        review_id = "7",
+        review_id = "22",
         url = "https://s3-media0.fl.yelpcdn.com/bphoto/8UaLqK2e_VmpzydoQS2O3g/o.jpg"
     )
     AtomixReviewImage5 = ReviewImage(
-        review_id = "7",
+        review_id = "22",
         url = "https://s3-media0.fl.yelpcdn.com/bphoto/Am3KL75ofmmDxgQX1Vl6Gg/o.jpg"
     )
 
