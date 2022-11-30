@@ -10,7 +10,7 @@ class ReviewImage(db.Model):
 
     id = db.Column(db.Integer, primary_key=True)
     review_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod("reviews.id")), nullable=False)
-    url = db.Column(db.String(255), nullable=False, unique=True)
+    url = db.Column(db.String(2000), nullable=False, unique=True)
     created_at = db.Column(db.DateTime, nullable=False, default=datetime.utcnow)
     updated_at = db.Column(db.DateTime, nullable=False, default=datetime.utcnow)
 
