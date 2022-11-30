@@ -1,9 +1,9 @@
 from app.models import db, environment, SCHEMA
-"""create tables
+"""create packages table
 
-Revision ID: 2caa51ea253f
+Revision ID: 858880ce4d5a
 Revises:
-Create Date: 2022-11-27 01:38:35.013450
+Create Date: 2022-11-30 03:15:49.988491
 
 """
 from alembic import op
@@ -11,7 +11,7 @@ import sqlalchemy as sa
 
 
 # revision identifiers, used by Alembic.
-revision = '2caa51ea253f'
+revision = '858880ce4d5a'
 down_revision = None
 branch_labels = None
 depends_on = None
