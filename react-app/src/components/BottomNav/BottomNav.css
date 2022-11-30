@@ -77,10 +77,10 @@
     /* border: solid 3px blue; */
 }
 
-.hover-underline:hover {
+/* .hover-underline:hover {
     text-decoration: underline;
     cursor: pointer;
-}
+} */
 
 .bottom-copyright-list {
     display: flex;

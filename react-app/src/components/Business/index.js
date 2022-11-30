@@ -156,6 +156,28 @@ function Business() {
             </div>
             <div className='biz-body-wrapper'>
                 <div className='biz-body-container-left'>
+                    <div className='biz-buttons-container'>
+                        <button className='biz-buttons-write'>
+                            <i class="fa-regular fa-star"></i>
+                            &nbsp;
+                            Write a review
+                        </button>
+                        <div className='biz-buttons-share biz-buttons-white'>
+                            <i class="fa-solid fa-arrow-up-from-bracket"></i>
+                            &nbsp;
+                            Share
+                        </div>
+                        <div className='biz-buttons-save biz-buttons-white'>
+                            <i class="fa-regular fa-bookmark"></i>
+                            &nbsp;
+                            Save
+                        </div>
+                        <div className='biz-buttons-follow biz-buttons-white'>
+                            <i class="fa-solid fa-plus"></i>
+                            &nbsp;
+                            Follow
+                        </div>
+                    </div>
                     <div className='biz-review-container'>
                         {currBizReviews.map(review => {
                             const reviewDate = new Date(review.created_at).toLocaleDateString();
@@ -199,25 +221,34 @@ function Business() {
                 </div>
                 <div className='biz-body-container-right'>
                     <div className="biz-contact-info">
-                        <div className="biz-contact biz-contact-website">
-                            <a href={businessById.web_address} className="biz-contact-website-anchor">
-                                {businessById.web_address}
-                            </a>
-                        </div>
-                        <div className="biz-contact biz-contact-phone">
-                            ({phone1})&nbsp;{phone2}-{phone3}
-                        </div>
-                        <div className="biz-contact biz-contact-address">
-                            <div>
-                                {businessById.address}
-                                &nbsp;
-                                {businessById.city},
-                                &nbsp;
-                                {businessById.state}
+                        <div className='biz-contact-div'>
+                            <div className="biz-contact biz-contact-website">
+                                <a href={businessById.web_address} className="biz-contact-website-anchor">
+                                    {businessById.web_address}
+                                </a>
                             </div>
-                            <div>
-                                {businessById.postal_code}
+                            <i class="fa-solid fa-up-right-from-square"></i>
+                        </div>
+                        <div className='biz-contact-div'>
+                            <div className="biz-contact biz-contact-phone">
+                                ({phone1})&nbsp;{phone2}-{phone3}
                             </div>
+                            <i class="fa-solid fa-phone-volume"></i>
+                        </div>
+                        <div className="biz-contact-div">
+                            <div className="biz-contact biz-contact-address">
+                                <div>
+                                    {businessById.address}
+                                    &nbsp;
+                                    {businessById.city},
+                                    &nbsp;
+                                    {businessById.state}
+                                </div>
+                                <div>
+                                    {businessById.postal_code}
+                                </div>
+                            </div>
+                            <i class="fa-solid fa-location-arrow"></i>
                         </div>
                     </div>
                 </div>
