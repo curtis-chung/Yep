@@ -46,12 +46,12 @@ const BizNavBar = () => {
             <div className='nav-bar-right'>
                 <div className="nav-bar-right-buttons">
                     <div className='business-reviews'>
-                        <button className='biz-fake-buttons'>For Businesses</button>
-                        <button className='biz-fake-buttons'>Write a Review</button>
+                        <NavLink to="/signup_biz/new" className='biz-fake-buttons'>For Businesses</NavLink>
+                        <div className='biz-fake-buttons'>Write a Review</div>
                     </div>
                     {!user && (
                         <div className='nav-bar-login-signup'>
-                            <NavLink to="/login" className='bold-button small-login-button'>Log In</NavLink>
+                            <NavLink to="/login" className='bold-button biz-small-login-button'>Log In</NavLink>
                             <NavLink to="/sign-up" className='bold-button small-signup-button'>Sign Up</NavLink>
                         </div>
                     )}
