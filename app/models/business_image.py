@@ -10,7 +10,7 @@ class BusinessImage(db.Model):
 
     id = db.Column(db.Integer, primary_key=True)
     business_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod("businesses.id")), nullable=False)
-    url = db.Column(db.String(2000), nullable=False, unique=True)
+    url = db.Column(db.String(2000), nullable=False)
     preview = db.Column(db.Boolean, nullable=False)
     created_at = db.Column(db.DateTime, nullable=False, default=datetime.utcnow)
     updated_at = db.Column(db.DateTime, nullable=False, default=datetime.utcnow)

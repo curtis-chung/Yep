@@ -16,14 +16,14 @@ class BusinessForm(FlaskForm):
     business_name = StringField(
         "business_name", validators=[DataRequired(), Length(min=1, max=100, message='Business name must be between 1 and 100 characters.'), business_exists])
     address = StringField("address", validators=[DataRequired()])
-    city = StringField('city', validators=[DataRequired(), Regexp(regex='^[A-Za-z]$', message="City must be alphabetical letters.")])
-    state = StringField('state', validators=[DataRequired(), Length(min=2, max=2, message='State must be 2 alphabetical letters.'), Regexp(regex='^[A-Za-z]$')])
+    city = StringField('city', validators=[DataRequired()])
+    state = StringField('state', validators=[DataRequired(), Length(min=2, max=2, message='State must be 2 alphabetical letters.')])
     postal_code = StringField(
-        'postal_code', validators=[DataRequired(), Length(min=5, max=5, message='ZIP code must be 5 digits.'), Regexp(regex='^[0-9]$')])
+        'postal_code', validators=[DataRequired(), Length(min=5, max=5, message='ZIP code must be 5 digits.')])
     lat = FloatField('lat')
     lng = FloatField('lng')
     phone_number = StringField(
-        'phone_number', validators=[DataRequired(), Length(min=10, max=10, message='Phone number must be 10 digits.'), Regexp(regex='^[0-9]$')])
+        'phone_number', validators=[DataRequired(), Length(min=10, max=10, message='Phone number must be 10 digits.')])
     web_address = StringField(
         'web_address')
         # validators=[DataRequired(message='The web address you entered is invalid. Please try again.')]

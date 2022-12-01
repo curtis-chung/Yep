@@ -13,6 +13,7 @@ import BottomNav from './components/BottomNav';
 import TopRedNav from './components/TopRedNav';
 import Splash from './components/Splash';
 import Business from './components/Business';
+import CreateForm from './components/CreateForm.js';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -53,6 +54,9 @@ function App() {
         <Route path='/' exact={true} >
           <SplashNavBar />
           <Splash />
+        </Route>
+        <Route path='/reviews/new' exact={true} >
+          <CreateForm />
         </Route>
       </Switch>
       <BottomNav />

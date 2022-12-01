@@ -1,7 +1,8 @@
 from flask import Blueprint, jsonify, redirect, request
 from flask_login import current_user, login_required
 from app.models import Business, BusinessImage, Review, User, db
-from app.forms import BusinessForm, ReviewForm
+from app.forms import BusinessForm, ReviewForm, BusinessImageForm
+from .auth_routes import validation_errors_to_error_messages
 
 business_routes = Blueprint('business', __name__)
 
@@ -40,7 +41,7 @@ def create_new_business():
     if form.validate_on_submit():
         data = form.data
 
-        new_business = BusinessForm(
+        new_business = Business(
             user_id = int(curr_user),
             business_name = data["business_name"],
             address = data["address"],
@@ -53,11 +54,12 @@ def create_new_business():
             web_address = data["web_address"],
             operating_time = data["operating_time"],
             business_type = data["business_type"],
-            price = data["price"],
+            price = data["price"]
         )
         db.session.add(new_business)
         db.session.commit()
         return new_business.to_dict()
+    return {"errors":validation_errors_to_error_messages(form.errors)}, 401
 
 
 
@@ -196,3 +198,28 @@ def curr_biz_reviews(id):
         reviews_dict[review.to_dict()["id"]] = res_review
 
     return reviews_dict
+
+
+
+"""
+Post a new business images
+"""
+@business_routes.route('/<int:id>/images', methods=["POST"])
+@login_required
+def create_new_business_images(id):
+    form = BusinessImageForm()
+    form['csrf_token'].data = request.cookies['csrf_token']
+
+    if form.validate_on_submit():
+        data = form.data
+
+        new_business_images = BusinessImage(
+            business_id = id,
+            url = data["url"],
+            preview = data["preview"],
+        )
+        db.session.add(new_business_images)
+        db.session.commit()
+        return new_business_images.to_dict()
+    print("CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC", form.errors)
+    return {"errors":validation_errors_to_error_messages(form.errors)}, 401

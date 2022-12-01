@@ -88,7 +88,7 @@ function Business() {
         dispatch(reviewActions.getCurrentBizReviews(bizId))
     }, [dispatch]);
 
-    if (!businessImagesArray || !businessById || !currBizImages || !currBizReviews) {
+    if (!businessImagesArray || !businessById || !currBizReviews) {
         return null
     }
 
@@ -146,7 +146,7 @@ function Business() {
                     </div>
                     <div className='biz-image-div'>
                         <div className='biz-image-blur'></div>
-                        {currBizImages.map(image => {
+                        {currBizImages && currBizImages.map(image => {
                             return (
                                 <img className="biz-image" src={image} />
                             )

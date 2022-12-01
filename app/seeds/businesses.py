@@ -16,7 +16,7 @@ def seed_businesses():
         lng="-73.91999186193864",
         phone_number="2128239800",
         web_address="https://www.masanyc.com/",
-        operating_time="Tuesday 12PM-8PM",
+        operating_time="Mon-2:00PM-10:00PM,Tue-2:00PM-10:00PM,Wed-2:00PM-10:00PM,Thu-2:00PM-10:00PM,Fri-2:00PM-10:00PM,Sat-2:00PM-10:00PM,Sun-Closed",
         business_type="Japanese",
         price="4"
     )
@@ -32,7 +32,7 @@ def seed_businesses():
         lng="-73.98175579999999",
         phone_number="2125541515",
         web_address="https://www.le-bernardin.com/",
-        operating_time="Tuesday 12PM-8PM",
+        operating_time="Mon-2:00PM-10:00PM,Tue-2:00PM-10:00PM,Wed-2:00PM-10:00PM,Thu-2:00PM-10:00PM,Fri-2:00PM-10:00PM,Sat-2:00PM-10:00PM,Sun-Closed",
         business_type="Seafood",
         price="4"
     )
@@ -48,7 +48,7 @@ def seed_businesses():
         lng="-73.98721384354972",
         phone_number="2128890905",
         web_address="https://www.elevenmadisonpark.com/",
-        operating_time="Tuesday 12PM-8PM",
+        operating_time="Mon-2:00PM-10:00PM,Tue-2:00PM-10:00PM,Wed-2:00PM-10:00PM,Thu-2:00PM-10:00PM,Fri-2:00PM-10:00PM,Sat-2:00PM-10:00PM,Sun-Closed",
         business_type="Innovative",
         price="4"
     )
@@ -64,7 +64,7 @@ def seed_businesses():
         lng="-73.98284515704037",
         phone_number="2128239335",
         web_address="https://www.thomaskeller.com/perseny",
-        operating_time="Tuesday 12PM-8PM",
+        operating_time="Mon-2:00PM-10:00PM,Tue-2:00PM-10:00PM,Wed-2:00PM-10:00PM,Thu-2:00PM-10:00PM,Fri-2:00PM-10:00PM,Sat-2:00PM-10:00PM,Sun-Closed",
         business_type="French",
         price="4"
     )
@@ -80,7 +80,7 @@ def seed_businesses():
         lng="-73.99658970122222",
         phone_number="7182430050",
         web_address="https://www.brooklynfare.com/",
-        operating_time="Tuesday 12PM-8PM",
+        operating_time="Mon-2:00PM-10:00PM,Tue-2:00PM-10:00PM,Wed-2:00PM-10:00PM,Thu-2:00PM-10:00PM,Fri-2:00PM-10:00PM,Sat-2:00PM-10:00PM,Sun-Closed",
         business_type="Contemporary",
         price="4"
     )
@@ -97,7 +97,7 @@ def seed_businesses():
         lng="-73.97675518648421",
         phone_number="2123331220",
         web_address="https://www.themodernnyc.com/",
-        operating_time="Tuesday 12PM-8PM",
+        operating_time="Mon-2:00PM-10:00PM,Tue-2:00PM-10:00PM,Wed-2:00PM-10:00PM,Thu-2:00PM-10:00PM,Fri-2:00PM-10:00PM,Sat-2:00PM-10:00PM,Sun-Closed",
         business_type="Contemporary",
         price="4"
     )
@@ -113,7 +113,7 @@ def seed_businesses():
         lng="-73.98279655704071",
         phone_number="6464767217",
         web_address="https://www.atomixnyc.com/",
-        operating_time="Tuesday 12PM-8PM",
+        operating_time="Mon-2:00PM-10:00PM,Tue-2:00PM-10:00PM,Wed-2:00PM-10:00PM,Thu-2:00PM-10:00PM,Fri-2:00PM-10:00PM,Sat-2:00PM-10:00PM,Sun-Closed",
         business_type="Korean",
         price="4"
     )
@@ -130,7 +130,7 @@ def seed_businesses():
         lng="-74.00204025704075",
         phone_number="2128898884",
         web_address="https://www.donangie.com/",
-        operating_time="Tuesday 12PM-8PM",
+        operating_time="Mon-2:00PM-10:00PM,Tue-2:00PM-10:00PM,Wed-2:00PM-10:00PM,Thu-2:00PM-10:00PM,Fri-2:00PM-10:00PM,Sat-2:00PM-10:00PM,Sun-Closed",
         business_type="Italian",
         price="3"
     )
@@ -146,7 +146,7 @@ def seed_businesses():
         lng="-74.00730952348195",
         phone_number="6466660947",
         web_address="https://www.jejunoodlebar.com/",
-        operating_time="Tuesday 12PM-8PM",
+        operating_time="Mon-2:00PM-10:00PM,Tue-2:00PM-10:00PM,Wed-2:00PM-10:00PM,Thu-2:00PM-10:00PM,Fri-2:00PM-10:00PM,Sat-2:00PM-10:00PM,Sun-Closed",
         business_type="Korean",
         price="3"
     )
@@ -162,7 +162,7 @@ def seed_businesses():
         lng="-73.99377888587742",
         phone_number="2122190764",
         web_address="https://www.musketroom.com/",
-        operating_time="Tuesday 12PM-8PM",
+        operating_time="Mon-2:00PM-10:00PM,Tue-2:00PM-10:00PM,Wed-2:00PM-10:00PM,Thu-2:00PM-10:00PM,Fri-2:00PM-10:00PM,Sat-2:00PM-10:00PM,Sun-Closed",
         business_type="American Contemporary",
         price="3"
     )

@@ -45,6 +45,14 @@ export const createBusiness = (business) => async () => {
         },
         body: JSON.stringify(business)
     })
+
+    if (response.ok) {
+        const data = await response.json()
+        return data
+    } else if (response.status < 500) {
+        const data = await response.json()
+        if (data.errors) return data
+    }
 }
 
 export const getAllBusinesses = () => async (dispatch) => {
@@ -105,6 +113,25 @@ export const getAllBusinessImages = () => async (dispatch) => {
     if (response.ok) {
         const allBusinessImages = await response.json()
         dispatch(getAllBusinessImagesAction(allBusinessImages))
+    }
+}
+
+export const createBusinessImages = (images, businessId) => async () => {
+    // console.log("buy", transaction)
+    const response = await fetch(`/api/biz/${businessId}/images`, {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(images)
+    })
+
+    if (response.ok) {
+        const data = await response.json()
+        return data
+    } else if (response.status < 500) {
+        const data = await response.json()
+        if (data.errors) return data
     }
 }
 
