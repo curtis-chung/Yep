@@ -1,11 +1,15 @@
 
 import React from 'react';
 import { NavLink } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 import LogoutButton from './auth/LogoutButton';
 import YepLogo from "./yep-logo-transparent.png"
 import "./SplashNavBar.css"
+import ProfileButton from './ProfileButton';
 
 const SplashNavBar = () => {
+  const user = useSelector(state => state.session.user);
+
   return (
     <div className='nav-bar-container'>
       <div className='nav-bar-left'>
@@ -42,45 +46,22 @@ const SplashNavBar = () => {
       <div className='nav-bar-right'>
         <div className="nav-bar-right-buttons">
           <div className='business-reviews'>
-            <button className='fake-buttons'>For Businesses</button>
-            <button className='fake-buttons'>Write a Review</button>
+            <div className='fake-buttons'>For Businesses</div>
+            <div className='fake-buttons'>Write a Review</div>
           </div>
-          <div className='nav-bar-login-signup'>
-            <button className='bold-button small-login-button'>Log In</button>
-            <button className='bold-button small-signup-button'>Sign Up</button>
-          </div>
+          {!user && (
+            <div className='nav-bar-login-signup'>
+              <NavLink to="/login" className='bold-button small-login-button'>Log In</NavLink>
+              <NavLink to="/sign-up" className='bold-button small-signup-button'>Sign Up</NavLink>
+            </div>
+          )}
+          {user && (
+            <ProfileButton />
+          )}
         </div>
       </div>
     </div>
   );
 }
-
-<nav>
-  <ul>
-    <li>
-      <NavLink to='/' exact={true} activeClassName='active'>
-        Home
-      </NavLink>
-    </li>
-    <li>
-      <NavLink to='/login' exact={true} activeClassName='active'>
-        Login
-      </NavLink>
-    </li>
-    <li>
-      <NavLink to='/sign-up' exact={true} activeClassName='active'>
-        Sign Up
-      </NavLink>
-    </li>
-    <li>
-      <NavLink to='/users' exact={true} activeClassName='active'>
-        Users
-      </NavLink>
-    </li>
-    <li>
-      <LogoutButton />
-    </li>
-  </ul>
-</nav>
 
 export default SplashNavBar;

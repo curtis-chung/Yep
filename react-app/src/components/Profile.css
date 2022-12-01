@@ -1,0 +1,70 @@
+.icon-div {
+    font-size: 22px;
+    /* border: 1px solid green; */
+    margin-right: 12px;
+    width: 28px;
+    height: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.profile-button {
+    font-size: 36px;
+    color: lightgray;
+}
+
+.profile-dropdown-container {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 75px;
+    margin-left: 170px;
+    /* border: 1px solid white; */
+    border-radius: 4px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    width: 226px;
+    height: 193px;
+    background-color: white;
+    padding: 16px 28px;
+    font-size: 14px;
+}
+
+.profile-dropdown-personal-info {
+    min-width: 234px;
+    max-width: 234px;
+    max-height: 24px;
+    min-height: 24px;
+    padding: 8px;
+    display: flex;
+    align-items: center;
+}
+
+.profile-dropdown-personal-info:hover {
+    background-color: rgb(243, 243, 243);
+}
+
+.profile-dropdown-cards {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.profile-dropdown-content {
+    min-width: 234px;
+    max-width: 234px;
+    height: 40px;
+    padding-top: 16px 8px;
+    border-top: 1px solid lightgray;
+    margin-top: 16px;
+    /* border: 2px solid red; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.profile-logout {
+    margin-top: 30px;
+    cursor: pointer;
+}
