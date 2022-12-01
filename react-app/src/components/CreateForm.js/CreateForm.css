@@ -1,0 +1,143 @@
+.create-biz-page {
+    display: flex;
+    margin-top: 27px;
+    width: 100%;
+    justify-content: center;
+}
+
+.create-biz-container-body {
+    max-width: 465px;
+    min-width: 465px;
+    /* border: 1px solid green; */
+}
+
+.create-biz-container-title {
+    font-size: 30px;
+    font-weight: 600;
+    margin-bottom: 6px;
+}
+
+.create-biz-container-des {
+    font-size: 14px;
+    margin-bottom: 12px;
+    line-height: 18px;
+}
+
+.create-biz-left {
+    min-width: 495px;
+    max-width: 495px;
+    padding: 0 15px;
+    /* border: 1px solid green; */
+    display: flex;
+    justify-content: center;
+}
+
+.create-biz-right {
+    margin-left: 68px;
+}
+
+.create-biz-inputs {
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.create-biz-input-fields {
+    max-width: 458px;
+    min-width: 458px;
+    min-height: 30px;
+    max-height: 30px;
+    border-radius: 4px;
+    text-indent: 5px;
+    border: 1px solid gray;
+}
+
+.create-biz-select {
+    min-width: 111px;
+    max-width: 111px;
+    min-height: 30px;
+    max-height: 30px;
+    margin-right: 9px;
+    border-radius: 4px;
+}
+
+.create-biz-hours-button {
+    min-width: 79px;
+    max-width: 79px;
+    min-height: 30px;
+    max-height: 30px;
+    border-radius: 4px;
+    font-size: 12px;
+    font-weight: 500;
+    border: 1px solid black
+}
+
+.create-biz-submit-button {
+    min-width: 131px;
+    max-width: 131px;
+    min-height: 36px;
+    max-height: 36px;
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: 500;
+    color: white;
+    background-color: #d32323;
+    border: none;
+    margin: 20px 0 54px 0;
+}
+
+.create-biz-submit-button:hover {
+    background-color: #f8121a;
+}
+
+.create-biz-input-cards {
+    min-height: 72px;
+    max-height: 72px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.create-biz-url-cards {
+    min-height: 272px;
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.create-biz-hours-cards {
+    min-height: 72px;
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    margin: 12px 0;
+}
+
+.hours-display-container {
+    margin: 12px 0;
+    display: flex;
+    flex-direction: column;
+    font-weight: 400;
+    line-height: 24px;
+}
+
+.hours-display {
+    display: flex;
+    flex-direction: row;
+}
+
+.hour-remove {
+    color: #0073bb;
+    cursor: pointer;
+}
+
+.hour-day {
+    font-weight: 600;
+}
+
+.agreement {
+    font-size: 12px;
+    color: #999999;
+    font-weight: 400;
+}

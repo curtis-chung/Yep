@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useHistory, Redirect, useParams } from "react-router-dom";
 import * as businessActions from "../../store/business"
 import "./CreateForm.css"
+import newBiz from "./new_biz.png"
 
 const days = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
 const hours = [
@@ -71,7 +72,7 @@ const CreateForm = () => {
     const [menu_web_address, setMenuWebAddress] = useState("");
     const [operating_time, setOperatingTime] = useState([]);
     const [business_type, setBusinessType] = useState("");
-    const [price, setPrice] = useState("");
+    const [price, setPrice] = useState(1);
     const [day, setDay] = useState("Mon");
     const [open_time, setOpenTime] = useState("12:00AM");
     const [close_time, setCloseTime] = useState("12:00AM");
@@ -158,238 +159,263 @@ const CreateForm = () => {
     // console.log("open", open_time, "op", operating_time, "displayTime", displayTime)
 
     return (
-        <div className="create-biz-container-body">
-            <form onSubmit={handleSubmit} className="create-biz-form-box">
-                <div className='create-biz-inputs'>
-                    <div>
-                        Business Name
-                        <input
-                            autoFocus
-                            type="text"
-                            value={business_name}
-                            onChange={(e) => setBusinessName(e.target.value)}
-                            // required
-                            placeholder="Biz Name"
-                            className="create-biz-input-fields"
-                        />
-                        <div>{errors.business_name}</div>
+        <div className="create-biz-page">
+            <div className="create-biz-left">
+                <div className="create-biz-container-body">
+                    <div className="create-biz-container-title">
+                        Add Your Business
                     </div>
-                    <div className='line'></div>
-                    <div>
-                        Address
-                        <input
-                            type="text"
-                            value={address}
-                            onChange={(e) => setAddress(e.target.value)}
-                            // required
-                            placeholder="123 Hire Me St."
-                            className="create-biz-input-fields"
-                        />
-                        <div>{errors.address}</div>
+                    <div className="create-biz-container-des">
+                        Add information about your busness below. Your business page will not appear in search results until this information has been verified and approved by our moderators.
                     </div>
-                    <div className='line'></div>
-                    <div>
-                        City
-                        <input
-                            type="text"
-                            value={city}
-                            onChange={(e) => setCity(e.target.value)}
-                            // required
-                            placeholder="New York"
-                            className="create-biz-input-fields"
-                        />
-                        <div>{errors.city}</div>
-                    </div>
-                    <div className='line'></div>
-                    <div>
-                        State
-                        <input
-                            type="text"
-                            value={state}
-                            onChange={(e) => setState(e.target.value)}
-                            // required
-                            placeholder="NY"
-                            className="create-biz-input-fields"
-                        />
-                        <div>{errors.state}</div>
-                    </div>
-                    <div className='line'></div>
-                    <div>
-                        ZIP
-                        <input
-                            type="text"
-                            value={postal_code}
-                            onChange={(e) => setPostalCode(e.target.value)}
-                            // required
-                            placeholder="10001"
-                            className="create-biz-input-fields"
-                        />
-                        <div>{errors.postal_code}</div>
-                    </div>
-                    <div className='line'></div>
-                    <div>
-                        Latitude
-                        <input
-                            type="number"
-                            value={lat}
-                            onChange={(e) => setLat(e.target.value)}
-                            // required
-                            placeholder="40.7580 (Optional)"
-                            className="create-biz-input-fields"
-                        />
-                        <div>{errors.lat}</div>
-                    </div>
-                    <div className='line'></div>
-                    <div>
-                        Longitude
-                        <input
-                            type="number"
-                            value={lng}
-                            onChange={(e) => setLng(e.target.value)}
-                            // required
-                            placeholder="73.9855 (Optional)"
-                            // min="1"
-                            className="create-biz-input-fields"
-                        />
-                        <div>{errors.lng}</div>
-                    </div>
-                    <div className='line'></div>
-                    <div>
-                        Phone
-                        <input
-                            type="text"
-                            value={phone_number}
-                            onChange={(e) => setPhoneNumber(e.target.value)}
-                            // required
-                            placeholder="(555) 555-5555"
-                            className="create-biz-input-fields"
-                        />
-                        <div>{errors.phone_number}</div>
-                    </div>
-                    <div>
-                        Web Address
-                        <input
-                            type="text"
-                            value={web_address}
-                            onChange={(e) => setWebAddress(e.target.value)}
-                            // required
-                            placeholder="http://www.companyaddress.com (Optional)"
-                            className="create-biz-input-fields"
-                        />
-                        <div>{errors.web_address}</div>
-                    </div>
-                    <div>
-                        Menu Web Address
-                        <input
-                            type="text"
-                            value={menu_web_address}
-                            onChange={(e) => setMenuWebAddress(e.target.value)}
-                            // required
-                            placeholder="http://www.companyaddress.com/menu.html (Optional)"
-                            className="create-biz-input-fields"
-                        />
-                        <div>{errors.menu_web_address}</div>
-                    </div>
-                    <div>
-                        Categories
-                        <input
-                            type="text"
-                            value={business_type}
-                            onChange={(e) => setBusinessType(e.target.value)}
-                            // required
-                            placeholder="Sushi"
-                            className="create-biz-input-fields"
-                        />
-                        <div>{errors.business_type}</div>
-                    </div>
-                    <div>
-                        Hours
-                        <>
-                            {displayTime.map((time, i) => (
-                                <>
-                                    <div>
-                                        {time[0]} &nbsp; {time[1]} - {time[2]}
-                                    </div>
-                                    <div onClick={() => removeTime(i)}>
-                                        Remove
-                                    </div>
-                                </>
-                            ))}
-                        </>
-                        <select type="text" value={day} onChange={(e) => setDay(e.target.value)}>
-                            {days.map(day => (
-                                <option value={day}>{day}</option>
-                            ))}
-                        </select>
-                        <select type="text" value={open_time} onChange={(e) => setOpenTime(e.target.value)}>
-                            {hours.map(hour => (
-                                <option value={hour}>{hour}</option>
-                            ))}
-                        </select>
-                        <select type="text" value={close_time} onChange={(e) => setCloseTime(e.target.value)}>
-                            {hours.map(hour => (
-                                <option value={hour}>{hour}</option>
-                            ))}
-                        </select>
-                        <button type="add" onClick={handleClick}>Add Hours</button>
-                    </div>
-                    <div>
-                        Price
-                        <select onChange={(e) => setPrice(e.target.value)}>
-                            <option value={1}>$</option>
-                            <option value={2}>$$</option>
-                            <option value={3}>$$$</option>
-                            <option value={4}>$$$$</option>
-                        </select>
-                        <div>{errors.price}</div>
-                    </div>
+                    <form onSubmit={handleSubmit} className="create-biz-form-box">
+                        <div className='create-biz-inputs'>
+                            <div className="create-biz-input-cards">
+                                Business Name
+                                <input
+                                    autoFocus
+                                    type="text"
+                                    value={business_name}
+                                    onChange={(e) => setBusinessName(e.target.value)}
+                                    // required
+                                    placeholder="Biz Name"
+                                    className="create-biz-input-fields"
+                                />
+                                <div>{errors.business_name}</div>
+                            </div>
+                            <div className='line'></div>
+                            <div className="create-biz-input-cards">
+                                Address
+                                <input
+                                    type="text"
+                                    value={address}
+                                    onChange={(e) => setAddress(e.target.value)}
+                                    // required
+                                    placeholder="123 Hire Me Pl."
+                                    className="create-biz-input-fields"
+                                />
+                                <div>{errors.address}</div>
+                            </div>
+                            <div className='line'></div>
+                            <div className="create-biz-input-cards">
+                                City
+                                <input
+                                    type="text"
+                                    value={city}
+                                    onChange={(e) => setCity(e.target.value)}
+                                    // required
+                                    placeholder="New York"
+                                    className="create-biz-input-fields"
+                                />
+                                <div>{errors.city}</div>
+                            </div>
+                            <div className='line'></div>
+                            <div className="create-biz-input-cards">
+                                State
+                                <input
+                                    type="text"
+                                    value={state}
+                                    onChange={(e) => setState(e.target.value)}
+                                    // required
+                                    placeholder="NY"
+                                    className="create-biz-input-fields"
+                                />
+                                <div>{errors.state}</div>
+                            </div>
+                            <div className='line'></div>
+                            <div className="create-biz-input-cards">
+                                ZIP
+                                <input
+                                    type="text"
+                                    value={postal_code}
+                                    onChange={(e) => setPostalCode(e.target.value)}
+                                    // required
+                                    placeholder="10001"
+                                    className="create-biz-input-fields"
+                                />
+                                <div>{errors.postal_code}</div>
+                            </div>
+                            <div className='line'></div>
+                            <div className="create-biz-input-cards">
+                                Latitude
+                                <input
+                                    type="number"
+                                    value={lat}
+                                    onChange={(e) => setLat(e.target.value)}
+                                    // required
+                                    placeholder="40.7580 (Optional)"
+                                    className="create-biz-input-fields"
+                                />
+                                <div>{errors.lat}</div>
+                            </div>
+                            <div className='line'></div>
+                            <div className="create-biz-input-cards">
+                                Longitude
+                                <input
+                                    type="number"
+                                    value={lng}
+                                    onChange={(e) => setLng(e.target.value)}
+                                    // required
+                                    placeholder="73.9855 (Optional)"
+                                    // min="1"
+                                    className="create-biz-input-fields"
+                                />
+                                <div>{errors.lng}</div>
+                            </div>
+                            <div className='line'></div>
+                            <div className="create-biz-input-cards">
+                                Phone
+                                <input
+                                    type="text"
+                                    value={phone_number}
+                                    onChange={(e) => setPhoneNumber(e.target.value)}
+                                    // required
+                                    placeholder="(555) 555-5555"
+                                    className="create-biz-input-fields"
+                                />
+                                <div>{errors.phone_number}</div>
+                            </div>
+                            <div className="create-biz-input-cards">
+                                Web Address
+                                <input
+                                    type="text"
+                                    value={web_address}
+                                    onChange={(e) => setWebAddress(e.target.value)}
+                                    // required
+                                    placeholder="http://www.companyaddress.com (Optional)"
+                                    className="create-biz-input-fields"
+                                />
+                                <div>{errors.web_address}</div>
+                            </div>
+                            <div className="create-biz-input-cards">
+                                Menu Web Address
+                                <input
+                                    type="text"
+                                    value={menu_web_address}
+                                    onChange={(e) => setMenuWebAddress(e.target.value)}
+                                    // required
+                                    placeholder="http://www.companyaddress.com/menu.html (Optional)"
+                                    className="create-biz-input-fields"
+                                />
+                                <div>{errors.menu_web_address}</div>
+                            </div>
+                            <div className="create-biz-input-cards">
+                                Categories
+                                <div className="agreement">Select your categories. The more specific the better.</div>
+                                <input
+                                    type="text"
+                                    value={business_type}
+                                    onChange={(e) => setBusinessType(e.target.value)}
+                                    // required
+                                    placeholder="Sushi"
+                                    className="create-biz-input-fields"
+                                />
+                                <div>{errors.business_type}</div>
+                            </div>
+                            <div className="create-biz-hours-cards">
+                                Hours
+                                <div className="hours-display-container">
+                                    {displayTime.map((time, i) => (
+                                        <>
+                                            <div className="hours-display">
+                                                <div className="hour-day">{time[0]}</div>
+                                                &nbsp;
+                                                {time[1]} - {time[2]}
+                                                &nbsp;
+                                                &nbsp;
+                                                &nbsp;
+                                                <div className="hour-remove" onClick={() => removeTime(i)}>
+                                                    Remove
+                                                </div>
+                                            </div>
+                                        </>
+                                    ))}
+                                </div>
+                                <div>
+                                    <select type="text" value={day} className="create-biz-select" onChange={(e) => setDay(e.target.value)}>
+                                        {days.map(day => (
+                                            <option value={day}>{day}</option>
+                                        ))}
+                                    </select>
+                                    <select type="text" value={open_time} className="create-biz-select" onChange={(e) => setOpenTime(e.target.value)}>
+                                        {hours.map(hour => (
+                                            <option value={hour}>{hour}</option>
+                                        ))}
+                                    </select>
+                                    <select type="text" value={close_time} className="create-biz-select" onChange={(e) => setCloseTime(e.target.value)}>
+                                        {hours.map(hour => (
+                                            <option value={hour}>{hour}</option>
+                                        ))}
+                                    </select>
+                                    <button type="add" className="create-biz-hours-button" onClick={handleClick}>Add Hours</button>
+                                </div>
+                            </div>
+                            <div className="create-biz-input-cards">
+                                Price
+                                <select className="create-biz-select" onChange={(e) => setPrice(e.target.value)}>
+                                    <option value={1}>$</option>
+                                    <option value={2}>$$</option>
+                                    <option value={3}>$$$</option>
+                                    <option value={4}>$$$$</option>
+                                </select>
+                                <div>{errors.price}</div>
+                            </div>
+                            <div className="create-biz-url-cards">
+                                Biz Images
+                                <input
+                                    type="text"
+                                    value={imgUrl1}
+                                    onChange={(e) => setImgUrl1(e.target.value)}
+                                    required
+                                    placeholder="Photo URL"
+                                    className="create-biz-input-fields"
+                                />
+                                <input
+                                    type="text"
+                                    value={imgUrl2}
+                                    onChange={(e) => setImgUrl2(e.target.value)}
+                                    required
+                                    placeholder="Photo URL"
+                                    className="create-biz-input-fields"
+                                />
+                                <input
+                                    type="text"
+                                    value={imgUrl3}
+                                    onChange={(e) => setImgUrl3(e.target.value)}
+                                    required
+                                    placeholder="Photo URL"
+                                    className="create-biz-input-fields"
+                                />
+                                <input
+                                    type="text"
+                                    value={imgUrl4}
+                                    onChange={(e) => setImgUrl4(e.target.value)}
+                                    required
+                                    placeholder="Photo URL"
+                                    className="create-biz-input-fields"
+                                />
+                                <input
+                                    type="text"
+                                    value={imgUrl5}
+                                    onChange={(e) => setImgUrl5(e.target.value)}
+                                    required
+                                    placeholder="Photo URL"
+                                    className="create-biz-input-fields"
+                                />
+                            </div>
+                        </div>
+                        <div className="agreement">
+                            By continuing, you agree to Yep's Business Terms and acknowledge our Privacy Policy.
+                        </div>
+                        <div className="create-biz-button-div">
+                            <button type="submit" className="create-biz-submit-button">Add Business</button>
+                        </div>
+                    </form>
                 </div>
-                <div>
-                    <input
-                        type="text"
-                        value={imgUrl1}
-                        onChange={(e) => setImgUrl1(e.target.value)}
-                        required
-                        placeholder="Photo URL"
-                        className="create-spot-input-fields"
-                    />
-                    <input
-                        type="text"
-                        value={imgUrl2}
-                        onChange={(e) => setImgUrl2(e.target.value)}
-                        required
-                        placeholder="Photo URL"
-                        className="create-spot-input-fields"
-                    />
-                    <input
-                        type="text"
-                        value={imgUrl3}
-                        onChange={(e) => setImgUrl3(e.target.value)}
-                        required
-                        placeholder="Photo URL"
-                        className="create-spot-input-fields"
-                    />
-                    <input
-                        type="text"
-                        value={imgUrl4}
-                        onChange={(e) => setImgUrl4(e.target.value)}
-                        required
-                        placeholder="Photo URL"
-                        className="create-spot-input-fields"
-                    />
-                    <input
-                        type="text"
-                        value={imgUrl5}
-                        onChange={(e) => setImgUrl5(e.target.value)}
-                        required
-                        placeholder="Photo URL"
-                        className="create-spot-input-fields"
-                    />
-                </div>
-                <div className="create-biz-button-div">
-                    <button type="submit" className="create-biz-button">Add Business</button>
-                </div>
-            </form>
+            </div>
+            <div className="create-biz-right">
+                <img src={newBiz} />
+            </div>
         </div>
     );
 }

@@ -46,7 +46,7 @@ const SplashNavBar = () => {
       <div className='nav-bar-right'>
         <div className="nav-bar-right-buttons">
           <div className='business-reviews'>
-            <div className='fake-buttons'>For Businesses</div>
+            <NavLink to="/signup_biz/new" className='fake-buttons'>For Businesses</NavLink>
             <div className='fake-buttons'>Write a Review</div>
           </div>
           {!user && (

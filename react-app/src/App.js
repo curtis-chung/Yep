@@ -55,7 +55,8 @@ function App() {
           <SplashNavBar />
           <Splash />
         </Route>
-        <Route path='/reviews/new' exact={true} >
+        <Route path='/signup_biz/new' exact={true}>
+          <TopRedNav />
           <CreateForm />
         </Route>
       </Switch>
