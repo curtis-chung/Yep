@@ -14,6 +14,7 @@ import TopRedNav from './components/TopRedNav';
 import Splash from './components/Splash';
 import Business from './components/Business';
 import CreateForm from './components/CreateForm.js';
+import ReviewForm from './components/ReviewForm.js';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -36,10 +37,12 @@ function App() {
         <Route path='/login' exact={true}>
           <TopRedNav />
           <LoginForm />
+          <BottomNav />
         </Route>
         <Route path='/sign-up' exact={true}>
           <TopRedNav />
           <SignUpForm />
+          <BottomNav />
         </Route>
         <ProtectedRoute path='/users' exact={true} >
           <UsersList />
@@ -50,17 +53,23 @@ function App() {
         <Route path="/biz/:bizId" exact={true}>
           <BizNavBar />
           <Business />
+          <BottomNav />
         </Route>
         <Route path='/' exact={true} >
           <SplashNavBar />
           <Splash />
+          <BottomNav />
         </Route>
         <Route path='/signup_biz/new' exact={true}>
           <TopRedNav />
           <CreateForm />
+          <BottomNav />
+        </Route>
+        <Route path='/biz/:bizId/writeareview' exact={true}>
+          <TopRedNav />
+          <ReviewForm />
         </Route>
       </Switch>
-      <BottomNav />
     </BrowserRouter>
   );
 }

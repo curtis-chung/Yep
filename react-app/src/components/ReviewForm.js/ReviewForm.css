@@ -1,0 +1,117 @@
+.create-review-page {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.create-review-button-div {
+    margin-top: 32px;
+}
+
+.create-review-submit-button {
+    font-size: 16px;
+    font-weight: 600;
+    color: white;
+    background-color: #d32323;
+    outline: none;
+    border: none;
+    border-radius: 4px;
+    min-width: 200px;
+    max-width: 200px;
+    min-height: 40px;
+    max-height: 40px;
+}
+
+.create-review-submit-button:hover {
+    background-color: #f8121a;
+}
+
+.create-review-container-body {
+    min-width: 625px;
+    max-width: 625px;
+    margin-top: 36px;
+}
+
+.create-review-container-title {
+    font-size: 28px;
+    font-weight: 600;
+}
+
+.create-review-form-box {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.create-review-inputs {
+    border: 1px solid #eeeeef;
+    min-width: 575px;
+    max-width: 575px;
+    min-height: 320px;
+    max-height: 320px;
+    margin-top: 24px;
+    padding: 24px;
+    border-radius: 4px;
+}
+
+.create-review-text-field {
+    /* border: 3px solid yellow; */
+    min-width: 521px;
+    max-width: 521px;
+    min-height: 216px;
+    max-height: 216px;
+    padding: 24px;
+    flex-wrap: wrap;
+    font-size: 16px;
+    resize: none;
+    overflow: auto;
+    border: none;
+    outline: none;
+}
+
+.rate {
+    float: left;
+    height: 46px;
+    padding: 0 24px;
+    /* border: 1px solid red; */
+}
+
+.rate:not(:checked)>input {
+    position: absolute;
+    top: -9999px;
+}
+
+.rate:not(:checked)>label {
+    float: right;
+    width: 1em;
+    overflow: hidden;
+    white-space: nowrap;
+    cursor: pointer;
+    font-size: 30px;
+    color: #ccc;
+}
+
+.rate:not(:checked)>label:before {
+    content: '★ ';
+}
+
+.rate>input:checked~label {
+    color: #d32323;
+}
+
+.rate:not(:checked)>label:hover,
+.rate:not(:checked)>label:hover~label {
+    color: #f8121a;
+}
+
+/* .rate>input:checked+label:hover,
+.rate>input:checked+label:hover~label,
+.rate>input:checked~label:hover,
+.rate>input:checked~label:hover~label,
+.rate>label:hover~input:checked~label {
+    color: #c59b08;
+} */
+
+.create-review-text-field::-webkit-scrollbar {
+    display: none;
+}

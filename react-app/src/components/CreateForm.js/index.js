@@ -60,6 +60,7 @@ const hours = [
 const CreateForm = () => {
     const dispatch = useDispatch();
     const history = useHistory();
+    const user = useSelector(state => state.session.user);
     const [business_name, setBusinessName] = useState("");
     const [address, setAddress] = useState("");
     const [city, setCity] = useState("");
@@ -157,6 +158,10 @@ const CreateForm = () => {
     };
 
     // console.log("open", open_time, "op", operating_time, "displayTime", displayTime)
+
+    if (!user) {
+        return <Redirect to='/login' />;
+    }
 
     return (
         <div className="create-biz-page">

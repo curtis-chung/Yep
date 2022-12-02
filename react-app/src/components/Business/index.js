@@ -53,7 +53,7 @@ function Business() {
         return Object.values(state?.review?.currentBizReviews)
     })
 
-    console.log("currBizReviews", currBizReviews)
+    // console.log("currBizReviews", currBizReviews)
 
     // Styles for JSX
     const myStyle = {
@@ -157,12 +157,12 @@ function Business() {
             <div className='biz-body-wrapper'>
                 <div className='biz-body-container-left'>
                     <div className='biz-buttons-container'>
-                        <button className='biz-buttons-write'>
+                        <NavLink to={`/biz/${bizId}/writeareview`} className='biz-buttons-write'>
                             <i class="fa-regular fa-star"></i>
                             &nbsp;
                             Write a review
-                        </button>
-                        <div className='biz-buttons-share biz-buttons-white'>
+                        </NavLink>
+                        {/* <div className='biz-buttons-share biz-buttons-white'>
                             <i class="fa-solid fa-arrow-up-from-bracket"></i>
                             &nbsp;
                             Share
@@ -176,7 +176,7 @@ function Business() {
                             <i class="fa-solid fa-plus"></i>
                             &nbsp;
                             Follow
-                        </div>
+                        </div> */}
                     </div>
                     <div className='biz-review-container'>
                         {currBizReviews.map(review => {

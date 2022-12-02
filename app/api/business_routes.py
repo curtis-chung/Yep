@@ -157,7 +157,7 @@ def create_new_review(id):
     if form.validate_on_submit():
         data = form.data
 
-        new_review = ReviewForm(
+        new_review = Review(
             user_id = int(curr_user),
             business_id = int(id),
             review_content = data["review_content"],
@@ -221,5 +221,5 @@ def create_new_business_images(id):
         db.session.add(new_business_images)
         db.session.commit()
         return new_business_images.to_dict()
-    print("CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC", form.errors)
+    # print("CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC", form.errors)
     return {"errors":validation_errors_to_error_messages(form.errors)}, 401
