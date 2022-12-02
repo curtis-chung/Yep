@@ -1,0 +1,71 @@
+.fa-ellipsis {
+    font-size: 16px;
+    height: 40px;
+    width: 40px;
+    border: none;
+    outline: none;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    color: #2d2e2f;
+    /* background-color: #e2e2e6; */
+}
+
+.fa-ellipsis:hover {
+    background-color: #e2e2e6;
+}
+
+.review-dropdown-container {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    top: 3px;
+    margin-left: -153px;
+    /* border: 1px solid green; */
+    border-radius: 4px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    width: 160px;
+    height: 80px;
+    background-color: white;
+    padding: 16px;
+    font-size: 14px;
+}
+
+.review-dropdown-cards {
+    /* border: 1px solid green; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.review-dropdown-personal-info {
+    /* border: 1px solid blue; */
+    min-width: 144px;
+    max-width: 144px;
+    max-height: 24px;
+    min-height: 24px;
+    padding: 8px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+.review-dropdown-personal-info:hover {
+    /* border: 1px solid blue; */
+    background-color: rgb(243, 243, 243);
+}
+
+.review-dropdown-button {
+    /* border: 1px solid blue; */
+    height: 100%;
+    width: 100%;
+    font-size: 14px;
+    font-weight: 500;
+    text-align: left;
+    display: flex;
+    align-items: center;
+}

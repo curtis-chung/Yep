@@ -16,6 +16,7 @@ import Business from './components/Business';
 import CreateForm from './components/CreateForm.js';
 import ReviewForm from './components/ReviewForm.js';
 import EditForm from './components/EditBusiness';
+import EditReviewForm from './components/EditReview';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -73,6 +74,10 @@ function App() {
         <Route path='/biz/:businessId/edit' exact={true}>
           <TopRedNav />
           <EditForm />
+        </Route>
+        <Route path='/reviews/:reviewId/edit' exact={true}>
+          <TopRedNav />
+          <EditReviewForm />
         </Route>
       </Switch>
     </BrowserRouter>

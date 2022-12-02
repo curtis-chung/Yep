@@ -72,3 +72,14 @@ def delete_Review(id):
     db.session.delete(curr_review)
     db.session.commit()
     return dict(message="Review successfully deleted")
+
+
+
+"""
+Query for review by review id
+"""
+@review_routes.route('/<int:reviewId>')
+def current_business(reviewId):
+    curr_review = Review.query.get(reviewId)
+
+    return curr_review.to_dict()

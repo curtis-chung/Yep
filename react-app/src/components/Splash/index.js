@@ -89,7 +89,10 @@ function Splash() {
                                 return (
                                     <NavLink to={`/biz/${business.id}`} className='splash-chart-body-card splash-navlink'>
                                         <div className='splash-chart-body-card-image'>
-                                            <img src={business.prev_image[0]} style={myStyle} />
+                                            <img src={business.prev_image[0]} style={myStyle} onError={({ currentTarget }) => {
+                                                currentTarget.onerror = null;
+                                                currentTarget.src = "https://axiomhrs.com/wp-content/uploads/2019/07/claim.png";
+                                            }} />
                                         </div>
                                         <div className='splash-chart-body-card-details'>
                                             <div className='splash-chart-body-card-details-div splash-chart-body-card-name'>
@@ -139,7 +142,10 @@ function Splash() {
                                 return (
                                     <NavLink to={`/biz/${business.id}`} className='splash-chart-body-card splash-navlink'>
                                         <div className='splash-chart-body-card-image'>
-                                            <img src={business.prev_image[0]} style={myStyle} />
+                                            <img src={business.prev_image[0]} style={myStyle} onError={({ currentTarget }) => {
+                                                currentTarget.onerror = null;
+                                                currentTarget.src = "https://axiomhrs.com/wp-content/uploads/2019/07/claim.png";
+                                            }} />
                                         </div>
                                         <div className='splash-chart-body-card-details'>
                                             <div className='splash-chart-body-card-details-div splash-chart-body-card-name'>
@@ -189,7 +195,10 @@ function Splash() {
                                 return (
                                     <NavLink to={`/biz/${business.id}`} className='splash-chart-body-card splash-navlink'>
                                         <div className='splash-chart-body-card-image'>
-                                            <img src={business.prev_image[0]} style={myStyle} />
+                                            <img src={business.prev_image[0]} style={myStyle} onError={({ currentTarget }) => {
+                                                currentTarget.onerror = null;
+                                                currentTarget.src = "https://axiomhrs.com/wp-content/uploads/2019/07/claim.png";
+                                            }} />
                                         </div>
                                         <div className='splash-chart-body-card-details'>
                                             <div className='splash-chart-body-card-details-div splash-chart-body-card-name'>

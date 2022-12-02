@@ -6,6 +6,7 @@ import * as businessActions from "../../store/business"
 import * as reviewActions from "../../store/review"
 import './Business.css';
 import userLogo from "./amazon-customer-icon.jpg"
+import ReviewDropdown from '../ReviewDropDown';
 
 function Business() {
     const dispatch = useDispatch();
@@ -27,9 +28,9 @@ function Business() {
     const currSessionUser = useSelector(state => state?.session?.user?.id)
     console.log("currSessionUser", currSessionUser, businessById?.user_id)
 
-    let isSpotOwner = false;
+    let isBizOwner = false;
     if (currSessionUser === businessById.user_id) {
-        isSpotOwner = true
+        isBizOwner = true
     }
 
     const currBizImages = useSelector((state) => {
@@ -68,9 +69,9 @@ function Business() {
         e.preventDefault();
 
         await dispatch(businessActions.deleteBusiness(parseInt(bizId)))
-        console.log("a")
+        // console.log("a")
         await dispatch(businessActions.getAllBusinesses())
-        console.log("b")
+        // console.log("b")
         history.push("/")
     }
 
@@ -162,7 +163,7 @@ function Business() {
                                 &nbsp;
                                 <NavLink to={`/biz/${bizId}/edit`} className="edit-button">Edit</NavLink>
                                 &nbsp;
-                                {(isSpotOwner && (
+                                {(isBizOwner && (
                                     <button className="edit-button" onClick={handleDelete}>Delete</button>
                                 ))}
                             </div>
@@ -175,7 +176,10 @@ function Business() {
                         <div className='biz-image-blur'></div>
                         {currBizImages && currBizImages.map(image => {
                             return (
-                                <img className="biz-image" src={image} />
+                                <img className="biz-image" src={image} onError={({ currentTarget }) => {
+                                    currentTarget.onerror = null;
+                                    currentTarget.src = "https://axiomhrs.com/wp-content/uploads/2019/07/claim.png";
+                                }} />
                             )
                         })}
                     </div>
@@ -217,6 +221,11 @@ function Business() {
                                             <img src={userLogo} className="user-icon" />
                                             &nbsp;&nbsp;
                                             {review.author.first_name} {review.author.last_name}
+                                        </div>
+                                        <div className='review-dropdown'>
+                                            {isBizOwner && (
+                                                <ReviewDropdown review={review} bizId={bizId} />
+                                            )}
                                         </div>
                                     </div>
                                     <div className="stars">

@@ -1,10 +1,16 @@
 // Actions
 const GET_CURRENT_BIZ_REVIEWS = "reviews/GET_CURRENT_BIZ_REVIEWS";
 const CLEAN_UP_REVIEWS = "reviews/CLEAN_UP_REVIEWS";
+const UPDATE_REVIEW = "review/UPDATE_REVIEW"
 
 // Action Creators
 const getCurrentBizReviewAction = (payload) => ({
     type: GET_CURRENT_BIZ_REVIEWS,
+    payload
+})
+
+const updateReviewAction = (payload) => ({
+    type: UPDATE_REVIEW,
     payload
 })
 
@@ -31,6 +37,31 @@ export const createReview = (review, bizId) => async (dispatch) => {
     } else if (response.status < 500) {
         const newReview = await response.json()
         if (newReview.errors) return newReview
+    }
+}
+
+export const updateReview = (review, reviewId) => async (dispatch) => {
+    // console.log("AAA", business, businessId)
+    // console.log("CCC", typeof businessId)
+    const response = await fetch(`/api/biz/${parseInt(reviewId)}`, {
+        method: "PUT",
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(review)
+    })
+    // console.log("res", response)
+
+    if (response.ok) {
+        const updatedReview = await response.json()
+        dispatch(updateReviewAction(updatedReview))
+        // console.log("iffy", response)
+        return updatedReview
+    } else if (response.status < 500) {
+        const updatedReview = await response.json()
+        if (updatedReview.errors) {
+            return updatedReview
+        }
     }
 }
 
@@ -71,6 +102,10 @@ const review = (state = initialState, action) => {
                 currBizReviews[review.id] = review
             })
             newState.currentBizReviews = currBizReviews
+            return newState
+
+        case UPDATE_REVIEW:
+            newState.currentBizReviews[action.payload.id] = action.payload
             return newState
 
         case CLEAN_UP_REVIEWS:
