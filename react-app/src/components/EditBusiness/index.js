@@ -2,8 +2,8 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory, Redirect, useParams } from "react-router-dom";
 import * as businessActions from "../../store/business"
-import "./CreateForm.css"
-import newBiz from "./new_biz.png"
+import "../CreateForm.js/CreateForm.css"
+import newBiz from "../CreateForm.js/new_biz.png"
 
 const days = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
 const hours = [
@@ -57,34 +57,33 @@ const hours = [
     "11:30PM"
 ]
 
-const CreateForm = () => {
+const EditForm = () => {
     const dispatch = useDispatch();
     const history = useHistory();
     const user = useSelector(state => state.session.user);
-    const [business_name, setBusinessName] = useState("");
-    const [address, setAddress] = useState("");
-    const [city, setCity] = useState("");
-    const [state, setState] = useState("");
-    const [postal_code, setPostalCode] = useState("");
-    const [lat, setLat] = useState("");
-    const [lng, setLng] = useState("");
-    const [phone_number, setPhoneNumber] = useState("");
-    const [web_address, setWebAddress] = useState("");
-    const [menu_web_address, setMenuWebAddress] = useState("");
+    const currBiz = useSelector(state => state.business.businessById)
+
+    const { businessId } = useParams();
+    // console.log("BBB", businessId)
+
+    const [business_name, setBusinessName] = useState(currBiz?.business_name);
+    const [address, setAddress] = useState(currBiz?.address);
+    const [city, setCity] = useState(currBiz?.city);
+    const [state, setState] = useState(currBiz?.state);
+    const [postal_code, setPostalCode] = useState(currBiz.postal_code);
+    const [lat, setLat] = useState(currBiz?.lat);
+    const [lng, setLng] = useState(currBiz?.lng);
+    const [phone_number, setPhoneNumber] = useState(currBiz?.phone_number);
+    const [web_address, setWebAddress] = useState(currBiz?.web_address);
+    const [menu_web_address, setMenuWebAddress] = useState(currBiz?.menu_web_address);
     const [operating_time, setOperatingTime] = useState([]);
-    const [business_type, setBusinessType] = useState("");
-    const [price, setPrice] = useState(1);
+    const [business_type, setBusinessType] = useState(currBiz?.business_type);
+    const [price, setPrice] = useState(currBiz?.price);
     const [day, setDay] = useState("Mon");
     const [open_time, setOpenTime] = useState("12:00AM");
     const [close_time, setCloseTime] = useState("12:00AM");
     const [displayTime, setDisplayTime] = useState([]);
-    const [imgUrl1, setImgUrl1] = useState("");
-    const [imgUrl2, setImgUrl2] = useState("");
-    const [imgUrl3, setImgUrl3] = useState("");
-    const [imgUrl4, setImgUrl4] = useState("");
-    const [imgUrl5, setImgUrl5] = useState("");
     const [errors, setErrors] = useState({});
-    const [validateErrors, setValidateErrors] = useState([]);
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -112,25 +111,16 @@ const CreateForm = () => {
             price: price
         }
 
-        const createdBiz = await dispatch(businessActions.createBusiness(business))
+        const updatedBiz = await dispatch(businessActions.updateBusiness(business, businessId))
 
-        console.log("createdBiz", createdBiz)
-        // console.log(createdBiz.errors)
-        if (createdBiz.errors) setErrors(createdBiz.errors)
+        // console.log(createdBiz)
+
+        if (updatedBiz.errors) setErrors(updatedBiz.errors)
         else {
-            const imageArr = [imgUrl1, imgUrl2, imgUrl3, imgUrl4, imgUrl5]
-
-            imageArr.forEach(async (imageUrl, i) => {
-                let preview = false;
-                if (i === 0) {
-                    preview = true
-                };
-                const imageData = { url: imageUrl, preview: preview }
-                await dispatch(businessActions.createBusinessImages(imageData, createdBiz.id))
-            })
-
             await dispatch(businessActions.cleanUpBusinessesAction())
-            history.push(`/biz/${createdBiz?.id}`)
+            console.log("updatedBiz", updatedBiz, updatedBiz.id)
+            // history.push(`/biz/1`)
+            history.push(`/biz/${updatedBiz?.id}`)
         }
     }
 
@@ -160,30 +150,27 @@ const CreateForm = () => {
 
     // console.log("open", open_time, "op", operating_time, "displayTime", displayTime)
 
+    useEffect(() => {
+        dispatch(businessActions.getCurrBusiness(businessId))
+    }, [dispatch]);
+
     if (!user) {
         return <Redirect to='/login' />;
     }
 
-    // useEffect(() => {
-    //     const isNum = (val) => {
-    //         if (/^\d+$/.test(val)) return true
-    //         else return false;
-    //     }
-
-    //     let validate_error = []
-
-    //     if ()
-    // })
+    if (!currBiz) {
+        return null
+    }
 
     return (
         <div className="create-biz-page">
             <div className="create-biz-left">
                 <div className="create-biz-container-body">
                     <div className="create-biz-container-title">
-                        Add Your Business
+                        Update Business Details
                     </div>
                     <div className="create-biz-container-des">
-                        Add information about your busness below. Your business page will not appear in search results until this information has been verified and approved by our moderators.
+                        Any suggested changes to a business page must first be verified by Yelp’s moderators.
                     </div>
                     <form onSubmit={handleSubmit} className="create-biz-form-box">
                         <div className='create-biz-inputs'>
@@ -243,7 +230,7 @@ const CreateForm = () => {
                             <div className="create-biz-input-cards">
                                 ZIP
                                 <input
-                                    type="number"
+                                    type="text"
                                     value={postal_code}
                                     onChange={(e) => setPostalCode(e.target.value)}
                                     // required
@@ -261,8 +248,6 @@ const CreateForm = () => {
                                     onChange={(e) => setLat(e.target.value)}
                                     // required
                                     placeholder="40.7580 (Optional)"
-                                    min="-90"
-                                    max="90"
                                     className="create-biz-input-fields"
                                 />
                                 <div>{errors.lat}</div>
@@ -276,8 +261,7 @@ const CreateForm = () => {
                                     onChange={(e) => setLng(e.target.value)}
                                     // required
                                     placeholder="73.9855 (Optional)"
-                                    min="-180"
-                                    max="180"
+                                    // min="1"
                                     className="create-biz-input-fields"
                                 />
                                 <div>{errors.lng}</div>
@@ -380,55 +364,12 @@ const CreateForm = () => {
                                 </select>
                                 <div>{errors.price}</div>
                             </div>
-                            <div className="create-biz-url-cards">
-                                Biz Images
-                                <input
-                                    type="text"
-                                    value={imgUrl1}
-                                    onChange={(e) => setImgUrl1(e.target.value)}
-                                    // required
-                                    placeholder="Photo URL"
-                                    className="create-biz-input-fields"
-                                />
-                                <input
-                                    type="text"
-                                    value={imgUrl2}
-                                    onChange={(e) => setImgUrl2(e.target.value)}
-                                    // required
-                                    placeholder="Photo URL"
-                                    className="create-biz-input-fields"
-                                />
-                                <input
-                                    type="text"
-                                    value={imgUrl3}
-                                    onChange={(e) => setImgUrl3(e.target.value)}
-                                    // required
-                                    placeholder="Photo URL"
-                                    className="create-biz-input-fields"
-                                />
-                                <input
-                                    type="text"
-                                    value={imgUrl4}
-                                    onChange={(e) => setImgUrl4(e.target.value)}
-                                    // required
-                                    placeholder="Photo URL"
-                                    className="create-biz-input-fields"
-                                />
-                                <input
-                                    type="text"
-                                    value={imgUrl5}
-                                    onChange={(e) => setImgUrl5(e.target.value)}
-                                    // required
-                                    placeholder="Photo URL"
-                                    className="create-biz-input-fields"
-                                />
-                            </div>
                         </div>
                         <div className="agreement">
                             By continuing, you agree to Yep's Business Terms and acknowledge our Privacy Policy.
                         </div>
                         <div className="create-biz-button-div">
-                            <button type="submit" className="create-biz-submit-button">Add Business</button>
+                            <button type="submit" className="create-biz-submit-button">Submit Changes</button>
                         </div>
                     </form>
                 </div>
@@ -440,4 +381,4 @@ const CreateForm = () => {
     );
 }
 
-export default CreateForm;
+export default EditForm;

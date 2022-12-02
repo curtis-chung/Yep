@@ -10,6 +10,7 @@ import userLogo from "./amazon-customer-icon.jpg"
 function Business() {
     const dispatch = useDispatch();
     const { bizId } = useParams();
+    const history = useHistory();
 
     // console.log("bizId", bizId)
 
@@ -22,6 +23,14 @@ function Business() {
     const businessById = useSelector((state) => {
         return state?.business?.businessById
     })
+
+    const currSessionUser = useSelector(state => state?.session?.user?.id)
+    console.log("currSessionUser", currSessionUser, businessById?.user_id)
+
+    let isSpotOwner = false;
+    if (currSessionUser === businessById.user_id) {
+        isSpotOwner = true
+    }
 
     const currBizImages = useSelector((state) => {
         return state?.business?.businessById?.prev_image
@@ -54,6 +63,16 @@ function Business() {
     })
 
     // console.log("currBizReviews", currBizReviews)
+
+    const handleDelete = async (e) => {
+        e.preventDefault();
+
+        await dispatch(businessActions.deleteBusiness(parseInt(bizId)))
+        console.log("a")
+        await dispatch(businessActions.getAllBusinesses())
+        console.log("b")
+        history.push("/")
+    }
 
     // Styles for JSX
     const myStyle = {
@@ -138,6 +157,14 @@ function Business() {
                                 &nbsp;
                                 &nbsp;
                                 {businessById.business_type}
+                                &nbsp;
+                                &nbsp;
+                                &nbsp;
+                                <NavLink to={`/biz/${bizId}/edit`} className="edit-button">Edit</NavLink>
+                                &nbsp;
+                                {(isSpotOwner && (
+                                    <button className="edit-button" onClick={handleDelete}>Delete</button>
+                                ))}
                             </div>
                             <div className="biz-image-info-4">
                                 {businessById.operating_time}
@@ -179,6 +206,7 @@ function Business() {
                         </div> */}
                     </div>
                     <div className='biz-review-container'>
+                        <div className='biz-review-title'>Recommended Reviews</div>
                         {currBizReviews.map(review => {
                             const reviewDate = new Date(review.created_at).toLocaleDateString();
                             const imgArr = Object.values(review.reviewImages).slice(0, 4)

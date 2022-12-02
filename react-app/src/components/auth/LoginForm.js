@@ -52,9 +52,9 @@ const LoginForm = () => {
             <div className="sign-in-text" style={{ fontSize: "12px", height: "36px", textAlign: "center" }}>By logging in, you agree to Yep's Terms of Service and Privacy Policy.</div>
           </div>
 
-          <form onSubmit={onLogin}>
-            <button type="submit" onClick={loginDemoUser} className="sign-in-button demo-button">Continue as Demo User</button>
+          <button onClick={loginDemoUser} className="sign-in-button demo-button">Continue as Demo User</button>
 
+          <form onSubmit={onLogin}>
             <div className='login-separator'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;OR&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
 
             <input

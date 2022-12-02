@@ -28,6 +28,9 @@ export const createReview = (review, bizId) => async (dispatch) => {
     if (response.ok) {
         const newReview = await response.json()
         return newReview
+    } else if (response.status < 500) {
+        const newReview = await response.json()
+        if (newReview.errors) return newReview
     }
 }
 

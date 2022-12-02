@@ -15,6 +15,7 @@ import Splash from './components/Splash';
 import Business from './components/Business';
 import CreateForm from './components/CreateForm.js';
 import ReviewForm from './components/ReviewForm.js';
+import EditForm from './components/EditBusiness';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -68,6 +69,10 @@ function App() {
         <Route path='/biz/:bizId/writeareview' exact={true}>
           <TopRedNav />
           <ReviewForm />
+        </Route>
+        <Route path='/biz/:businessId/edit' exact={true}>
+          <TopRedNav />
+          <EditForm />
         </Route>
       </Switch>
     </BrowserRouter>

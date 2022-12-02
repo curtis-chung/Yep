@@ -1,9 +1,9 @@
 from app.models import db, environment, SCHEMA
 """create packages table
 
-Revision ID: 4d9f41a54202
+Revision ID: 84d0580ea3b3
 Revises:
-Create Date: 2022-12-01 03:10:40.314258
+Create Date: 2022-12-02 04:35:33.325747
 
 """
 from alembic import op
@@ -11,7 +11,7 @@ import sqlalchemy as sa
 
 
 # revision identifiers, used by Alembic.
-revision = '4d9f41a54202'
+revision = '84d0580ea3b3'
 down_revision = None
 branch_labels = None
 depends_on = None
@@ -51,11 +51,7 @@ def upgrade():
     sa.Column('created_at', sa.DateTime(), nullable=False),
     sa.Column('updated_at', sa.DateTime(), nullable=False),
     sa.ForeignKeyConstraint(['user_id'], ['users.id'], ),
-    sa.PrimaryKeyConstraint('id'),
-    sa.UniqueConstraint('business_name'),
-    sa.UniqueConstraint('menu_web_address'),
-    sa.UniqueConstraint('phone_number'),
-    sa.UniqueConstraint('web_address')
+    sa.PrimaryKeyConstraint('id')
     )
     if environment == "production":
         op.execute(f"ALTER TABLE businesses SET SCHEMA {SCHEMA};")

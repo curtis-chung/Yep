@@ -4,17 +4,17 @@ from wtforms.validators import DataRequired, Email, ValidationError, Length, Num
 from app.models import Business
 
 
-def business_exists(form, field):
-    # Checking if business exists
-    name = field.data
-    business = Business.query.filter(Business.business_name == name).first()
-    if business:
-        raise ValidationError('Business already exist.')
+# def business_exists(form, field):
+#     # Checking if business exists
+#     name = field.data
+#     business = Business.query.filter(Business.business_name == name).first()
+#     if business:
+#         raise ValidationError('Business already exist.')
 
 
 class BusinessForm(FlaskForm):
     business_name = StringField(
-        "business_name", validators=[DataRequired(), Length(min=1, max=100, message='Business name must be between 1 and 100 characters.'), business_exists])
+        "business_name", validators=[DataRequired(), Length(min=1, max=100, message='Business name must be between 1 and 100 characters.')])
     address = StringField("address", validators=[DataRequired()])
     city = StringField('city', validators=[DataRequired()])
     state = StringField('state', validators=[DataRequired(), Length(min=2, max=2, message='State must be 2 alphabetical letters.')])

@@ -37,7 +37,7 @@ export const cleanUpBusinessesAction = () => {
 }
 
 export const createBusiness = (business) => async () => {
-    // console.log("buy", transaction)
+    console.log("buy", business)
     const response = await fetch(`/api/biz`, {
         method: "POST",
         headers: {
@@ -45,12 +45,15 @@ export const createBusiness = (business) => async () => {
         },
         body: JSON.stringify(business)
     })
+    console.log(response)
 
     if (response.ok) {
         const data = await response.json()
+        console.log("if", data)
         return data
     } else if (response.status < 500) {
         const data = await response.json()
+        console.log("elseif", data)
         if (data.errors) return data
     }
 }
@@ -74,8 +77,9 @@ export const getAllOfMyBusinesses = () => async (dispatch) => {
     }
 }
 
-export const getCurrBusiness = (id) => async (dispatch) => {
-    const response = await fetch(`/api/biz/${id}`)
+export const getCurrBusiness = (bizId) => async (dispatch) => {
+    console.log("thunkget", bizId)
+    const response = await fetch(`/api/biz/${bizId}`)
 
     if (response.ok) {
         const currBusiness = await response.json()
@@ -84,23 +88,32 @@ export const getCurrBusiness = (id) => async (dispatch) => {
 }
 
 export const updateBusiness = (business, businessId) => async (dispatch) => {
-    const response = await fetch(`/api/biz/${businessId}`, {
+    // console.log("AAA", business, businessId)
+    // console.log("CCC", typeof businessId)
+    const response = await fetch(`/api/biz/${parseInt(businessId)}`, {
         method: "PUT",
         headers: {
             'Content-Type': 'application/json'
         },
         body: JSON.stringify(business)
     })
+    // console.log("res", response)
 
     if (response.ok) {
         const updatedBusiness = await response.json()
         dispatch(updateBusinessAction(updatedBusiness))
+        // console.log("iffy", response)
         return updatedBusiness
+    } else if (response.status < 500) {
+        const updatedBusiness = await response.json()
+        if (updatedBusiness.errors) {
+            return updatedBusiness
+        }
     }
 }
 
-export const deleteBusiness = (businessId) => async (dispatch) => {
-    const response = await fetch(`/api/biz/${businessId}`, {
+export const deleteBusiness = (bizId) => async (dispatch) => {
+    const response = await fetch(`/api/biz/${bizId}`, {
         method: "DELETE"
     })
 
@@ -163,7 +176,7 @@ const business = (state = initialState, action) => {
             return newState
 
         case UPDATE_BUSINESS:
-            newState.businessById[action.business.id] = action.business
+            newState.businessById[action.payload.id] = action.payload
             return newState
 
         case GET_ALL_BUSINESS_IMAGES:
