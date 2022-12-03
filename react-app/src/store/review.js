@@ -21,11 +21,11 @@ const updateReviewAction = (payload) => ({
     payload
 })
 
-export const cleanUpCurrReviews = () => {
-    return {
-        type: CLEAN_UP_CURR_REVIEWS
-    }
-}
+// export const cleanUpCurrReviews = () => {
+//     return {
+//         type: CLEAN_UP_CURR_REVIEWS
+//     }
+// }
 
 export const cleanUpReviews = () => {
     return {
@@ -80,7 +80,7 @@ export const updateReview = (review, reviewId) => async (dispatch) => {
 
 export const getCurrentBizReviews = (bizId) => async (dispatch) => {
 
-    const response = await fetch(`/api/biz/${bizId}/reviews`)
+    const response = await fetch(`/api/biz/${bizId}/reviews/currBiz`)
 
     if (response.ok) {
         const reviews = await response.json()
@@ -137,11 +137,12 @@ const review = (state = initialState, action) => {
 
         case CLEAN_UP_REVIEWS:
             newState.currentBizReviews = {}
-            return newState
-
-        case CLEAN_UP_CURR_REVIEWS:
             newState.reviewById = {}
             return newState
+
+        // case CLEAN_UP_CURR_REVIEWS:
+        //     newState.reviewById = {}
+        //     return newState
 
         default:
             return state

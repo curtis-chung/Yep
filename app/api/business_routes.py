@@ -183,7 +183,7 @@ def create_new_review(id):
 """
 Query for all reviews for current biz and returns them in a dictionary
 """
-@business_routes.route('/<int:id>/reviews')
+@business_routes.route('/<int:id>/reviews/currBiz')
 def curr_biz_reviews(id):
     reviews = Review.query.filter_by(
         business_id = id

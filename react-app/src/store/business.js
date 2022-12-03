@@ -30,7 +30,7 @@ const getAllBusinessImagesAction = (payload) => ({
     payload
 });
 
-export const cleanUpBusinessesAction = () => {
+export const cleanUpBusinesses = () => {
     return {
         type: CLEAN_UP_BUSINESSES
     }

@@ -117,7 +117,7 @@ const EditForm = () => {
 
         if (updatedBiz.errors) setErrors(updatedBiz.errors)
         else {
-            await dispatch(businessActions.cleanUpBusinessesAction())
+            await dispatch(businessActions.cleanUpBusinesses())
             // console.log("updatedBiz", updatedBiz, updatedBiz.id)
             // history.push(`/biz/1`)
             history.push(`/biz/${updatedBiz?.id}`)

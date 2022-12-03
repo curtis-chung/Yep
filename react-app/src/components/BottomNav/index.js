@@ -1,70 +1,136 @@
 import React from 'react';
 import './BottomNav.css';
 import burst from "./burst_red.png";
+import linkedInLogo from './linkedinLogo.png';
+import gitHubLogo from './gitLogo.png';
 
 function BottomNav() {
 
     return (
+        // <div className='bottom-nav'>
+        //     <div className='bottom-nav-inner'>
+        //         <div className='bottom-inner-links'>
+        //             <div className='bottom-text-box'>
+        //                 <span className='bottom-link-titles' style={{ color: 'black', marginBottom: '6px' }}>About</span>
+        //                 <div className='bottom-link-list'>
+        //                     <span className='hover-underline'>About Yep</span>
+        //                     <span className='hover-underline'>Careers</span>
+        //                     <span className='hover-underline'>Press</span>
+        //                     <span className='hover-underline'>Investor Relations</span>
+        //                     <span className='hover-underline'>Trust & Safety</span>
+        //                     <span className='hover-underline'>Content Guidelines</span>
+        //                     <span className='hover-underline'>Accessibility Statement</span>
+        //                     <span className='hover-underline'>Terms of Service</span>
+        //                     <span className='hover-underline'>Privacy Policy</span>
+        //                     <span className='hover-underline'>Ad Choices</span>
+        //                     <span className='hover-underline'>Manage Cookies</span>
+        //                 </div>
+        //             </div>
+        //             <div className='bottom-text-box'>
+        //                 <span className='bottom-link-titles' style={{ color: 'black', marginBottom: '6px' }}>Discover</span>
+        //                 <div className='bottom-link-list'>
+        //                     <span className='hover-underline'>Yep Project Cost Guides</span>
+        //                     <span className='hover-underline'>Collections</span>
+        //                     <span className='hover-underline'>Talk</span>
+        //                     <span className='hover-underline'>Events</span>
+        //                     <span className='hover-underline'>Yep Blog</span>
+        //                     <span className='hover-underline'>Support</span>
+        //                     <span className='hover-underline'>Yep Mobile</span>
+        //                     <span className='hover-underline'>Developers</span>
+        //                     <span className='hover-underline'>RSS</span>
+        //                 </div>
+        //             </div>
+        //             <div className='bottom-text-box'>
+        //                 <span className='bottom-link-titles' style={{ color: 'black', marginBottom: '6px' }}>Yep for Business</span>
+        //                 <div className='bottom-link-list'>
+        //                     <span className='hover-underline'>Claim your Business Page</span>
+        //                     <span className='hover-underline'>Advertise on Yep</span>
+        //                     <span className='hover-underline'>Yep for Restaurant Owners</span>
+        //                     <span className='hover-underline'>Table Management</span>
+        //                     <span className='hover-underline'>Business Success Stories</span>
+        //                     <span className='hover-underline'>Business Support</span>
+        //                     <span className='hover-underline'>Yep Blog for Business</span>
+        //                 </div>
+        //             </div>
+        //             <div className='last-bottom-text-box'>
+        //                 <span className='bottom-link-titles' style={{ color: 'black', marginBottom: '6px' }}>Language</span>
+        //                 <div className='last-bottom-link-list'>
+        //                     <span>English</span>
+        //                 </div>
+        //                 <span className='bottom-link-titles' style={{ color: 'black', marginBottom: '6px' }}>Country</span>
+        //                 <div className='last-bottom-link-list'>
+        //                     <span>United States</span>
+        //                 </div>
+        //             </div>
+        //         </div>
+        //         <div className='bottom-div'>
+        //             <div className='bottom-copyright'>
+        //                 <span className='bottom-copyright-list'>Copyright © 2022 Yep Inc. &nbsp; <img className="bottom-nav-img" src={burst} alt="yep logo" /> &nbsp; and related marks are registered trademarks of Yep.</span>
+        //             </div>
+        //         </div>
+        //     </div>
+        // </div>
         <div className='bottom-nav'>
             <div className='bottom-nav-inner'>
                 <div className='bottom-inner-links'>
                     <div className='bottom-text-box'>
-                        <span className='bottom-link-titles' style={{ color: 'black', marginBottom: '6px' }}>About</span>
-                        <div className='bottom-link-list'>
-                            <span className='hover-underline'>About Yep</span>
-                            <span className='hover-underline'>Careers</span>
-                            <span className='hover-underline'>Press</span>
-                            <span className='hover-underline'>Investor Relations</span>
-                            <span className='hover-underline'>Trust & Safety</span>
-                            <span className='hover-underline'>Content Guidelines</span>
-                            <span className='hover-underline'>Accessibility Statement</span>
-                            <span className='hover-underline'>Terms of Service</span>
-                            <span className='hover-underline'>Privacy Policy</span>
-                            <span className='hover-underline'>Ad Choices</span>
-                            <span className='hover-underline'>Manage Cookies</span>
+                        <div>
+                            <span className='bottom-link-titles'>Company</span>
+                            <div className='bottom-link-list'>
+                                <a target='_blank' href='https://www.appacademy.io' className='hover-underline'>App Academy</a>
+                            </div>
                         </div>
                     </div>
                     <div className='bottom-text-box'>
-                        <span className='bottom-link-titles' style={{ color: 'black', marginBottom: '6px' }}>Discover</span>
-                        <div className='bottom-link-list'>
-                            <span className='hover-underline'>Yep Project Cost Guides</span>
-                            <span className='hover-underline'>Collections</span>
-                            <span className='hover-underline'>Talk</span>
-                            <span className='hover-underline'>Events</span>
-                            <span className='hover-underline'>Yep Blog</span>
-                            <span className='hover-underline'>Support</span>
-                            <span className='hover-underline'>Yep Mobile</span>
-                            <span className='hover-underline'>Developers</span>
-                            <span className='hover-underline'>RSS</span>
+                        <div>
+                            <span className='bottom-link-titles'>Developer</span>
+                            <div className='bottom-link-list'>
+                                <span>
+                                    <a target='_blank' href='https://www.linkedin.com/in/chungcurtis/'>
+                                        <img
+                                            className='linked'
+                                            src={linkedInLogo}
+                                            alt='linkedInLogo'
+                                        />
+                                    </a>
+                                    <a target='_blank' href='https://github.com/curtis-chung'>
+                                        <img
+                                            className='git'
+                                            src={gitHubLogo}
+                                            alt='linkedInLogo'
+                                        />
+                                    </a>
+                                    Curtis Chung</span>
+                            </div>
                         </div>
                     </div>
                     <div className='bottom-text-box'>
-                        <span className='bottom-link-titles' style={{ color: 'black', marginBottom: '6px' }}>Yep for Business</span>
-                        <div className='bottom-link-list'>
-                            <span className='hover-underline'>Claim your Business Page</span>
-                            <span className='hover-underline'>Advertise on Yep</span>
-                            <span className='hover-underline'>Yep for Restaurant Owners</span>
-                            <span className='hover-underline'>Table Management</span>
-                            <span className='hover-underline'>Business Success Stories</span>
-                            <span className='hover-underline'>Business Support</span>
-                            <span className='hover-underline'>Yep Blog for Business</span>
+                        <div>
+                            <span className='bottom-link-titles'>Features</span>
+                            <div className='bottom-link-list'>
+                                <span>Business</span>
+                                <span>Reviews</span>
+                            </div>
                         </div>
                     </div>
                     <div className='last-bottom-text-box'>
-                        <span className='bottom-link-titles' style={{ color: 'black', marginBottom: '6px' }}>Language</span>
+                        <span className='bottom-link-titles'>Language</span>
                         <div className='last-bottom-link-list'>
                             <span>English</span>
                         </div>
-                        <span className='bottom-link-titles' style={{ color: 'black', marginBottom: '6px' }}>Country</span>
+                        <span className='bottom-link-titles'>Country</span>
                         <div className='last-bottom-link-list'>
                             <span>United States</span>
                         </div>
                     </div>
                 </div>
-                <div className='bottom-div'>
-                    <div className='bottom-copyright'>
-                        <span className='bottom-copyright-list'>Copyright © 2022 Yep Inc. &nbsp; <img className="bottom-nav-img" src={burst} alt="yep logo" /> &nbsp; and related marks are registered trademarks of Yep.</span>
-                    </div>
+                {/* <div className='bottom-copyright'>
+                    <span className='bottom-link-list'
+                        style={{ flexDirection: 'row', alignSelf: 'flex-end' }}
+                    >© 2022 Ravenhood. All rights reserved.</span>
+                </div> */}
+                <div className='bottom-copyright'>
+                    <span className='bottom-copyright-list'>Copyright © 2022 Yep Inc. &nbsp; <img className="bottom-nav-img" src={burst} alt="yep logo" /> &nbsp; and related marks are registered trademarks of Yep.</span>
                 </div>
             </div>
         </div>

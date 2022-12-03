@@ -57,11 +57,6 @@ function App() {
           <Business />
           <BottomNav />
         </Route>
-        <Route path='/' exact={true} >
-          <SplashNavBar />
-          <Splash />
-          <BottomNav />
-        </Route>
         <Route path='/signup_biz/new' exact={true}>
           <TopRedNav />
           <CreateForm />
@@ -78,6 +73,11 @@ function App() {
         <Route path='/reviews/:reviewId/edit' exact={true}>
           <TopRedNav />
           <EditReviewForm />
+        </Route>
+        <Route path='/' exact={true} >
+          <SplashNavBar />
+          <Splash />
+          <BottomNav />
         </Route>
       </Switch>
     </BrowserRouter>

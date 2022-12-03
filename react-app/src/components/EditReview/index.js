@@ -16,8 +16,8 @@ const EditReviewForm = () => {
 
     // console.log(reviewById)
 
-    const [review_content, setReviewContent] = useState(reviewById?.review_content);
-    const [stars, setStars] = useState(reviewById?.stars);
+    const [review_content, setReviewContent] = useState("");
+    const [stars, setStars] = useState("");
     const [errors, setErrors] = useState({});
     // console.log(review_content)
 
@@ -38,8 +38,8 @@ const EditReviewForm = () => {
 
         if (createdReview.errors) setErrors(createdReview.errors)
         else {
-            await dispatch(reviewActions.cleanUpCurrReviews())
             // console.log(reviewById)
+            await dispatch(reviewActions.getCurrentBizReviews(createdReview.business_id))
             history.push(`/biz/${createdReview.business_id}`)
         }
     }
@@ -47,7 +47,15 @@ const EditReviewForm = () => {
     useEffect(() => {
         dispatch(reviewActions.getCurrReview(reviewId))
         // console.log("dispatched")
+        return () => {
+            dispatch(reviewActions.cleanUpReviews()); dispatch(businessActions.cleanUpBusinesses())
+        }
     }, [dispatch]);
+
+    useEffect(() => {
+        setReviewContent(reviewById.review_content)
+        setStars(reviewById.stars)
+    }, [reviewById])
 
     if (!reviewById) {
         return null
@@ -62,15 +70,15 @@ const EditReviewForm = () => {
                 <form onSubmit={handleSubmit} className="create-review-form-box">
                     <div className='create-review-inputs'>
                         <div class="rate">
-                            <input type="radio" id="star5" name="rate" value={5} onChange={(e) => setStars(e.target.value)} />
+                            <input type="radio" checked={stars == 5} id="star5" name="rate" value={5} onChange={(e) => setStars(e.target.value)} />
                             <label for="star5" title="text">5 stars</label>
-                            <input type="radio" id="star4" name="rate" value={4} onChange={(e) => setStars(e.target.value)} />
+                            <input type="radio" checked={stars == 4} id="star4" name="rate" value={4} onChange={(e) => setStars(e.target.value)} />
                             <label for="star4" title="text">4 stars</label>
-                            <input type="radio" id="star3" name="rate" value={3} onChange={(e) => setStars(e.target.value)} />
+                            <input type="radio" checked={stars == 3} id="star3" name="rate" value={3} onChange={(e) => setStars(e.target.value)} />
                             <label for="star3" title="text">3 stars</label>
-                            <input type="radio" id="star2" name="rate" value={2} onChange={(e) => setStars(e.target.value)} />
+                            <input type="radio" checked={stars == 2} id="star2" name="rate" value={2} onChange={(e) => setStars(e.target.value)} />
                             <label for="star2" title="text">2 stars</label>
-                            <input type="radio" id="star1" name="rate" value={1} onChange={(e) => setStars(e.target.value)} />
+                            <input type="radio" checked={stars == 1} id="star1" name="rate" value={1} onChange={(e) => setStars(e.target.value)} />
                             <label for="star1" title="text">1 star</label>
                         </div>
                         <div className="create-review-input-cards ">

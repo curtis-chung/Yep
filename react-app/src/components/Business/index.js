@@ -94,7 +94,7 @@ function Business() {
         dispatch(reviewActions.getCurrentBizReviews(bizId))
     }, [dispatch]);
 
-    if (!businessImagesArray || !businessById || !currBizReviews) {
+    if (!businessImagesArray || !businessById) {
         return null
     }
 
@@ -197,9 +197,12 @@ function Business() {
                     </div>
                     <div className='biz-review-container'>
                         <div className='biz-review-title'>Recommended Reviews</div>
-                        {currBizReviews.map(review => {
+                        {currBizReviews.length > 0 && currBizReviews.map(review => {
+                            console.log("currBizReviews", currBizReviews)
                             const reviewDate = new Date(review.created_at).toLocaleDateString();
+                            console.log("review.reviewImages", review.reviewImages)
                             const imgArr = Object.values(review.reviewImages).slice(0, 4)
+                            console.log("imgArr", imgArr)
                             return (
                                 <div className="biz-review-card">
                                     <div className='biz-review-author'>
@@ -246,7 +249,7 @@ function Business() {
                     <div className="biz-contact-info">
                         <div className='biz-contact-div'>
                             <div className="biz-contact biz-contact-website">
-                                <a href={businessById.web_address} className="biz-contact-website-anchor">
+                                <a href={getValidUrl(businessById.web_address)} target="_blank" rel="noopener noreferrer" className="biz-contact-website-anchor">
                                     {businessById.web_address}
                                 </a>
                             </div>
@@ -281,3 +284,20 @@ function Business() {
 }
 
 export default Business;
+
+
+
+// this function is used to convert url to clickable https links
+export const getValidUrl = (url = "") => {
+    let newUrl = window.decodeURIComponent(url);
+    newUrl = newUrl.trim().replace(/\s/g, "");
+
+    if (/^(:\/\/)/.test(newUrl)) {
+        return `http${newUrl}`;
+    }
+    if (!/^(f|ht)tps?:\/\//i.test(newUrl)) {
+        return `http://${newUrl}`;
+    }
+
+    return newUrl;
+};

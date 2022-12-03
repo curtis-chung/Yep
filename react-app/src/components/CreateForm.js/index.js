@@ -66,8 +66,8 @@ const CreateForm = () => {
     const [city, setCity] = useState("");
     const [state, setState] = useState("");
     const [postal_code, setPostalCode] = useState("");
-    const [lat, setLat] = useState("");
-    const [lng, setLng] = useState("");
+    const [lat, setLat] = useState();
+    const [lng, setLng] = useState();
     const [phone_number, setPhoneNumber] = useState("");
     const [web_address, setWebAddress] = useState("");
     const [menu_web_address, setMenuWebAddress] = useState("");
@@ -125,11 +125,15 @@ const CreateForm = () => {
                 if (i === 0) {
                     preview = true
                 };
+                if (imageUrl === "") {
+                    imageUrl = "https://www.electricmirror.com/wp-content/uploads/2022/05/image-coming-soon.jpg"
+                }
+
                 const imageData = { url: imageUrl, preview: preview }
                 await dispatch(businessActions.createBusinessImages(imageData, createdBiz.id))
             })
 
-            await dispatch(businessActions.cleanUpBusinessesAction())
+            await dispatch(businessActions.cleanUpBusinesses())
             history.push(`/biz/${createdBiz?.id}`)
         }
     }
