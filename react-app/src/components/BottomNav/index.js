@@ -1,9 +1,6 @@
 import React from 'react';
-import { useState } from 'react';
-import { useHistory, NavLink } from 'react-router-dom';
 import './BottomNav.css';
 import burst from "./burst_red.png";
-import logo from "./logo_desktop.png";
 
 function BottomNav() {
 
@@ -66,7 +63,7 @@ function BottomNav() {
                 </div>
                 <div className='bottom-div'>
                     <div className='bottom-copyright'>
-                        <span className='bottom-copyright-list'>Copyright © 2022 Yep Inc. &nbsp; <img className="bottom-nav-img" src={burst} /> &nbsp; and related marks are registered trademarks of Yep.</span>
+                        <span className='bottom-copyright-list'>Copyright © 2022 Yep Inc. &nbsp; <img className="bottom-nav-img" src={burst} alt="yep logo" /> &nbsp; and related marks are registered trademarks of Yep.</span>
                     </div>
                 </div>
             </div>

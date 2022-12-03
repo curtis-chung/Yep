@@ -1,7 +1,7 @@
 import React from 'react';
-import { useState, useEffect } from 'react';
+import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useHistory, NavLink, Redirect, useParams } from 'react-router-dom';
+import { useHistory, NavLink, useParams } from 'react-router-dom';
 import * as businessActions from "../../store/business"
 import * as reviewActions from "../../store/review"
 import './Business.css';
@@ -26,7 +26,7 @@ function Business() {
     })
 
     const currSessionUser = useSelector(state => state?.session?.user?.id)
-    console.log("currSessionUser", currSessionUser, businessById?.user_id)
+    // console.log("currSessionUser", currSessionUser, businessById?.user_id)
 
     let isBizOwner = false;
     if (currSessionUser === businessById.user_id) {
@@ -76,20 +76,6 @@ function Business() {
     }
 
     // Styles for JSX
-    const myStyle = {
-        width: "100%",
-        height: "100%",
-        borderRadius: "4px"
-    }
-
-    const redStyle = {
-        color: "#d32323"
-    }
-
-    const grayStyle = {
-        color: "gray"
-    }
-
     const circleStyle = {
         fontSize: "4px",
         color: "white"

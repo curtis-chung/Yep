@@ -1,7 +1,4 @@
-import React, { useState } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
-import { Redirect, NavLink } from 'react-router-dom';
-import { login } from '../../store/session';
+import { NavLink } from 'react-router-dom';
 import YepLogo from "../yep-logo-white.png"
 import './TopRedNav.css';
 

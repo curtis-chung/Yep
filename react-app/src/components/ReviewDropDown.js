@@ -2,12 +2,11 @@ import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from 'react-redux';
 import * as reviewActions from '../store/review';
 import * as businessActions from "../store/business"
-import { NavLink, useHistory, useParams } from "react-router-dom";
+import { NavLink, useHistory } from "react-router-dom";
 import "./ReviewDropDown.css";
 
 function ReviewDropdown({ review, bizId }) {
     const dispatch = useDispatch();
-    const history = useHistory();
     const [showMenu, setShowMenu] = useState(false);
     const user = useSelector(state => state.session.user);
 

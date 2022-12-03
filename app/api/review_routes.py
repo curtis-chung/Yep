@@ -46,7 +46,7 @@ def my_reviews():
 """
 Edit an existing Review owned by current user
 """
-@review_routes.route('/<int:id>', methods=["PUT"])
+@review_routes.route('/<int:id>/edit', methods=["PUT"])
 @login_required
 def update_review(id):
     form = ReviewForm()

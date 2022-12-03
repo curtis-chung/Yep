@@ -106,7 +106,7 @@ const EditForm = () => {
             phone_number: phone_number,
             web_address: web_address,
             menu_web_address: menu_web_address,
-            operating_time: res_opHours,
+            operating_time: res_opHours.join(","),
             business_type: business_type,
             price: price
         }
@@ -118,7 +118,7 @@ const EditForm = () => {
         if (updatedBiz.errors) setErrors(updatedBiz.errors)
         else {
             await dispatch(businessActions.cleanUpBusinessesAction())
-            console.log("updatedBiz", updatedBiz, updatedBiz.id)
+            // console.log("updatedBiz", updatedBiz, updatedBiz.id)
             // history.push(`/biz/1`)
             history.push(`/biz/${updatedBiz?.id}`)
         }

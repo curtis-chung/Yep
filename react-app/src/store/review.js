@@ -1,6 +1,8 @@
 // Actions
 const GET_CURRENT_BIZ_REVIEWS = "reviews/GET_CURRENT_BIZ_REVIEWS";
 const CLEAN_UP_REVIEWS = "reviews/CLEAN_UP_REVIEWS";
+const CLEAN_UP_CURR_REVIEWS = "reviews/CLEAN_UP_CURR_REVIEWS";
+const GET_CURR_REVIEW = "reviews/GET_CURR_REVIEWS"
 const UPDATE_REVIEW = "review/UPDATE_REVIEW"
 
 // Action Creators
@@ -9,10 +11,21 @@ const getCurrentBizReviewAction = (payload) => ({
     payload
 })
 
+const getCurrReviewAction = (payload) => ({
+    type: GET_CURR_REVIEW,
+    payload
+})
+
 const updateReviewAction = (payload) => ({
     type: UPDATE_REVIEW,
     payload
 })
+
+export const cleanUpCurrReviews = () => {
+    return {
+        type: CLEAN_UP_CURR_REVIEWS
+    }
+}
 
 export const cleanUpReviews = () => {
     return {
@@ -43,7 +56,7 @@ export const createReview = (review, bizId) => async (dispatch) => {
 export const updateReview = (review, reviewId) => async (dispatch) => {
     // console.log("AAA", business, businessId)
     // console.log("CCC", typeof businessId)
-    const response = await fetch(`/api/biz/${parseInt(reviewId)}`, {
+    const response = await fetch(`/api/reviews/${parseInt(reviewId)}/edit`, {
         method: "PUT",
         headers: {
             'Content-Type': 'application/json'
@@ -71,8 +84,17 @@ export const getCurrentBizReviews = (bizId) => async (dispatch) => {
 
     if (response.ok) {
         const reviews = await response.json()
-        console.log("thunk", reviews)
+        // console.log("thunk", reviews)
         dispatch(getCurrentBizReviewAction(reviews))
+    }
+}
+
+export const getCurrReview = (reviewId) => async (dispatch) => {
+    const response = await fetch(`/api/reviews/${reviewId}`)
+
+    if (response.ok) {
+        const currReview = await response.json()
+        dispatch(getCurrReviewAction(currReview))
     }
 }
 
@@ -86,7 +108,8 @@ export const deleteReview = (reviewId) => async (dispatch) => {
 
 // Initial state for store
 const initialState = {
-    currentBizReviews: {}
+    currentBizReviews: {},
+    reviewById: {}
 }
 
 // Reducers
@@ -104,12 +127,20 @@ const review = (state = initialState, action) => {
             newState.currentBizReviews = currBizReviews
             return newState
 
+        case GET_CURR_REVIEW:
+            newState.reviewById = action.payload
+            return newState
+
         case UPDATE_REVIEW:
             newState.currentBizReviews[action.payload.id] = action.payload
             return newState
 
         case CLEAN_UP_REVIEWS:
             newState.currentBizReviews = {}
+            return newState
+
+        case CLEAN_UP_CURR_REVIEWS:
+            newState.reviewById = {}
             return newState
 
         default:

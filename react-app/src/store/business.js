@@ -37,7 +37,7 @@ export const cleanUpBusinessesAction = () => {
 }
 
 export const createBusiness = (business) => async () => {
-    console.log("buy", business)
+    console.log("createBiz", business)
     const response = await fetch(`/api/biz`, {
         method: "POST",
         headers: {
@@ -45,15 +45,15 @@ export const createBusiness = (business) => async () => {
         },
         body: JSON.stringify(business)
     })
-    console.log(response)
+    // console.log(response)
 
     if (response.ok) {
         const data = await response.json()
-        console.log("if", data)
+        console.log("create if", data)
         return data
     } else if (response.status < 500) {
         const data = await response.json()
-        console.log("elseif", data)
+        // console.log("elseif", data)
         if (data.errors) return data
     }
 }
@@ -78,7 +78,7 @@ export const getAllOfMyBusinesses = () => async (dispatch) => {
 }
 
 export const getCurrBusiness = (bizId) => async (dispatch) => {
-    console.log("thunkget", bizId)
+    // console.log("thunkget", bizId)
     const response = await fetch(`/api/biz/${bizId}`)
 
     if (response.ok) {

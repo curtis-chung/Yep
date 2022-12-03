@@ -1,7 +1,7 @@
 import React from 'react';
-import { useState, useEffect } from 'react';
+import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useHistory, NavLink, Redirect, useParams } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import * as businessActions from "../../store/business"
 import './Splash.css';
 

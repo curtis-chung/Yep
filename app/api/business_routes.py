@@ -40,6 +40,8 @@ def create_new_business():
 
     if form.validate_on_submit():
         data = form.data
+        print("DATADATADATADATADATADATADATADATADATADATADATADATADATADATADATA", data)
+        print("OPTIMEOPTIMEOPTIMEOPTIMEOPTIMEOPTIMEOPTIMEOPTIMEOPTIMEOPTIME", data["operating_time"])
 
         new_business = Business(
             user_id = int(curr_user),
