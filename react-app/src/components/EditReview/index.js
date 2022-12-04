@@ -90,9 +90,10 @@ const EditReviewForm = () => {
                                 placeholder="Lorem ipsum dolor sit amet, at ferri doming semper eum, ut his nonumy putent vituperata, te hinc duis sadipscing usu. At persequeris necessitatibus mel, esse prima contentiones vel te, eum illum dicant torquatos id. Unum vide ullum in per. Pri errem constituto ut. No eum forensibus dissentiunt, vel te errem legere. Mei viris numquam maiorum id, detracto vulputate et vim, dico augue graecis at nec. Eam alia solum assentior ex. Ne soleat blandit sed, tation posidonium cum ex. Brute perpetua senserit eu vel. Sed rebum graeco aliquip id, assum nostrud detraxit has at. Sint partiendo abhorreant ius cu, no soluta graece gloriatur pro. Esse maiorum dignissim his id. Ea torquatos consetetur est, nec no summo splendide philosophia. Fabulas debitis minimum an nec, solum docendi per te. Vix at dicant persecuti conceptam, nemore ornatus signiferumque in usu, graece facete animal ex quo. Eu delenit inciderint usu, his ne dicat electram, eu has quem saperet. Et amet omittam per, vide oporteat ex pro, oporteat abhorreant complectitur eu qui. Mel ea latine iuvaret, et fuisset nostrum qui. Ea tincidunt intellegam consectetuer sea, ex pri veri singulis voluptatibus. Ex pro labores praesent, mea ei iudico nonumy nominavi. Accumsan salutandi pri ad, no omnis illud his. Solum tincidunt ex duo, ut eum probo ludus. Maiestatis assueverit his ut, purto docendi sapientem mea in, tempor tractatos per et. Vel ad enim labores deserunt. In maiorum volumus eum, ut est case lobortis scribentur."
                                 className="create-review-text-field"
                             />
-                            {/* <div>{errors.address}</div> */}
                         </div>
                     </div>
+                    <div className="error-messages">{errors.stars}</div>
+                    <div className="error-messages">{errors.review_content}</div>
                     <div className="create-review-button-div">
                         <button type="submit" className="create-review-submit-button">Post Review</button>
                     </div>

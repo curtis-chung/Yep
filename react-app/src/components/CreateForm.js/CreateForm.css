@@ -147,3 +147,9 @@ input::-webkit-inner-spin-button {
     -webkit-appearance: none;
     margin: 0;
 }
+
+.errors {
+    color: red;
+    font-size: 10px;
+    margin-bottom: 6px;
+}

@@ -115,3 +115,9 @@
 .create-review-text-field::-webkit-scrollbar {
     display: none;
 }
+
+.errors {
+    color: red;
+    font-size: 10px;
+    margin-bottom: 6px;
+}

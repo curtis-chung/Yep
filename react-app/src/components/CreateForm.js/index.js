@@ -202,7 +202,7 @@ const CreateForm = () => {
                                     placeholder="Biz Name"
                                     className="create-biz-input-fields"
                                 />
-                                <div>{errors.business_name}</div>
+                                <div className='errors'>{errors.business_name}</div>
                             </div>
                             <div className='line'></div>
                             <div className="create-biz-input-cards">
@@ -215,7 +215,7 @@ const CreateForm = () => {
                                     placeholder="123 Hire Me Pl."
                                     className="create-biz-input-fields"
                                 />
-                                <div>{errors.address}</div>
+                                <div className='errors'>{errors.address}</div>
                             </div>
                             <div className='line'></div>
                             <div className="create-biz-input-cards">
@@ -228,7 +228,7 @@ const CreateForm = () => {
                                     placeholder="New York"
                                     className="create-biz-input-fields"
                                 />
-                                <div>{errors.city}</div>
+                                <div className='errors'>{errors.city}</div>
                             </div>
                             <div className='line'></div>
                             <div className="create-biz-input-cards">
@@ -241,7 +241,7 @@ const CreateForm = () => {
                                     placeholder="NY"
                                     className="create-biz-input-fields"
                                 />
-                                <div>{errors.state}</div>
+                                <div className='errors'>{errors.state}</div>
                             </div>
                             <div className='line'></div>
                             <div className="create-biz-input-cards">
@@ -254,7 +254,7 @@ const CreateForm = () => {
                                     placeholder="10001"
                                     className="create-biz-input-fields"
                                 />
-                                <div>{errors.postal_code}</div>
+                                <div className='errors'>{errors.postal_code}</div>
                             </div>
                             <div className='line'></div>
                             <div className="create-biz-input-cards">
@@ -269,7 +269,7 @@ const CreateForm = () => {
                                     max="90"
                                     className="create-biz-input-fields"
                                 />
-                                <div>{errors.lat}</div>
+                                <div className='errors'>{errors.lat}</div>
                             </div>
                             <div className='line'></div>
                             <div className="create-biz-input-cards">
@@ -284,7 +284,7 @@ const CreateForm = () => {
                                     max="180"
                                     className="create-biz-input-fields"
                                 />
-                                <div>{errors.lng}</div>
+                                <div className='errors'>{errors.lng}</div>
                             </div>
                             <div className='line'></div>
                             <div className="create-biz-input-cards">

@@ -5,6 +5,7 @@
     display: flex;
     justify-content: center;
     padding: 0 40px;
+    min-height: 500px;
 }
 
 .biz-body-container-left {
@@ -141,6 +142,7 @@
     max-height: 425px;
     /* flex-grow: 1;
     object-fit: cover; */
+    z-index: -10;
 }
 
 .biz-image-blur {
@@ -274,6 +276,7 @@
     margin-top: 33px;
     min-width: 746px;
     max-width: 746px;
+    min-height: 200px;
 }
 
 .biz-review-description {
@@ -311,6 +314,21 @@
     width: 100vw;
 }
 
+.daily-hours {
+    /* border: 5px solid pink; */
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    min-width: 201px;
+    max-width: 201px;
+    min-height: 24px;
+    max-height: 24px;
+    font-size: 16px;
+    font-weight: 500;
+    padding: 0 0 8px 0;
+}
+
 .edit-button {
     text-decoration: none;
     color: white;
@@ -334,7 +352,7 @@
 }
 
 .stars {
-    margin-bottom: 12px;
+    margin-bottom: 20px;
     font-size: 14px;
 }
 

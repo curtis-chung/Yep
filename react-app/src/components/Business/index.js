@@ -13,8 +13,6 @@ function Business() {
     const { bizId } = useParams();
     const history = useHistory();
 
-    // console.log("bizId", bizId)
-
     const businessImagesArray = useSelector((state) => {
         let urlArray = Object.values(state?.business?.allBusinessImages)
         // console.log(urlArray)
@@ -24,6 +22,15 @@ function Business() {
     const businessById = useSelector((state) => {
         return state?.business?.businessById
     })
+    console.log(businessById)
+
+    let dateArr = []
+
+    if (Object.values(businessById).length) {
+        dateArr = businessById.operating_time.split(",")
+    }
+
+    console.log(dateArr)
 
     const currSessionUser = useSelector(state => state?.session?.user?.id)
     // console.log("currSessionUser", currSessionUser, businessById?.user_id)
@@ -87,6 +94,24 @@ function Business() {
         3: "$$$",
         4: "$$$$"
     }
+
+    const today = new Date()
+    const day = today.getDay()
+
+    const week = {
+        0: "Sun",
+        1: "Mon",
+        2: "Tue",
+        3: "Wed",
+        4: "Thu",
+        5: "Fri",
+        6: "Sat"
+    }
+
+    const dayOfTheWeek = week[day]
+    // console.log(dayOfTheWeek)
+
+    // console.log("bizId", bizId)
 
     useEffect(() => {
         dispatch(businessActions.getAllBusinessImages())
@@ -154,7 +179,13 @@ function Business() {
                                 ))}
                             </div>
                             <div className="biz-image-info-4">
-                                {businessById.operating_time}
+                                {dateArr.length > 0 && dateArr.map(date => {
+                                    console.log(date.split("-").includes(dayOfTheWeek))
+                                    {/* console.log(dayOfTheWeek) */ }
+                                    console.log("date", date)
+                                    if (date.includes(dayOfTheWeek) && date.split("-").length === 3) return <div className="daily-hours"><div>{date.split("-")[1]} - {date.split("-")[2]}</div></div>
+                                    if (date.includes(dayOfTheWeek) && date.split("-").length === 2) return <div className="daily-hours"><div>{date.split("-")[1]}</div></div>
+                                })}
                             </div>
                         </div>
                     </div>
@@ -196,13 +227,23 @@ function Business() {
                         </div> */}
                     </div>
                     <div className='biz-review-container'>
+                        <div className='biz-review-title'>Hours</div>
+                        {dateArr.length > 0 && dateArr.map(date => {
+                            if (date.split("-").length === 3) return <div className="daily-hours"><div>{date.split("-")[0]}</div><div>{date.split("-")[1]} - {date.split("-")[2]}</div></div>
+
+                            else if (date.split("-").length === 2) return <div className="daily-hours"><div>{date.split("-")[0]}</div><div>{date.split("-")[1]}</div><div></div></div>
+                        })}
+                        <div>
+                        </div>
+                    </div>
+                    <div className='biz-review-container'>
                         <div className='biz-review-title'>Recommended Reviews</div>
                         {currBizReviews.length > 0 && currBizReviews.map(review => {
-                            console.log("currBizReviews", currBizReviews)
+                            {/* console.log("currBizReviews", currBizReviews) */ }
                             const reviewDate = new Date(review.created_at).toLocaleDateString();
-                            console.log("review.reviewImages", review.reviewImages)
+                            {/* console.log("review.reviewImages", review.reviewImages) */ }
                             const imgArr = Object.values(review.reviewImages).slice(0, 4)
-                            console.log("imgArr", imgArr)
+                            {/* console.log("imgArr", imgArr) */ }
                             return (
                                 <div className="biz-review-card">
                                     <div className='biz-review-author'>
@@ -243,6 +284,9 @@ function Business() {
                                 </div>
                             )
                         })}
+                        {currBizReviews.length == 0 && (
+                            <div>No reviews yet</div>
+                        )}
                     </div>
                 </div>
                 <div className='biz-body-container-right'>
