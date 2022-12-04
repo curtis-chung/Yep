@@ -61,29 +61,34 @@ const EditForm = () => {
     const dispatch = useDispatch();
     const history = useHistory();
     const user = useSelector(state => state.session.user);
-    const currBiz = useSelector(state => state.business.businessById)
+    const currBiz = useSelector((state) => {
+        return state?.business?.businessById
+    })
 
+    console.log("currBiz", currBiz)
     const { businessId } = useParams();
     // console.log("BBB", businessId)
 
-    const [business_name, setBusinessName] = useState(currBiz?.business_name);
-    const [address, setAddress] = useState(currBiz?.address);
-    const [city, setCity] = useState(currBiz?.city);
-    const [state, setState] = useState(currBiz?.state);
-    const [postal_code, setPostalCode] = useState(currBiz.postal_code);
-    const [lat, setLat] = useState(currBiz?.lat);
-    const [lng, setLng] = useState(currBiz?.lng);
-    const [phone_number, setPhoneNumber] = useState(currBiz?.phone_number);
-    const [web_address, setWebAddress] = useState(currBiz?.web_address);
-    const [menu_web_address, setMenuWebAddress] = useState(currBiz?.menu_web_address);
+    const [business_name, setBusinessName] = useState("");
+    const [address, setAddress] = useState("");
+    const [city, setCity] = useState("");
+    const [state, setState] = useState("");
+    const [postal_code, setPostalCode] = useState("");
+    const [lat, setLat] = useState();
+    const [lng, setLng] = useState();
+    const [phone_number, setPhoneNumber] = useState("");
+    const [web_address, setWebAddress] = useState("");
+    const [menu_web_address, setMenuWebAddress] = useState("");
     const [operating_time, setOperatingTime] = useState([]);
-    const [business_type, setBusinessType] = useState(currBiz?.business_type);
-    const [price, setPrice] = useState(currBiz?.price);
+    const [business_type, setBusinessType] = useState("");
+    const [price, setPrice] = useState("");
     const [day, setDay] = useState("Mon");
     const [open_time, setOpenTime] = useState("12:00AM");
     const [close_time, setCloseTime] = useState("12:00AM");
     const [displayTime, setDisplayTime] = useState([]);
     const [errors, setErrors] = useState({});
+
+    // console.log("errors", errors)
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -101,8 +106,8 @@ const EditForm = () => {
             city: city,
             state: state,
             postal_code: postal_code,
-            lat: lat,
-            lng: lng,
+            // lat: lat,
+            // lng: lng,
             phone_number: phone_number,
             web_address: web_address,
             menu_web_address: menu_web_address,
@@ -110,6 +115,9 @@ const EditForm = () => {
             business_type: business_type,
             price: price
         }
+        console.log("updatedbiz", business)
+        if (lat) business.lat = lat
+        if (lng) business.lng = lng
 
         const updatedBiz = await dispatch(businessActions.updateBusiness(business, businessId))
 
@@ -135,6 +143,7 @@ const EditForm = () => {
 
         const hours = `${day}-${open_time}-${close_time}`
         const op_time = operating_time
+        console.log("op_time", op_time)
         op_time.push(hours)
         setOperatingTime(op_time)
 
@@ -152,7 +161,33 @@ const EditForm = () => {
 
     useEffect(() => {
         dispatch(businessActions.getCurrBusiness(businessId))
+        return () => {
+            dispatch(businessActions.cleanUpBusinesses())
+        }
     }, [dispatch]);
+
+    useEffect(() => {
+        if (Object.values(currBiz).length) {
+            setBusinessName(currBiz.business_name)
+            setAddress(currBiz.address)
+            setCity(currBiz.city)
+            setState(currBiz.state)
+            setPostalCode(currBiz.postal_code)
+            setLat(currBiz.lat)
+            setLng(currBiz.lng)
+            setPhoneNumber(currBiz.phone_number)
+            setWebAddress(currBiz.web_address)
+            setMenuWebAddress(currBiz.menu_web_address)
+            setOperatingTime(currBiz.operating_time.split(","))
+            setBusinessType(currBiz.business_type)
+            setPrice(currBiz.price)
+            let displayHour = currBiz.operating_time.split(",")
+            displayHour = displayHour.map(hour => (
+                hour.split("-")
+            ))
+            setDisplayTime(displayHour)
+        }
+    }, [currBiz])
 
     if (!user) {
         return <Redirect to='/login' />;

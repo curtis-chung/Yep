@@ -40,8 +40,8 @@ def create_new_business():
 
     if form.validate_on_submit():
         data = form.data
-        print("DATADATADATADATADATADATADATADATADATADATADATADATADATADATADATA", data)
-        print("OPTIMEOPTIMEOPTIMEOPTIMEOPTIMEOPTIMEOPTIMEOPTIMEOPTIMEOPTIME", data["operating_time"])
+        # print("DATADATADATADATADATADATADATADATADATADATADATADATADATADATADATA", data)
+        # print("OPTIMEOPTIMEOPTIMEOPTIMEOPTIMEOPTIMEOPTIMEOPTIMEOPTIMEOPTIME", data["operating_time"])
 
         new_business = Business(
             user_id = int(curr_user),
@@ -87,12 +87,11 @@ Edit an existing business owned by current user
 @business_routes.route('/<int:id>', methods=["PUT"])
 @login_required
 def update_business(id):
-    data = request.get_json()
     curr_business = Business.query.get(id)
     form = BusinessForm()
     form['csrf_token'].data = request.cookies['csrf_token']
 
-    # print("CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC", id)
+    print("CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC", id)
 
     if form.validate_on_submit():
         data = form.data
@@ -112,7 +111,7 @@ def update_business(id):
 
         db.session.commit()
         return curr_business.to_dict()
-    # print("ERRORRRRRRRRRRRRRRRRRRRRRR123456", form.errors)
+    print("66666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666", form.errors)
     return {"errors":validation_errors_to_error_messages(form.errors)}, 401
 
 

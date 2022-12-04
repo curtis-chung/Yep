@@ -89,15 +89,15 @@ export const getCurrBusiness = (bizId) => async (dispatch) => {
 
 export const updateBusiness = (business, businessId) => async (dispatch) => {
     // console.log("AAA", business, businessId)
-    // console.log("CCC", typeof businessId)
-    const response = await fetch(`/api/biz/${parseInt(businessId)}`, {
+    console.log("CCC", typeof businessId)
+    const response = await fetch(`/api/biz/${businessId}`, {
         method: "PUT",
         headers: {
             'Content-Type': 'application/json'
         },
         body: JSON.stringify(business)
     })
-    // console.log("res", response)
+    console.log("res", response)
 
     if (response.ok) {
         const updatedBusiness = await response.json()
