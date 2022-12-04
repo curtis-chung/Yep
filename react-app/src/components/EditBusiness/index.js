@@ -185,9 +185,10 @@ const EditForm = () => {
                                     placeholder="Biz Name"
                                     className="create-biz-input-fields"
                                 />
-                                <div className='errors'>{errors.business_name}</div>
+                                {errors.business_name && (
+                                    <div className='errors'>{errors.business_name}</div>
+                                )}
                             </div>
-                            <div className='line'></div>
                             <div className="create-biz-input-cards">
                                 Address
                                 <input
@@ -198,9 +199,10 @@ const EditForm = () => {
                                     placeholder="123 Hire Me Pl."
                                     className="create-biz-input-fields"
                                 />
-                                <div className='errors'>{errors.address}</div>
+                                {errors.address && (
+                                    <div className='errors'>{errors.address}</div>
+                                )}
                             </div>
-                            <div className='line'></div>
                             <div className="create-biz-input-cards">
                                 City
                                 <input
@@ -211,9 +213,10 @@ const EditForm = () => {
                                     placeholder="New York"
                                     className="create-biz-input-fields"
                                 />
-                                <div className='errors'>{errors.city}</div>
+                                {errors.city && (
+                                    <div className='errors'>{errors.city}</div>
+                                )}
                             </div>
-                            <div className='line'></div>
                             <div className="create-biz-input-cards">
                                 State
                                 <input
@@ -224,9 +227,10 @@ const EditForm = () => {
                                     placeholder="NY"
                                     className="create-biz-input-fields"
                                 />
-                                <div className='errors'>{errors.state}</div>
+                                {errors.state && (
+                                    <div className='errors'>{errors.state}</div>
+                                )}
                             </div>
-                            <div className='line'></div>
                             <div className="create-biz-input-cards">
                                 ZIP
                                 <input
@@ -237,9 +241,10 @@ const EditForm = () => {
                                     placeholder="10001"
                                     className="create-biz-input-fields"
                                 />
-                                <div className='errors'>{errors.postal_code}</div>
+                                {errors.postal_code && (
+                                    <div className='errors'>{errors.postal_code}</div>
+                                )}
                             </div>
-                            <div className='line'></div>
                             <div className="create-biz-input-cards">
                                 Latitude
                                 <input
@@ -250,9 +255,10 @@ const EditForm = () => {
                                     placeholder="40.7580 (Optional)"
                                     className="create-biz-input-fields"
                                 />
-                                <div className='errors'>{errors.lat}</div>
+                                {errors.lat && (
+                                    <div className='errors'>{errors.lat}</div>
+                                )}
                             </div>
-                            <div className='line'></div>
                             <div className="create-biz-input-cards">
                                 Longitude
                                 <input
@@ -264,9 +270,10 @@ const EditForm = () => {
                                     // min="1"
                                     className="create-biz-input-fields"
                                 />
-                                <div className='errors'>{errors.lng}</div>
+                                {errors.lng && (
+                                    <div className='errors'>{errors.lng}</div>
+                                )}
                             </div>
-                            <div className='line'></div>
                             <div className="create-biz-input-cards">
                                 Phone
                                 <input
@@ -277,7 +284,9 @@ const EditForm = () => {
                                     placeholder="(555) 555-5555"
                                     className="create-biz-input-fields"
                                 />
-                                <div className='errors'>{errors.phone_number}</div>
+                                {errors.phone_number && (
+                                    <div className='errors'>{errors.phone_number}</div>
+                                )}
                             </div>
                             <div className="create-biz-input-cards">
                                 Web Address
@@ -289,7 +298,9 @@ const EditForm = () => {
                                     placeholder="http://www.companyaddress.com (Optional)"
                                     className="create-biz-input-fields"
                                 />
-                                <div className='errors'>{errors.web_address}</div>
+                                {errors.web_address && (
+                                    <div className='errors'>{errors.web_address}</div>
+                                )}
                             </div>
                             <div className="create-biz-input-cards">
                                 Menu Web Address
@@ -301,7 +312,9 @@ const EditForm = () => {
                                     placeholder="http://www.companyaddress.com/menu.html (Optional)"
                                     className="create-biz-input-fields"
                                 />
-                                <div className='errors'>{errors.menu_web_address}</div>
+                                {errors.menu_web_address && (
+                                    <div className='errors'>{errors.menu_web_address}</div>
+                                )}
                             </div>
                             <div className="create-biz-input-cards">
                                 Categories
@@ -314,7 +327,9 @@ const EditForm = () => {
                                     placeholder="Sushi"
                                     className="create-biz-input-fields"
                                 />
-                                <div className='errors'>{errors.business_type}</div>
+                                {errors.business_type && (
+                                    <div className='errors'>{errors.business_type}</div>
+                                )}
                             </div>
                             <div className="create-biz-hours-cards">
                                 Hours
@@ -362,7 +377,9 @@ const EditForm = () => {
                                     <option value={3}>$$$</option>
                                     <option value={4}>$$$$</option>
                                 </select>
-                                <div className='errors'>{errors.price}</div>
+                                {errors.price && (
+                                    <div className='errors'>{errors.price}</div>
+                                )}
                             </div>
                         </div>
                         <div className="agreement">

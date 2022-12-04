@@ -85,8 +85,12 @@ const ReviewForm = () => {
                             />
                         </div>
                     </div>
-                    <div className="error-messages">{errors.stars}</div>
-                    <div className="error-messages">{errors.review_content}</div>
+                    {errors.stars && (
+                        <div className='errors'>{errors.stars}</div>
+                    )}
+                    {errors.review_content && (
+                        <div className='errors'>{errors.review_content}</div>
+                    )}
                     <div className="create-review-button-div">
                         <button type="submit" className="create-review-submit-button">Post Review</button>
                     </div>

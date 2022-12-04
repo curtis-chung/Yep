@@ -84,7 +84,8 @@ const CreateForm = () => {
     const [imgUrl4, setImgUrl4] = useState("");
     const [imgUrl5, setImgUrl5] = useState("");
     const [errors, setErrors] = useState({});
-    const [validateErrors, setValidateErrors] = useState([]);
+
+    console.log("errors", errors)
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -114,7 +115,7 @@ const CreateForm = () => {
 
         const createdBiz = await dispatch(businessActions.createBusiness(business))
 
-        console.log("createdBiz", createdBiz)
+        // console.log("createdBiz", createdBiz)
         // console.log(createdBiz.errors)
         if (createdBiz.errors) setErrors(createdBiz.errors)
         else {
@@ -168,17 +169,6 @@ const CreateForm = () => {
         return <Redirect to='/login' />;
     }
 
-    // useEffect(() => {
-    //     const isNum = (val) => {
-    //         if (/^\d+$/.test(val)) return true
-    //         else return false;
-    //     }
-
-    //     let validate_error = []
-
-    //     if ()
-    // })
-
     return (
         <div className="create-biz-page">
             <div className="create-biz-left">
@@ -202,9 +192,10 @@ const CreateForm = () => {
                                     placeholder="Biz Name"
                                     className="create-biz-input-fields"
                                 />
-                                <div className='errors'>{errors.business_name}</div>
+                                {errors.business_name && (
+                                    <div className='errors'>{errors.business_name}</div>
+                                )}
                             </div>
-                            <div className='line'></div>
                             <div className="create-biz-input-cards">
                                 Address
                                 <input
@@ -215,9 +206,10 @@ const CreateForm = () => {
                                     placeholder="123 Hire Me Pl."
                                     className="create-biz-input-fields"
                                 />
-                                <div className='errors'>{errors.address}</div>
+                                {errors.address && (
+                                    <div className='errors'>{errors.address}</div>
+                                )}
                             </div>
-                            <div className='line'></div>
                             <div className="create-biz-input-cards">
                                 City
                                 <input
@@ -228,9 +220,10 @@ const CreateForm = () => {
                                     placeholder="New York"
                                     className="create-biz-input-fields"
                                 />
-                                <div className='errors'>{errors.city}</div>
+                                {errors.city && (
+                                    <div className='errors'>{errors.city}</div>
+                                )}
                             </div>
-                            <div className='line'></div>
                             <div className="create-biz-input-cards">
                                 State
                                 <input
@@ -241,9 +234,10 @@ const CreateForm = () => {
                                     placeholder="NY"
                                     className="create-biz-input-fields"
                                 />
-                                <div className='errors'>{errors.state}</div>
+                                {errors.state && (
+                                    <div className='errors'>{errors.state}</div>
+                                )}
                             </div>
-                            <div className='line'></div>
                             <div className="create-biz-input-cards">
                                 ZIP
                                 <input
@@ -254,9 +248,10 @@ const CreateForm = () => {
                                     placeholder="10001"
                                     className="create-biz-input-fields"
                                 />
-                                <div className='errors'>{errors.postal_code}</div>
+                                {errors.postal_code && (
+                                    <div className='errors'>{errors.postal_code}</div>
+                                )}
                             </div>
-                            <div className='line'></div>
                             <div className="create-biz-input-cards">
                                 Latitude
                                 <input
@@ -269,9 +264,10 @@ const CreateForm = () => {
                                     max="90"
                                     className="create-biz-input-fields"
                                 />
-                                <div className='errors'>{errors.lat}</div>
+                                {errors.lat && (
+                                    <div className='errors'>{errors.lat}</div>
+                                )}
                             </div>
-                            <div className='line'></div>
                             <div className="create-biz-input-cards">
                                 Longitude
                                 <input
@@ -284,9 +280,10 @@ const CreateForm = () => {
                                     max="180"
                                     className="create-biz-input-fields"
                                 />
-                                <div className='errors'>{errors.lng}</div>
+                                {errors.lng && (
+                                    <div className='errors'>{errors.lng}</div>
+                                )}
                             </div>
-                            <div className='line'></div>
                             <div className="create-biz-input-cards">
                                 Phone
                                 <input
@@ -297,7 +294,9 @@ const CreateForm = () => {
                                     placeholder="(555) 555-5555"
                                     className="create-biz-input-fields"
                                 />
-                                <div>{errors.phone_number}</div>
+                                {errors.phone_number && (
+                                    <div className='errors'>{errors.phone_number}</div>
+                                )}
                             </div>
                             <div className="create-biz-input-cards">
                                 Web Address
@@ -309,7 +308,9 @@ const CreateForm = () => {
                                     placeholder="http://www.companyaddress.com (Optional)"
                                     className="create-biz-input-fields"
                                 />
-                                <div>{errors.web_address}</div>
+                                {errors.web_address && (
+                                    <div className='errors'>{errors.web_address}</div>
+                                )}
                             </div>
                             <div className="create-biz-input-cards">
                                 Menu Web Address
@@ -321,7 +322,9 @@ const CreateForm = () => {
                                     placeholder="http://www.companyaddress.com/menu.html (Optional)"
                                     className="create-biz-input-fields"
                                 />
-                                <div>{errors.menu_web_address}</div>
+                                {errors.menu_web_address && (
+                                    <div className='errors'>{errors.menu_web_address}</div>
+                                )}
                             </div>
                             <div className="create-biz-input-cards">
                                 Categories
@@ -334,7 +337,9 @@ const CreateForm = () => {
                                     placeholder="Sushi"
                                     className="create-biz-input-fields"
                                 />
-                                <div>{errors.business_type}</div>
+                                {errors.business_type && (
+                                    <div className='errors'>{errors.business_type}</div>
+                                )}
                             </div>
                             <div className="create-biz-hours-cards">
                                 Hours
@@ -382,7 +387,9 @@ const CreateForm = () => {
                                     <option value={3}>$$$</option>
                                     <option value={4}>$$$$</option>
                                 </select>
-                                <div>{errors.price}</div>
+                                {errors.price && (
+                                    <div className='errors'>{errors.price}</div>
+                                )}
                             </div>
                             <div className="create-biz-url-cards">
                                 Biz Images
@@ -391,7 +398,7 @@ const CreateForm = () => {
                                     value={imgUrl1}
                                     onChange={(e) => setImgUrl1(e.target.value)}
                                     // required
-                                    placeholder="Photo URL"
+                                    placeholder="Photo URL (Optional)"
                                     className="create-biz-input-fields"
                                 />
                                 <input
@@ -399,7 +406,7 @@ const CreateForm = () => {
                                     value={imgUrl2}
                                     onChange={(e) => setImgUrl2(e.target.value)}
                                     // required
-                                    placeholder="Photo URL"
+                                    placeholder="Photo URL (Optional)"
                                     className="create-biz-input-fields"
                                 />
                                 <input
@@ -407,7 +414,7 @@ const CreateForm = () => {
                                     value={imgUrl3}
                                     onChange={(e) => setImgUrl3(e.target.value)}
                                     // required
-                                    placeholder="Photo URL"
+                                    placeholder="Photo URL (Optional)"
                                     className="create-biz-input-fields"
                                 />
                                 <input
@@ -415,7 +422,7 @@ const CreateForm = () => {
                                     value={imgUrl4}
                                     onChange={(e) => setImgUrl4(e.target.value)}
                                     // required
-                                    placeholder="Photo URL"
+                                    placeholder="Photo URL (Optional)"
                                     className="create-biz-input-fields"
                                 />
                                 <input
@@ -423,7 +430,7 @@ const CreateForm = () => {
                                     value={imgUrl5}
                                     onChange={(e) => setImgUrl5(e.target.value)}
                                     // required
-                                    placeholder="Photo URL"
+                                    placeholder="Photo URL (Optional)"
                                     className="create-biz-input-fields"
                                 />
                             </div>
