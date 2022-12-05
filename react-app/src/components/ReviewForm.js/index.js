@@ -21,7 +21,7 @@ const ReviewForm = () => {
 
     // console.log(businessById)
 
-    console.log("errors", errors)
+    // console.log("errors", errors)
 
     const handleSubmit = async (e) => {
         e.preventDefault();

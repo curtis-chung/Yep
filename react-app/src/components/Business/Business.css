@@ -277,6 +277,11 @@
     min-width: 746px;
     max-width: 746px;
     min-height: 200px;
+    padding-bottom: 23px;
+}
+
+.hours-div {
+    border-bottom: 1px solid #eeeeef;
 }
 
 .biz-review-description {

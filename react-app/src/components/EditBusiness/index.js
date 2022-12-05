@@ -65,7 +65,7 @@ const EditForm = () => {
         return state?.business?.businessById
     })
 
-    console.log("currBiz", currBiz)
+    // console.log("currBiz", currBiz)
     const { businessId } = useParams();
     // console.log("BBB", businessId)
 
@@ -115,7 +115,7 @@ const EditForm = () => {
             business_type: business_type,
             price: price
         }
-        console.log("updatedbiz", business)
+        // console.log("updatedbiz", business)
         if (lat) business.lat = lat
         if (lng) business.lng = lng
 
@@ -143,7 +143,7 @@ const EditForm = () => {
 
         const hours = `${day}-${open_time}-${close_time}`
         const op_time = operating_time
-        console.log("op_time", op_time)
+        // console.log("op_time", op_time)
         op_time.push(hours)
         setOperatingTime(op_time)
 

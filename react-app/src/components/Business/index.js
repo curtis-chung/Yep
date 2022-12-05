@@ -1,5 +1,5 @@
 import React from 'react';
-import { useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory, NavLink, useParams } from 'react-router-dom';
 import * as businessActions from "../../store/business"
@@ -12,6 +12,8 @@ function Business() {
     const dispatch = useDispatch();
     const { bizId } = useParams();
     const history = useHistory();
+
+    const [isLoaded, setIsLoaded] = useState(false);
 
     const businessImagesArray = useSelector((state) => {
         let urlArray = Object.values(state?.business?.allBusinessImages)
@@ -28,7 +30,12 @@ function Business() {
         return Object.values(state?.review?.currentBizReviews)
     })
 
-    // console.log("currBizReviews", currBizReviews)
+    // let authorList;
+    // const getReviewAuthor = currBizReviews.forEach(review => {
+    //     authorList.push(review.user_id)
+    //     return "done"
+    // })
+    console.log("currBizReviews", currBizReviews)
 
     let dateArr = []
 
@@ -43,23 +50,33 @@ function Business() {
 
     let isBizOwner = false;
     let allowCreateReview = false;
-    if (businessById && currBizReviews) {
+
+    console.log("isBizOwner", isBizOwner, "allowCreateReview", allowCreateReview)
+
+    if (businessById && currBizReviews && currSessionUser) {
         // console.log("HHH", currSessionUser, businessById.user_id)
         if (currSessionUser === businessById.user_id) {
             isBizOwner = true
         }
+
+        if ((currSessionUser !== businessById) && (currSessionUser)) {
+            allowCreateReview = true;
+        }
+
         currBizReviews.forEach(review => {
-            console.log("inforeach", review)
-            if (review?.user_id === currSessionUser) {
+            // console.log("review?.user_id", review?.user_id, "currSessionUser", currSessionUser)
+            if (review.user_id === currSessionUser) {
                 allowCreateReview = false;
             }
         })
-        console.log("allowCreateReview2", allowCreateReview)
-        console.log("isBizOwner", isBizOwner)
-        if ((currSessionUser !== businessById.user_id) && (currSessionUser)) {
-            allowCreateReview = true;
-        }
-        console.log("allowCreateReview1", allowCreateReview)
+
+        // console.log("allowCreateReview2", allowCreateReview)
+        // console.log("isBizOwner", isBizOwner)
+        // console.log("currSessionUser", currSessionUser, "businessById.user_id", businessById.user_id)
+        // if ((currSessionUser !== businessById.user_id) && (currSessionUser)) {
+        //     allowCreateReview = true;
+        // }
+        // console.log("allowCreateReview1", allowCreateReview)
     }
 
     const currBizImages = useSelector((state) => {
@@ -202,9 +219,9 @@ function Business() {
                             </div>
                             <div className="biz-image-info-4">
                                 {dateArr.length > 0 && dateArr.map(date => {
-                                    console.log(date.split("-").includes(dayOfTheWeek))
+                                    {/* console.log(date.split("-").includes(dayOfTheWeek)) */ }
                                     {/* console.log(dayOfTheWeek) */ }
-                                    console.log("date", date)
+                                    {/* console.log("date", date) */ }
                                     if (date.includes(dayOfTheWeek) && date.split("-").length === 3) return <div className="daily-hours"><div>{date.split("-")[1]} - {date.split("-")[2]}</div></div>
                                     if (date.includes(dayOfTheWeek) && date.split("-").length === 2) return <div className="daily-hours"><div>{date.split("-")[1]}</div></div>
                                 })}
@@ -250,15 +267,13 @@ function Business() {
                             Follow
                         </div> */}
                     </div>
-                    <div className='biz-review-container'>
+                    <div className='biz-review-container hours-div'>
                         <div className='biz-review-title'>Hours</div>
                         {dateArr.length > 0 && dateArr.map(date => {
                             if (date.split("-").length === 3) return <div className="daily-hours"><div>{date.split("-")[0]}</div><div>{date.split("-")[1]} - {date.split("-")[2]}</div></div>
 
                             else if (date.split("-").length === 2) return <div className="daily-hours"><div>{date.split("-")[0]}</div><div>{date.split("-")[1]}</div><div></div></div>
                         })}
-                        <div>
-                        </div>
                     </div>
                     <div className='biz-review-container'>
                         <div className='biz-review-title'>Recommended Reviews</div>

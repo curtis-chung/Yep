@@ -37,7 +37,7 @@ export const cleanUpBusinesses = () => {
 }
 
 export const createBusiness = (business) => async () => {
-    console.log("createBiz", business)
+    // console.log("createBiz", business)
     const response = await fetch(`/api/biz`, {
         method: "POST",
         headers: {
@@ -49,7 +49,7 @@ export const createBusiness = (business) => async () => {
 
     if (response.ok) {
         const data = await response.json()
-        console.log("create if", data)
+        // console.log("create if", data)
         return data
     } else if (response.status < 500) {
         const data = await response.json()
@@ -89,7 +89,7 @@ export const getCurrBusiness = (bizId) => async (dispatch) => {
 
 export const updateBusiness = (business, businessId) => async (dispatch) => {
     // console.log("AAA", business, businessId)
-    console.log("CCC", typeof businessId)
+    // console.log("CCC", typeof businessId)
     const response = await fetch(`/api/biz/${businessId}`, {
         method: "PUT",
         headers: {
@@ -97,7 +97,7 @@ export const updateBusiness = (business, businessId) => async (dispatch) => {
         },
         body: JSON.stringify(business)
     })
-    console.log("res", response)
+    // console.log("res", response)
 
     if (response.ok) {
         const updatedBusiness = await response.json()
