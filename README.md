@@ -31,14 +31,14 @@
   <p align="center">
     Social networking website cloning Yelp
     <br />
-    <a href="github link"><strong>Explore the docs »</strong></a>
+    <a href="https://github.com/curtis-chung/Yelp"><strong>Explore the docs »</strong></a>
     <br />
     <br />
-    <a href="github link">View Demo</a>
+    <a href="https://github.com/curtis-chung/Yelp">View Demo</a>
     ·
-    <a href="github link">Report Bug</a>
+    <a href="https://github.com/curtis-chung/Yelp">Report Bug</a>
     ·
-    <a href="github link">Request Feature</a>
+    <a href="https://github.com/curtis-chung/Yelp">Request Feature</a>
   </p>
 </div>
 
