@@ -57,6 +57,10 @@ const hours = [
     "11:30PM"
 ]
 
+function checkURL(url) {
+    return (url.match(/\.(jpeg|jpg|gif|png)$/) != null);
+}
+
 const CreateForm = () => {
     const dispatch = useDispatch();
     const history = useHistory();
@@ -95,7 +99,7 @@ const CreateForm = () => {
             (day) => !operating_time.join(',').includes(day)
         );
         closedDays = closedDays.map((day) => day + '-Closed');
-        res_opHours = res_opHours.concat(closedDays);
+        res_opHours = res_opHours.concat(closedDays)
 
         const business = {
             business_name: business_name,
@@ -114,6 +118,7 @@ const CreateForm = () => {
         }
         if (lat) business.lat = lat
         if (lng) business.lng = lng
+
 
         const createdBiz = await dispatch(businessActions.createBusiness(business))
 

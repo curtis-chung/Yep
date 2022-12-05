@@ -14,7 +14,7 @@ const EditReviewForm = () => {
         return state?.review?.reviewById
     })
 
-    // console.log(reviewById)
+    // console.log("reviewById", reviewById)
 
     const [review_content, setReviewContent] = useState("");
     const [stars, setStars] = useState("");
@@ -65,7 +65,7 @@ const EditReviewForm = () => {
         <div className="create-review-page">
             <div className="create-review-container-body">
                 <div className="create-review-container-title">
-                    {reviewById.business_name}
+                    Edit Review
                 </div>
                 <form onSubmit={handleSubmit} className="create-review-form-box">
                     <div className='create-review-inputs'>
@@ -99,7 +99,7 @@ const EditReviewForm = () => {
                         <div className='errors'>{errors.review_content}</div>
                     )}
                     <div className="create-review-button-div">
-                        <button type="submit" className="create-review-submit-button">Post Review</button>
+                        <button type="submit" className="create-review-submit-button">Submit Changes</button>
                     </div>
                 </form>
             </div>

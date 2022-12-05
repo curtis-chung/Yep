@@ -15,7 +15,7 @@ from app.models import Business
 class BusinessForm(FlaskForm):
     business_name = StringField(
         "business_name", validators=[DataRequired(), Length(min=1, max=50, message='Business name must be between 1 and 50 characters.')])
-    address = StringField("address", validators=[DataRequired(), Length(min=1, max=100, message='Address must be between 1 and 100 characters.')])
+    address = StringField("address", validators=[DataRequired(), Length(min=1, max=40, message='Address must be between 1 and 40 characters.')])
     city = StringField('city', validators=[DataRequired(), Length(min=1, max=20, message='City name must be between 1 and 20 characters.')])
     state = StringField('state', validators=[DataRequired(), Length(min=2, max=2, message='State must be 2 characters.')])
     postal_code = StringField(
