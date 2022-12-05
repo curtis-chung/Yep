@@ -107,7 +107,7 @@ function BottomNav() {
                     <div className='bottom-text-box'>
                         <div>
                             <span className='bottom-link-titles'>Features</span>
-                            <div className='bottom-link-list'>
+                            <div className='bottom-link-list business-reviews-bottom-div'>
                                 <span>Business</span>
                                 <span>Reviews</span>
                             </div>
