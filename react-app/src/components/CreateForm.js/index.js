@@ -89,7 +89,7 @@ const CreateForm = () => {
     const [imgUrl5, setImgUrl5] = useState("");
     const [errors, setErrors] = useState({});
 
-    console.log("errors", errors)
+    // console.log("errors", errors)
 
     const handleSubmit = async (e) => {
         e.preventDefault();

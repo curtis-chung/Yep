@@ -11,6 +11,11 @@ from app.models import Business
 #     if business:
 #         raise ValidationError('Business already exist.')
 
+def url_valid(form, field):
+    web_address = field.data
+    if not ".com" in web_address:
+        raise ValidationError("Please enter a valid web address.")
+
 
 class BusinessForm(FlaskForm):
     business_name = StringField(
@@ -25,7 +30,7 @@ class BusinessForm(FlaskForm):
     phone_number = StringField(
         'phone_number', validators=[DataRequired(), Length(min=10, max=10, message='Phone number must be 10 digits.')])
     web_address = StringField(
-        'web_address')
+        'web_address', validators=[DataRequired(), url_valid])
         # validators=[DataRequired(message='The web address you entered is invalid. Please try again.')]
     menu_web_address = StringField(
         'menu_web_address')

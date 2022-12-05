@@ -35,7 +35,7 @@ function Business() {
     //     authorList.push(review.user_id)
     //     return "done"
     // })
-    console.log("currBizReviews", currBizReviews)
+    // console.log("currBizReviews", currBizReviews)
 
     let dateArr = []
 
