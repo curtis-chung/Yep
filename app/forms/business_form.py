@@ -14,10 +14,10 @@ from app.models import Business
 
 class BusinessForm(FlaskForm):
     business_name = StringField(
-        "business_name", validators=[DataRequired(), Length(min=1, max=100, message='Business name must be between 1 and 100 characters.')])
-    address = StringField("address", validators=[DataRequired()])
-    city = StringField('city', validators=[DataRequired()])
-    state = StringField('state', validators=[DataRequired(), Length(min=2, max=2, message='State must be 2 alphabetical letters.')])
+        "business_name", validators=[DataRequired(), Length(min=1, max=50, message='Business name must be between 1 and 50 characters.')])
+    address = StringField("address", validators=[DataRequired(), Length(min=1, max=100, message='Address must be between 1 and 100 characters.')])
+    city = StringField('city', validators=[DataRequired(), Length(min=1, max=20, message='City name must be between 1 and 20 characters.')])
+    state = StringField('state', validators=[DataRequired(), Length(min=2, max=2, message='State must be 2 characters.')])
     postal_code = StringField(
         'postal_code', validators=[DataRequired(), Length(min=5, max=5, message='ZIP code must be 5 digits.')])
     lat = FloatField('lat')
@@ -30,7 +30,7 @@ class BusinessForm(FlaskForm):
     menu_web_address = StringField(
         'menu_web_address')
     operating_time = StringField('operating_time', validators=[DataRequired()])
-    business_type = StringField('business_type', validators=[DataRequired()])
+    business_type = StringField('business_type', validators=[DataRequired(), Length(min=1, max=20, message='Business type must be between 1 and 20 characters.')])
     price = IntegerField(
         'price', validators=[DataRequired(), NumberRange(min=1, max=4, message='Price must be between 1 to 4.')])
     submit = SubmitField("submit")
