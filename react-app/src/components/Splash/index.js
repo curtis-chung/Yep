@@ -91,7 +91,7 @@ function Splash() {
                                         <div className='splash-chart-body-card-image'>
                                             <img src={business.prev_image[0]} style={myStyle} onError={({ currentTarget }) => {
                                                 currentTarget.onerror = null;
-                                                currentTarget.src = "https://axiomhrs.com/wp-content/uploads/2019/07/claim.png";
+                                                currentTarget.src = "https://www.electricmirror.com/wp-content/uploads/2022/05/image-coming-soon.jpg";
                                             }} />
                                         </div>
                                         <div className='splash-chart-body-card-details'>
@@ -144,7 +144,7 @@ function Splash() {
                                         <div className='splash-chart-body-card-image'>
                                             <img src={business.prev_image[0]} style={myStyle} onError={({ currentTarget }) => {
                                                 currentTarget.onerror = null;
-                                                currentTarget.src = "https://axiomhrs.com/wp-content/uploads/2019/07/claim.png";
+                                                currentTarget.src = "https://www.electricmirror.com/wp-content/uploads/2022/05/image-coming-soon.jpg";
                                             }} />
                                         </div>
                                         <div className='splash-chart-body-card-details'>
@@ -197,7 +197,7 @@ function Splash() {
                                         <div className='splash-chart-body-card-image'>
                                             <img src={business.prev_image[0]} style={myStyle} onError={({ currentTarget }) => {
                                                 currentTarget.onerror = null;
-                                                currentTarget.src = "https://axiomhrs.com/wp-content/uploads/2019/07/claim.png";
+                                                currentTarget.src = "https://www.electricmirror.com/wp-content/uploads/2022/05/image-coming-soon.jpg";
                                             }} />
                                         </div>
                                         <div className='splash-chart-body-card-details'>

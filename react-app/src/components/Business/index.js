@@ -59,7 +59,7 @@ function Business() {
             isBizOwner = true
         }
 
-        if ((currSessionUser !== businessById) && (currSessionUser)) {
+        if ((currSessionUser !== businessById.user_id) && (currSessionUser)) {
             allowCreateReview = true;
         }
 
@@ -234,7 +234,7 @@ function Business() {
                             return (
                                 <img className="biz-image" src={image} onError={({ currentTarget }) => {
                                     currentTarget.onerror = null;
-                                    currentTarget.src = "https://axiomhrs.com/wp-content/uploads/2019/07/claim.png";
+                                    currentTarget.src = "https://www.electricmirror.com/wp-content/uploads/2022/05/image-coming-soon.jpg";
                                 }} />
                             )
                         })}

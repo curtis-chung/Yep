@@ -89,6 +89,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    overflow: hidden;
 }
 
 .biz-contact-info {
@@ -155,6 +156,16 @@
     background: linear-gradient(0deg, rgb(12, 11, 12) 5%, rgba(255, 255, 255, 0) 50%);
 }
 
+
+.biz-image-claimed {
+    display: flex;
+    /* border: 1px solid red; */
+    min-width: 83px;
+    max-width: 83px;
+    min-height: 19px;
+    max-height: 19px;
+}
+
 .biz-image-div {
     /* border: 5px solid orange; */
     /* position: absolute; */
@@ -178,11 +189,13 @@
     justify-content: space-evenly;
     min-height: 200px;
     max-height: 200px;
+    /* width: 100%; */
     /* padding-bottom: 100px; */
     /* bottom: 0; */
     /* margin-right: 250px; */
     /* z-index: 1; */
     z-index: 3;
+    overflow: hidden;
 }
 
 .biz-image-info-1 {
@@ -209,7 +222,11 @@
 .biz-image-info-4 {
     font-size: 16px;
     font-weight: 500;
-    color: white
+    color: white;
+    /* border: 1px solid red; */
+    min-height: 20px;
+    max-height: 20px;
+    overflow: hidden;
 }
 
 .biz-image-info-div {
@@ -288,6 +305,8 @@
     margin-bottom: 24px;
     font-size: 14px;
     line-height: 20px;
+    display: inline-block;
+    word-break: break-word;
 }
 
 .biz-review-images {

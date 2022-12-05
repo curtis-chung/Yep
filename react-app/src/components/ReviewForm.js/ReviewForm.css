@@ -35,6 +35,7 @@
 .create-review-container-title {
     font-size: 28px;
     font-weight: 600;
+    overflow: hidden;
 }
 
 .create-review-form-box {
