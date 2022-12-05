@@ -44,7 +44,7 @@ function Business() {
     let isBizOwner = false;
     let allowCreateReview = false;
     if (businessById && currBizReviews) {
-        console.log("HHH", currSessionUser, businessById.user_id)
+        // console.log("HHH", currSessionUser, businessById.user_id)
         if (currSessionUser === businessById.user_id) {
             isBizOwner = true
         }

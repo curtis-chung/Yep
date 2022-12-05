@@ -11,8 +11,10 @@ function ReviewDropdown({ review, bizId }) {
     const user = useSelector(state => state.session.user);
 
     let isReviewOwner = false;
-    console.log("LLL", user.id, review.user_id)
-    if (user?.id === review.user_id) isReviewOwner = true
+    // console.log("LLL", user.id, review.user_id)
+    if (user) {
+        if (user?.id === review.user_id) isReviewOwner = true
+    }
 
     const openMenu = () => {
         if (showMenu) return;
