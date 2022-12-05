@@ -22,8 +22,8 @@
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
-  <a href="some link">
-    <img width="280" alt="yelp-text" src="some-pic">
+  <a href="https://github.com/curtis-chung/Yelp">
+    <img width="280" alt="yelp-text" src="https://user-images.githubusercontent.com/107964050/205628966-4c5af9f6-42fe-48a4-ac5f-6d57aaf72a66.png">
   </a>
 
 <h3 align="center">Yep</h3>
