@@ -32,7 +32,7 @@
     <img width="280" alt="yelp-text" src="some-pic">
   </a>
 
-<h3 align="center">Yelp</h3>
+<h3 align="center">Yep</h3>
 
   <p align="center">
     Social networking website cloning Yelp
@@ -78,7 +78,22 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-(Yelp clone) is a website clone of Yelp where users are able to discover, connect and transact with local businesses.
+Yep is a website clone of Yelp where users are able to discover, connect and transact with local businesses.
+
+![image](https://user-images.githubusercontent.com/107964050/205625298-0ae138ef-63ee-4e24-b546-073126812fa4.png)
+
+Upon first entering our site, you will need to click either the Sign Up or Log In buttons in the top right-hand corner to be able to access content within the site. You may either create your own account, or utilize the Demo User's account with the Demo User Button.
+
+![image](https://user-images.githubusercontent.com/107964050/205625444-40a05c27-c21e-47c8-887f-aff2e395624c.png)
+
+After logging in, you can view various restaurants or post a new listing yourself.
+
+![image](https://user-images.githubusercontent.com/107964050/205625634-93dcd19b-4cdd-4516-9ce5-3a3b14208327.png)
+
+![image](https://user-images.githubusercontent.com/107964050/205625721-ab280cc1-8c57-4ad0-acdc-be5e3f0f6392.png)
+
+You can share your dining experience with the Yep community by leaving a review.
+![image](https://user-images.githubusercontent.com/107964050/205625969-0de6936b-63c2-42ef-a472-e03d6c775ce9.png)
 
 
 
@@ -97,7 +112,6 @@ Frameworks, Platforms, Libraries and APIs
 [![Flask][Flask.py]][Flask-url]
 ![HTML5][HTML.html]
 ![CSS3][CSS.css]
-[![Google Map API][Google-map-api]][Google-url]
 
 Database
 
@@ -158,15 +172,15 @@ This is an example of how to list things you need to use the software and how to
 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
-[contributors-shield]: 
+[contributors-shield]: https://img.shields.io/github/contributors/Dylluu/teamDobby.svg?style=for-the-badge
 [contributors-url]: 
-[forks-shield]: 
+[forks-shield]: https://img.shields.io/github/forks/Dylluu/teamDobby.svg?style=for-the-badge
 [forks-url]: 
-[stars-shield]: 
+[stars-shield]: https://img.shields.io/github/forks/Dylluu/teamDobby.svg?style=for-the-badge
 [stars-url]: 
-[issues-shield]: 
+[issues-shield]: https://img.shields.io/github/forks/Dylluu/teamDobby.svg?style=for-the-badge
 [issues-url]: 
-[license-shield]: 
+[license-shield]: https://img.shields.io/github/license/Dylluu/teamDobby.svg?style=for-the-badge
 [license-url]: 
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
 [linkedin-color]: https://img.shields.io/badge/linkedin-%230077B5.svg?style=for-the-badge&logo=linkedin&logoColor=white
