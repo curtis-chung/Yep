@@ -67,6 +67,7 @@
     text-indent: 12px;
     border: none;
     outline: none;
+    cursor: not-allowed;
 }
 
 .search-bar-input-left {
@@ -86,6 +87,7 @@
     font-size: 24px;
     background-color: #d32323;
     border-radius: 0 4px 4px 0;
+    cursor: not-allowed;
 }
 
 .magnifying-glasses-submit-button:hover {
@@ -181,6 +183,10 @@
 
 .yep-logo {
     height: 35px;
+}
+
+.write-a-review {
+    cursor: not-allowed;
 }
 
 ::-webkit-input-placeholder {

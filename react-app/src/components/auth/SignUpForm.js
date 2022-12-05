@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux'
 import { Redirect, NavLink } from 'react-router-dom';
 import { signUp } from '../../store/session';
+import { login } from '../../store/session';
 import './SignInForm.css';
 import image from "./signup_illustration.png"
 
@@ -21,6 +22,11 @@ const SignUpForm = () => {
     if (data) {
       setErrors(data)
     }
+  };
+
+  const loginDemoUser = async (e) => {
+    e.preventDefault();
+    return dispatch(login("demo@aa.io", "password"))
   };
 
   const updateFirstName = (e) => {
@@ -53,7 +59,7 @@ const SignUpForm = () => {
             <div className="sign-in-text" style={{ fontSize: "12px", height: "36px", textAlign: "center" }}>By logging in, you agree to Yep's Terms of Service and Privacy Policy.</div>
           </div>
 
-          <button type="submit" className="sign-in-button demo-button">Continue as Demo User</button>
+          <button onClick={loginDemoUser} className="sign-in-button demo-button">Continue as Demo User</button>
 
           <div className='login-separator'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;OR&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
 

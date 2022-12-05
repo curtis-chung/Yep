@@ -22,7 +22,13 @@ function Business() {
     const businessById = useSelector((state) => {
         return state?.business?.businessById
     })
-    console.log(businessById)
+    // console.log(businessById)
+
+    const currBizReviews = useSelector((state) => {
+        return Object.values(state?.review?.currentBizReviews)
+    })
+
+    // console.log("currBizReviews", currBizReviews)
 
     let dateArr = []
 
@@ -30,14 +36,30 @@ function Business() {
         dateArr = businessById.operating_time.split(",")
     }
 
-    console.log(dateArr)
+    // console.log(dateArr)
 
     const currSessionUser = useSelector(state => state?.session?.user?.id)
     // console.log("currSessionUser", currSessionUser, businessById?.user_id)
 
     let isBizOwner = false;
-    if (currSessionUser === businessById.user_id) {
-        isBizOwner = true
+    let allowCreateReview = false;
+    if (businessById && currBizReviews) {
+        console.log("HHH", currSessionUser, businessById.user_id)
+        if (currSessionUser === businessById.user_id) {
+            isBizOwner = true
+        }
+        console.log("isBizOwner", isBizOwner)
+        if ((currSessionUser !== businessById.user_id) && (currSessionUser)) {
+            allowCreateReview = true;
+        }
+        console.log("allowCreateReview1", allowCreateReview)
+        currBizReviews.forEach(review => {
+            console.log("inforeach", review)
+            if (review?.user_id === currSessionUser) {
+                allowCreateReview = false;
+            }
+        })
+        console.log("allowCreateReview2", allowCreateReview)
     }
 
     const currBizImages = useSelector((state) => {
@@ -65,12 +87,6 @@ function Business() {
     }
 
     // console.log("currBizPhone", currBizPhone, phone1, phone2, phone3)
-
-    const currBizReviews = useSelector((state) => {
-        return Object.values(state?.review?.currentBizReviews)
-    })
-
-    // console.log("currBizReviews", currBizReviews)
 
     const handleDelete = async (e) => {
         e.preventDefault();
@@ -117,6 +133,10 @@ function Business() {
         dispatch(businessActions.getAllBusinessImages())
         dispatch(businessActions.getCurrBusiness(bizId))
         dispatch(reviewActions.getCurrentBizReviews(bizId))
+
+        return () => {
+            dispatch(reviewActions.cleanUpReviews()); dispatch(businessActions.cleanUpBusinesses())
+        }
     }, [dispatch]);
 
     if (!businessImagesArray || !businessById) {
@@ -172,7 +192,9 @@ function Business() {
                                 &nbsp;
                                 &nbsp;
                                 &nbsp;
-                                <NavLink to={`/biz/${bizId}/edit`} className="edit-button">Edit</NavLink>
+                                {(isBizOwner && (
+                                    <NavLink to={`/biz/${bizId}/edit`} className="edit-button">Edit</NavLink>
+                                ))}
                                 &nbsp;
                                 {(isBizOwner && (
                                     <button className="edit-button" onClick={handleDelete}>Delete</button>
@@ -205,11 +227,13 @@ function Business() {
             <div className='biz-body-wrapper'>
                 <div className='biz-body-container-left'>
                     <div className='biz-buttons-container'>
-                        <NavLink to={`/biz/${bizId}/writeareview`} className='biz-buttons-write'>
-                            <i class="fa-regular fa-star"></i>
-                            &nbsp;
-                            Write a review
-                        </NavLink>
+                        {allowCreateReview && (
+                            <NavLink to={`/biz/${bizId}/writeareview`} className='biz-buttons-write'>
+                                <i class="fa-regular fa-star"></i>
+                                &nbsp;
+                                Write a review
+                            </NavLink>
+                        )}
                         {/* <div className='biz-buttons-share biz-buttons-white'>
                             <i class="fa-solid fa-arrow-up-from-bracket"></i>
                             &nbsp;
@@ -253,9 +277,7 @@ function Business() {
                                             {review.author.first_name} {review.author.last_name}
                                         </div>
                                         <div className='review-dropdown'>
-                                            {isBizOwner && (
-                                                <ReviewDropdown review={review} bizId={bizId} />
-                                            )}
+                                            <ReviewDropdown review={review} bizId={bizId} />
                                         </div>
                                     </div>
                                     <div className="stars">
