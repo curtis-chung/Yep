@@ -18,12 +18,6 @@
 *** for contributors-url, forks-url, etc. This is an optional, concise syntax you may use.
 *** https://www.markdownguide.org/basic-syntax/#reference-style-links
 -->
-[![Contributors][contributors-shield]][contributors-url]
-[![Forks][forks-shield]][forks-url]
-[![Stargazers][stars-shield]][stars-url]
-[![Issues][issues-shield]][issues-url]
-
-
 
 <!-- PROJECT LOGO -->
 <br />
@@ -172,16 +166,6 @@ This is an example of how to list things you need to use the software and how to
 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
-[contributors-shield]: https://img.shields.io/github/contributors/Dylluu/teamDobby.svg?style=for-the-badge
-[contributors-url]: [https://github.com/curtis-chung/Yelp/graphs/contributors]
-[forks-shield]: https://img.shields.io/github/forks/Dylluu/teamDobby.svg?style=for-the-badge
-[forks-url]: [https://github.com/curtis-chung/Yelp/fork]
-[stars-shield]: https://img.shields.io/github/forks/Dylluu/teamDobby.svg?style=for-the-badge
-[stars-url]: [https://github.com/curtis-chung/Yelp/stargazers]
-[issues-shield]: https://img.shields.io/github/forks/Dylluu/teamDobby.svg?style=for-the-badge
-[issues-url]: [https://github.com/curtis-chung/Yelp/issues]
-[license-shield]: https://img.shields.io/github/license/Dylluu/teamDobby.svg?style=for-the-badge
-[license-url]: https://github.com/Dylluu/teamDobby/blob/master/LICENSE.txt
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
 [linkedin-color]: https://img.shields.io/badge/linkedin-%230077B5.svg?style=for-the-badge&logo=linkedin&logoColor=white
 [curtis-linkedin-url]: https://linkedin.com/in/chungcurtis
