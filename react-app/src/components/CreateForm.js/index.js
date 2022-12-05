@@ -312,7 +312,7 @@ const CreateForm = () => {
                                     value={web_address}
                                     onChange={(e) => setWebAddress(e.target.value)}
                                     // required
-                                    placeholder="http://www.companyaddress.com (Optional)"
+                                    placeholder="http://www.companyaddress.com"
                                     className="create-biz-input-fields"
                                 />
                                 {errors.web_address && (
