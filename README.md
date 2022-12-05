@@ -173,13 +173,13 @@ This is an example of how to list things you need to use the software and how to
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
 [contributors-shield]: https://img.shields.io/github/contributors/Dylluu/teamDobby.svg?style=for-the-badge
-[contributors-url]: https://github.com/curtis-chung/Yelp/graphs/contributors
+[contributors-url]: [https://github.com/curtis-chung/Yelp/graphs/contributors]
 [forks-shield]: https://img.shields.io/github/forks/Dylluu/teamDobby.svg?style=for-the-badge
-[forks-url]: [https://github.com/Dylluu/teamDobby/network/members](https://github.com/curtis-chung/Yelp/fork)
+[forks-url]: [https://github.com/curtis-chung/Yelp/fork]
 [stars-shield]: https://img.shields.io/github/forks/Dylluu/teamDobby.svg?style=for-the-badge
-[stars-url]: [https://github.com/Dylluu/teamDobby/stargazers](https://github.com/curtis-chung/Yelp/stargazers)
+[stars-url]: [https://github.com/curtis-chung/Yelp/stargazers]
 [issues-shield]: https://img.shields.io/github/forks/Dylluu/teamDobby.svg?style=for-the-badge
-[issues-url]: [https://github.com/Dylluu/teamDobby/issues](https://github.com/curtis-chung/Yelp/issues)
+[issues-url]: [https://github.com/curtis-chung/Yelp/issues]
 [license-shield]: https://img.shields.io/github/license/Dylluu/teamDobby.svg?style=for-the-badge
 [license-url]: https://github.com/Dylluu/teamDobby/blob/master/LICENSE.txt
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
