@@ -48,11 +48,6 @@ function Business() {
         if (currSessionUser === businessById.user_id) {
             isBizOwner = true
         }
-        console.log("isBizOwner", isBizOwner)
-        if ((currSessionUser !== businessById.user_id) && (currSessionUser)) {
-            allowCreateReview = true;
-        }
-        console.log("allowCreateReview1", allowCreateReview)
         currBizReviews.forEach(review => {
             console.log("inforeach", review)
             if (review?.user_id === currSessionUser) {
@@ -60,6 +55,11 @@ function Business() {
             }
         })
         console.log("allowCreateReview2", allowCreateReview)
+        console.log("isBizOwner", isBizOwner)
+        if ((currSessionUser !== businessById.user_id) && (currSessionUser)) {
+            allowCreateReview = true;
+        }
+        console.log("allowCreateReview1", allowCreateReview)
     }
 
     const currBizImages = useSelector((state) => {

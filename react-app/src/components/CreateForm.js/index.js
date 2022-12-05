@@ -103,8 +103,8 @@ const CreateForm = () => {
             city: city,
             state: state,
             postal_code: postal_code,
-            lat: lat,
-            lng: lng,
+            // lat: lat,
+            // lng: lng,
             phone_number: phone_number,
             web_address: web_address,
             menu_web_address: menu_web_address,
@@ -112,6 +112,8 @@ const CreateForm = () => {
             business_type: business_type,
             price: price
         }
+        if (lat) business.lat = lat
+        if (lng) business.lng = lng
 
         const createdBiz = await dispatch(businessActions.createBusiness(business))
 
@@ -287,7 +289,7 @@ const CreateForm = () => {
                             <div className="create-biz-input-cards">
                                 Phone
                                 <input
-                                    type="text"
+                                    type="number"
                                     value={phone_number}
                                     onChange={(e) => setPhoneNumber(e.target.value)}
                                     // required

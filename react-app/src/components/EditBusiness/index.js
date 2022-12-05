@@ -269,7 +269,7 @@ const EditForm = () => {
                             <div className="create-biz-input-cards">
                                 ZIP
                                 <input
-                                    type="text"
+                                    type="number"
                                     value={postal_code}
                                     onChange={(e) => setPostalCode(e.target.value)}
                                     // required
@@ -312,7 +312,7 @@ const EditForm = () => {
                             <div className="create-biz-input-cards">
                                 Phone
                                 <input
-                                    type="text"
+                                    type="number"
                                     value={phone_number}
                                     onChange={(e) => setPhoneNumber(e.target.value)}
                                     // required

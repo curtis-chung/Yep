@@ -36,7 +36,7 @@ function ProfileButton() {
                 <i class="fa-solid fa-circle-user"></i>
             </div>
             {showMenu && user && (
-                <div className="profile-dropdown-container">
+                <div className="profile-dropdown-container" style={{ zIndex: 40 }}>
                     <div className="profile-dropdown-cards">
                         <div className="profile-dropdown-personal-info">
                             <div className="icon-div">
@@ -69,7 +69,8 @@ function ProfileButton() {
                         </div>
                     </div>
                 </div>
-            )}
+            )
+            }
         </>
     );
 }
