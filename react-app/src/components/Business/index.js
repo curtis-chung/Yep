@@ -8,6 +8,7 @@ import './Business.css';
 import userLogo from "./amazon-customer-icon.jpg"
 import ReviewDropdown from '../ReviewDropDown';
 import SimpleMap from '../GoogleMaps';
+import BizImageModal from '../BizImage';
 
 function Business() {
     const dispatch = useDispatch();
@@ -25,7 +26,7 @@ function Business() {
     const businessById = useSelector((state) => {
         return state?.business?.businessById
     })
-    console.log(businessById)
+    // console.log(businessById)
 
     const currBizReviews = useSelector((state) => {
         return Object.values(state?.review?.currentBizReviews)
@@ -226,6 +227,9 @@ function Business() {
                                     if (date.includes(dayOfTheWeek) && date.split("-").length === 3) return <div className="daily-hours"><div>{date.split("-")[1]} - {date.split("-")[2]}</div></div>
                                     if (date.includes(dayOfTheWeek) && date.split("-").length === 2) return <div className="daily-hours"><div>{date.split("-")[1]}</div></div>
                                 })}
+                            </div>
+                            <div>
+                                <BizImageModal bizImgArr={currBizImages} businessById={businessById} />
                             </div>
                         </div>
                     </div>
