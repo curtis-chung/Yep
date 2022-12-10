@@ -264,6 +264,10 @@
     max-width: 1900px;
 }
 
+.biz-map {
+    margin-right: 32px;
+}
+
 .biz-review-author {
     /* border: 3px solid orange; */
     font-size: 16px;
@@ -299,6 +303,12 @@
 
 .hours-div {
     border-bottom: 1px solid #eeeeef;
+    display: flex;
+    flex-direction: column;
+}
+
+.hours-div-container {
+    display: flex;
 }
 
 .biz-review-description {

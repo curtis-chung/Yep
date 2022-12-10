@@ -7,6 +7,7 @@ import * as reviewActions from "../../store/review"
 import './Business.css';
 import userLogo from "./amazon-customer-icon.jpg"
 import ReviewDropdown from '../ReviewDropDown';
+import SimpleMap from '../GoogleMaps';
 
 function Business() {
     const dispatch = useDispatch();
@@ -24,7 +25,7 @@ function Business() {
     const businessById = useSelector((state) => {
         return state?.business?.businessById
     })
-    // console.log(businessById)
+    console.log(businessById)
 
     const currBizReviews = useSelector((state) => {
         return Object.values(state?.review?.currentBizReviews)
@@ -49,9 +50,9 @@ function Business() {
     // console.log("currSessionUser", currSessionUser, businessById?.user_id)
 
     let isBizOwner = false;
-    let allowCreateReview = false;
+    let allowCreateReview = true;
 
-    console.log("isBizOwner", isBizOwner, "allowCreateReview", allowCreateReview)
+    // console.log("isBizOwner", isBizOwner, "allowCreateReview", allowCreateReview)
 
     if (businessById && currBizReviews && currSessionUser) {
         // console.log("HHH", currSessionUser, businessById.user_id)
@@ -59,8 +60,8 @@ function Business() {
             isBizOwner = true
         }
 
-        if ((currSessionUser !== businessById.user_id) && (currSessionUser)) {
-            allowCreateReview = true;
+        if ((currSessionUser === businessById.user_id) && (currSessionUser)) {
+            allowCreateReview = false;
         }
 
         currBizReviews.forEach(review => {
@@ -156,7 +157,7 @@ function Business() {
         }
     }, [dispatch]);
 
-    if (!businessImagesArray || !businessById) {
+    if (!businessImagesArray || (!Object.values(businessById).length)) {
         return null
     }
 
@@ -268,12 +269,20 @@ function Business() {
                         </div> */}
                     </div>
                     <div className='biz-review-container hours-div'>
-                        <div className='biz-review-title'>Hours</div>
-                        {dateArr.length > 0 && dateArr.map(date => {
-                            if (date.split("-").length === 3) return <div className="daily-hours"><div>{date.split("-")[0]}</div><div>{date.split("-")[1]} - {date.split("-")[2]}</div></div>
+                        <div className='biz-review-title'>Location & Hours</div>
+                        <div className='hours-div-container'>
+                            <div className='biz-map'>
+                                {/* {console.log(businessById.lat, businessById.lng)} */}
+                                <SimpleMap lat={businessById.lat} lng={businessById.lng} />
+                            </div>
+                            <div>
+                                {dateArr.length > 0 && dateArr.map(date => {
+                                    if (date.split("-").length === 3) return <div className="daily-hours"><div>{date.split("-")[0]}</div><div>{date.split("-")[1]} - {date.split("-")[2]}</div></div>
 
-                            else if (date.split("-").length === 2) return <div className="daily-hours"><div>{date.split("-")[0]}</div><div>{date.split("-")[1]}</div><div></div></div>
-                        })}
+                                    else if (date.split("-").length === 2) return <div className="daily-hours"><div>{date.split("-")[0]}</div><div>{date.split("-")[1]}</div><div></div></div>
+                                })}
+                            </div>
+                        </div>
                     </div>
                     <div className='biz-review-container'>
                         <div className='biz-review-title'>Recommended Reviews</div>

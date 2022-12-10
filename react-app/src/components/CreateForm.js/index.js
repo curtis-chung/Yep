@@ -370,7 +370,7 @@ const CreateForm = () => {
                                 <div>
                                     <select type="text" value={day} className="create-biz-select" onChange={(e) => setDay(e.target.value)}>
                                         {days.map(day => (
-                                            <option value={day}>{day}</option>
+                                            <option selected="disabled" value={day}>{day}</option>
                                         ))}
                                     </select>
                                     <select type="text" value={open_time} className="create-biz-select" onChange={(e) => setOpenTime(e.target.value)}>
