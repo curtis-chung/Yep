@@ -13,6 +13,11 @@ export default function SimpleMap({ lat, lng }) {
         zoom: 13
     };
 
+    const dotstyle = {
+        color: "#d32323",
+        fontSize: "36px"
+    }
+
     return (
         // Important! Always set the container height explicitly
         <div style={{ height: '254px', width: '315px' }}>
@@ -24,7 +29,7 @@ export default function SimpleMap({ lat, lng }) {
                 <AnyReactComponent
                     lat={lat}
                     lng={lng}
-                    text={<i class="fa-solid fa-location-dot"></i>}
+                    text={<i class="fa-solid fa-location-dot" style={dotstyle}></i>}
                 />
             </GoogleMapReact>
         </div>
