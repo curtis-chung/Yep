@@ -60,3 +60,21 @@
     line-height: 36px;
     font-weight: 600;
 }
+
+.see-all-button {
+    font-size: 16px;
+    color: white;
+    font-weight: 500;
+    background-color: transparent;
+    min-width: 214px;
+    max-width: 214px;
+    min-height: 48px;
+    max-height: 48px;
+    padding: 12px 32px;
+    border: 1px solid white;
+    border-radius: 4px;
+}
+
+.see-all-button:hover {
+    background-color: rgb(255, 255, 255, .3);
+}

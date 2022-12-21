@@ -17,6 +17,7 @@ import CreateForm from './components/CreateForm.js';
 import ReviewForm from './components/ReviewForm.js';
 import EditForm from './components/EditBusiness';
 import EditReviewForm from './components/EditReview';
+import SearchResults from './components/SearchResults';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -73,6 +74,10 @@ function App() {
         <Route path='/reviews/:reviewId/edit' exact={true}>
           <TopRedNav />
           <EditReviewForm />
+        </Route>
+        <Route path='/search_results/:search' exact={true}>
+          <BizNavBar />
+          <SearchResults />
         </Route>
         <Route path='/' exact={true} >
           <SplashNavBar />

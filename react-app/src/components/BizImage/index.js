@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Modal } from '../../context/Modal';
 import BizImages from './BizImage';
+import "./BizImage.css"
 
 function BizImageModal({ bizImgArr, businessById }) {
     const [showModal, setShowModal] = useState(false);
@@ -11,7 +12,7 @@ function BizImageModal({ bizImgArr, businessById }) {
 
     return (
         <>
-            <button onClick={() => setShowModal(true)}>See all photos</button>
+            <button onClick={() => setShowModal(true)} className="see-all-button">See all {bizImgArr.length} photos</button>
             {showModal && (
                 <Modal onClose={() => setShowModal(false)}>
                     <BizImages clickedX={clickedX} bizImgArr={bizImgArr} businessById={businessById} />

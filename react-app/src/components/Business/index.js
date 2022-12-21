@@ -174,7 +174,7 @@ function Business() {
                                 {businessById.business_name}
                             </div>
                             <div className="biz-image-info-2">
-                                <div className={currBizRating}>
+                                <div className="currBizRating">
                                     {[...Array(5)].map((star, i) => {
                                         {/* console.log("rating", rating) */ }
                                         if (i < Math.floor(rating)) return <i class="fa-solid fa-star" />;
@@ -190,46 +190,50 @@ function Business() {
                                     {businessById.num_reviews} reviews
                                 </div>
                             </div>
-                            <div className="biz-image-info-3">
-                                <div className='biz-image-claimed'>
-                                    <i class="fa-solid fa-circle-check"></i>
-                                    &nbsp;
-                                    Claimed
-                                </div>
-                                &nbsp;
-                                &nbsp;
-                                <i class="fa-solid fa-circle" style={circleStyle}></i>
-                                &nbsp;
-                                &nbsp;
-                                {numDollarSigns[businessById.price]}
-                                &nbsp;
-                                &nbsp;
-                                <i class="fa-solid fa-circle" style={circleStyle}></i>
-                                &nbsp;
-                                &nbsp;
-                                {businessById.business_type}
-                                &nbsp;
-                                &nbsp;
-                                &nbsp;
-                                {(isBizOwner && (
-                                    <NavLink to={`/biz/${bizId}/edit`} className="edit-button">Edit</NavLink>
-                                ))}
-                                &nbsp;
-                                {(isBizOwner && (
-                                    <button className="edit-button" onClick={handleDelete}>Delete</button>
-                                ))}
-                            </div>
                             <div className="biz-image-info-4">
-                                {dateArr.length > 0 && dateArr.map(date => {
-                                    {/* console.log(date.split("-").includes(dayOfTheWeek)) */ }
-                                    {/* console.log(dayOfTheWeek) */ }
-                                    {/* console.log("date", date) */ }
-                                    if (date.includes(dayOfTheWeek) && date.split("-").length === 3) return <div className="daily-hours"><div>{date.split("-")[1]} - {date.split("-")[2]}</div></div>
-                                    if (date.includes(dayOfTheWeek) && date.split("-").length === 2) return <div className="daily-hours"><div>{date.split("-")[1]}</div></div>
-                                })}
-                            </div>
-                            <div>
-                                <BizImageModal bizImgArr={currBizImages} businessById={businessById} />
+                                <div className='biz-image-info-4-left'>
+                                    <div className="biz-image-info-3">
+                                        <div className='biz-image-claimed'>
+                                            <i class="fa-solid fa-circle-check"></i>
+                                            &nbsp;
+                                            Claimed
+                                        </div>
+                                        &nbsp;
+                                        &nbsp;
+                                        <i class="fa-solid fa-circle" style={circleStyle}></i>
+                                        &nbsp;
+                                        &nbsp;
+                                        {numDollarSigns[businessById.price]}
+                                        &nbsp;
+                                        &nbsp;
+                                        <i class="fa-solid fa-circle" style={circleStyle}></i>
+                                        &nbsp;
+                                        &nbsp;
+                                        {businessById.business_type}
+                                        &nbsp;
+                                        &nbsp;
+                                        &nbsp;
+                                        {(isBizOwner && (
+                                            <NavLink to={`/biz/${bizId}/edit`} className="edit-button">Edit</NavLink>
+                                        ))}
+                                        &nbsp;
+                                        {(isBizOwner && (
+                                            <button className="edit-button" onClick={handleDelete}>Delete</button>
+                                        ))}
+                                    </div>
+                                    <div>
+                                        {dateArr.length > 0 && dateArr.map(date => {
+                                            {/* console.log(date.split("-").includes(dayOfTheWeek)) */ }
+                                            {/* console.log(dayOfTheWeek) */ }
+                                            {/* console.log("date", date) */ }
+                                            if (date.includes(dayOfTheWeek) && date.split("-").length === 3) return <div className="daily-hours"><div>{date.split("-")[1]} - {date.split("-")[2]}</div></div>
+                                            if (date.includes(dayOfTheWeek) && date.split("-").length === 2) return <div className="daily-hours"><div>{date.split("-")[1]}</div></div>
+                                        })}
+                                    </div>
+                                </div>
+                                <div>
+                                    <BizImageModal bizImgArr={currBizImages} businessById={businessById} />
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -277,7 +281,7 @@ function Business() {
                         <div className='hours-div-container'>
                             <div className='biz-map'>
                                 {/* {console.log(businessById.lat, businessById.lng)} */}
-                                <SimpleMap lat={businessById.lat} lng={businessById.lng} />
+                                <SimpleMap lat={businessById.lat} lng={businessById.lng} name={businessById.business_name} />
                             </div>
                             <div>
                                 {dateArr.length > 0 && dateArr.map(date => {
@@ -290,7 +294,7 @@ function Business() {
                     </div>
                     <div className='biz-review-container'>
                         <div className='biz-review-title'>Recommended Reviews</div>
-                        {currBizReviews.length > 0 && currBizReviews.map(review => {
+                        {currBizReviews.length > 0 && currBizReviews.reverse().map(review => {
                             {/* console.log("currBizReviews", currBizReviews) */ }
                             const reviewDate = new Date(review.created_at).toLocaleDateString();
                             {/* console.log("review.reviewImages", review.reviewImages) */ }

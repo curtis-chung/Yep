@@ -1,16 +1,25 @@
-import React from "react";
-import GoogleMapReact from 'google-map-react';
-import "./GoogleMaps.css"
+import React, { useState, useCallback } from 'react';
+import { GoogleMap, useJsApiLoader, Marker } from '@react-google-maps/api';
 
-const AnyReactComponent = ({ text }) => <div>{text}</div>;
+const SimpleMap = ({ lat, lng, name }) => {
 
-export default function SimpleMap({ lat, lng }) {
-    const defaultProps = {
-        center: {
-            lat: lat,
-            lng: lng
-        },
-        zoom: 13
+
+    //This sets the center of the map. This must be set BEFORE the map loads
+    // console.log(lat)
+
+    const [currentPosition, setCurrentPosition] = useState({ lat: lat, lng: lng })
+    // console.log(currentPosition)
+
+    // This is the equivalent to a script tag
+
+    const { isLoaded } = useJsApiLoader({
+        id: 'google-map-script',
+        googleMapsApiKey: process.env.REACT_APP_MAPS_KEY
+    })
+
+    const containerStyle = {
+        width: '315px',
+        height: '254px'
     };
 
     const dotstyle = {
@@ -18,20 +27,36 @@ export default function SimpleMap({ lat, lng }) {
         fontSize: "36px"
     }
 
+    const [map, setMap] = useState(null)
+
+    const onUnmount = useCallback(function callback(map) {
+        setMap(null)
+    }, [])
+
+
     return (
         // Important! Always set the container height explicitly
-        <div style={{ height: '254px', width: '315px' }}>
-            <GoogleMapReact
-                bootstrapURLKeys={{ key: "AIzaSyC5YnHJV-7xZqnbUUDAezXw3jnxw5lP3xU" }}
-                defaultCenter={defaultProps.center}
-                defaultZoom={defaultProps.zoom}
-            >
-                <AnyReactComponent
-                    lat={lat}
-                    lng={lng}
-                    text={<i class="fa-solid fa-location-dot" style={dotstyle}></i>}
-                />
-            </GoogleMapReact>
+
+        <div className="map_page__container">
+
+            <div style={{ height: '254px', width: '315px' }}>
+                {isLoaded && <GoogleMap
+                    mapContainerStyle={containerStyle}
+                    zoom={13}
+                    center={currentPosition}
+                    onUnmount={onUnmount}
+                >
+                    <Marker
+                        position={currentPosition}
+                        title={name}
+                        icon={<i class="fa-solid fa-location-dot" style={dotstyle}></i>}
+                        streetView={false} />
+                </GoogleMap>}
+            </div>
+
         </div>
     );
+
 }
+
+export default SimpleMap

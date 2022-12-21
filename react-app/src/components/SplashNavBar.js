@@ -1,16 +1,65 @@
 
-import React from 'react';
-import { NavLink } from 'react-router-dom';
-import { useSelector } from 'react-redux';
+import React, { useState, useEffect } from 'react';
+import { NavLink, useHistory } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
 import YepLogo from "./yep-logo-transparent.png"
 import "./SplashNavBar.css"
 import ProfileButton from './ProfileButton';
+import * as businessActions from "../store/business"
 
 const SplashNavBar = () => {
+  const dispatch = useDispatch();
+  const history = useHistory();
   const user = useSelector(state => state.session.user);
+  const [search, setSearch] = useState('');
+  const [searchOpen, setSearchOpen] = useState(false);
+  const [searchResults, setSearchResults] = useState([]);
+  const allBiz = useSelector((state) => {
+    let allBiz = Object.values(state?.business?.allBusinesses)
+    // console.log("allBiz", allBiz)
+    return allBiz
+  })
+
+  const [match, setMatch] = useState()
+
+  useEffect(() => {
+    dispatch(businessActions.getAllBusinesses())
+
+    if (search.length > 0) {
+      let matches = [];
+      setSearchOpen(true);
+      function handleSearch(search) {
+        for (let i = 0; i < allBiz.length; i++) {
+          if (allBiz[i].business_name.toLowerCase().includes(search.toLowerCase()) || allBiz[i].business_type.toLowerCase().includes(search.toLowerCase())) {
+            matches.push([allBiz[i].business_name, allBiz[i].id]);
+            console.log(matches)
+          }
+        }
+        setSearchResults(matches);
+      }
+      handleSearch(search);
+      document.addEventListener("click", () => {
+        setSearchOpen(false)
+      })
+      setMatch(matches)
+    } else {
+      setSearchOpen(false);
+    }
+  }, [search]);
+
+  function handleSearchInputShadow() {
+    const searchInput = document.getElementById('type-search');
+    const searchDiv = document.getElementsByClassName(
+      'search-bar-type'
+    );
+    searchDiv[0].classList.add('search-bar-div-focus');
+    searchInput.addEventListener('focusout', () => {
+      searchDiv[0].classList.remove('search-bar-div-focus');
+    });
+  }
 
   return (
-    <div className='nav-bar-container'>
+    <div className='nav-bar-container splash-nav'>
       <div className='nav-bar-left'>
         <NavLink to="/">
           <img
@@ -22,24 +71,56 @@ const SplashNavBar = () => {
       </div>
       <div className='nav-bar-center'>
         <div className="search-bar-div">
-          <div className="search-bar search-bar-type">
-            <input
-              id="type-search"
-              placeholder="food, drinks"
-              className='search-bar-input search-bar-input-left'
-            />
+          <div className='search-bar-div-top'>
+            <div className="search-bar search-bar-type">
+              <input
+                id="type-search"
+                placeholder="food, drinks"
+                className='search-bar-input search-bar-input-left'
+                onClick={(e) => {
+                  e.stopPropagation()
+                  handleSearchInputShadow()
+                  setSearchOpen(true)
+                  { console.log("Galio", search, match) }
+                }}
+                value={search}
+                onChange={(e) => {
+                  setSearch(e.target.value);
+                }}
+                autoComplete="off"
+              />
+            </div>
+            <div className='search-bar-divider'></div>
+            <div className="search-bar search-bar-location">
+              <input
+                id="type-search"
+                placeholder="address, neighborhood, city, state or zip"
+                className='search-bar-input search-bar-location'
+                value="New York, NY"
+              />
+            </div>
+            <button
+              className="magnifying-glasses-submit-button"
+              onClick={() => {
+                history.push(`/search_results/${search}`)
+              }}>
+              <i className="fa-solid fa-magnifying-glass" id="magnifying-glass" />
+            </button>
           </div>
-          <div className='search-bar-divider'></div>
-          <div className="search-bar search-bar-location">
-            <input
-              id="type-search"
-              placeholder="address, neighborhood, city, state or zip"
-              className='search-bar-input'
-            />
-          </div>
-          <button className="magnifying-glasses-submit-button">
-            <i className="fa-solid fa-magnifying-glass" id="magnifying-glass" />
-          </button>
+          {searchOpen &&
+            searchResults.length > 0 &&
+            searchResults.map((result) => (
+              <div
+                className="search-results"
+                key={result}
+                onClick={() => {
+                  history.push(`/biz/${result[1]}`);
+                  history.go(0);
+                }}
+              >
+                <span id="search-result-ticker">{result[0]}</span>
+              </div>
+            ))}
         </div>
       </div>
       <div className='nav-bar-right'>

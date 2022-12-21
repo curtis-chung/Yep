@@ -189,7 +189,7 @@
     justify-content: space-evenly;
     min-height: 200px;
     max-height: 200px;
-    /* width: 100%; */
+    width: 100%;
     /* padding-bottom: 100px; */
     /* bottom: 0; */
     /* margin-right: 250px; */
@@ -224,9 +224,21 @@
     font-weight: 500;
     color: white;
     /* border: 1px solid red; */
-    min-height: 20px;
-    max-height: 20px;
+    min-height: 68px;
+    max-height: 68px;
+    width: 100%;
     overflow: hidden;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.biz-image-info-4-left {
+    /* border: 1px solid orange; */
+    height: 63px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 .biz-image-info-div {
