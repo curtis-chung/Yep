@@ -3,6 +3,8 @@ import './BottomNav.css';
 import burst from "./burst_red.png";
 import linkedInLogo from './linkedinLogo.png';
 import gitHubLogo from './gitLogo.png';
+import angelListLogo from "./angellist.png"
+import pf from "./pflogo.png"
 
 function BottomNav() {
 
@@ -74,7 +76,7 @@ function BottomNav() {
             <div className='bottom-nav-inner'>
                 <div className='bottom-inner-links'>
                     <div className='bottom-text-box'>
-                        <div>
+                        <div className="bottom-text-box-header">
                             <span className='bottom-link-titles'>Company</span>
                             <div className='bottom-link-list'>
                                 <a target='_blank' href='https://www.appacademy.io' className='hover-underline'>App Academy</a>
@@ -82,15 +84,30 @@ function BottomNav() {
                         </div>
                     </div>
                     <div className='bottom-text-box'>
-                        <div>
+                        <div className="bottom-text-box-header">
                             <span className='bottom-link-titles'>Developer</span>
                             <div className='bottom-link-list'>
-                                <span>
+                                Curtis Chung
+                                <span className="bottom-nav-contacts">
                                     <a target='_blank' href='https://www.linkedin.com/in/chungcurtis/'>
                                         <img
                                             className='linked'
                                             src={linkedInLogo}
                                             alt='linkedInLogo'
+                                        />
+                                    </a>
+                                    <a target='_blank' href='https://angel.co/u/curtis-chung'>
+                                        <img
+                                            className='linked'
+                                            src={angelListLogo}
+                                            alt='angelListLogo'
+                                        />
+                                    </a>
+                                    <a target='_blank' href='https://curtis-chung.github.io'>
+                                        <img
+                                            className='linked'
+                                            src={pf}
+                                            alt='personalPageLogo'
                                         />
                                     </a>
                                     <a target='_blank' href='https://github.com/curtis-chung'>
@@ -100,16 +117,18 @@ function BottomNav() {
                                             alt='linkedInLogo'
                                         />
                                     </a>
-                                    Curtis Chung</span>
+                                </span>
                             </div>
                         </div>
                     </div>
                     <div className='bottom-text-box'>
-                        <div>
-                            <span className='bottom-link-titles'>Features</span>
+                        <div className="bottom-text-box-header">
+                            <span className='bottom-link-titles'>Technology</span>
                             <div className='bottom-link-list business-reviews-bottom-div'>
-                                <span>Business</span>
-                                <span>Reviews</span>
+                                <span>React</span>
+                                <span>Redux</span>
+                                <span>Python</span>
+                                <span>Flask</span>
                             </div>
                         </div>
                     </div>

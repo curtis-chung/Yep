@@ -4,9 +4,8 @@
     justify-content: center;
     align-items: center;
     overflow: hidden;
-    font-family: Roboto;
     box-sizing: border-box;
-    padding: 30px 0 30px 0;
+    /* padding: 30px 0 30px 0; */
     background-color: #F7F7F7;
     /* position: absolute; */
     bottom: 0;
@@ -17,35 +16,51 @@
     /* border: 3px solid red; */
 }
 
+.bottom-nav-contacts {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 7px;
+}
+
 .bottom-nav-inner {
     display: flex;
-    height: 125px;
-    width: 1224px;
+    max-width: 1224px;
+    width: 80%;
     flex-direction: column;
     box-sizing: border-box;
     /* border: solid 3px green; */
+    justify-content: center;
+    align-items: center;
 }
 
 .bottom-inner-links {
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
+    justify-content: center;
     box-sizing: border-box;
-    height: 348px;
+    height: 124px;
+    width: 100%;
     /* border: solid 3px pink; */
+    gap: 40px;
 }
 
 .bottom-text-box {
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
-    width: 25%;
+    align-items: center;
+    width: 20%;
     max-width: 262px;
     height: 100%;
-    margin-right: 16px;
-    margin-left: 16px;
     /* border: solid 3px lightblue; */
     box-sizing: border-box;
+}
+
+.bottom-text-box-header {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 .bottom-link-titles {
@@ -57,13 +72,12 @@
     display: flex;
     flex-direction: column;
     font-size: 14px;
-    font-weight: 400;
-    color: black;
+    font-weight: 500;
     line-height: 20px;
     height: 100%;
-    /* align-items: center; */
-    justify-content: flex-start;
+    align-items: center;
     /* border: solid 1px red; */
+    margin-top: 4px;
 }
 
 .bottom-div {
@@ -77,7 +91,6 @@
     display: flex;
     justify-content: flex-start;
     height: 19px;
-    margin-left: 16px;
     /* border: solid 3px blue; */
 }
 
@@ -100,10 +113,10 @@
     flex-direction: column;
     /* justify-content: flex-start;
     align-items: flex-start; */
-    width: 25%;
+    align-items: center;
+    width: 20%;
     max-width: 262px;
     height: 100%;
-    margin-right: 16px;
     margin-left: 16px;
     /* border: solid 3px lightblue; */
     box-sizing: border-box;
@@ -124,12 +137,13 @@
 .linked,
 .git {
     width: 17px;
+    height: 17px;
     margin-right: 7px;
 }
 
 .hover-underline {
     color: black;
-    font-weight: 400;
+    font-weight: 500;
     text-decoration: none;
 }
 

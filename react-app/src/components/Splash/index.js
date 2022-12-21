@@ -4,6 +4,14 @@ import { useDispatch, useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 import * as businessActions from "../../store/business"
 import './Splash.css';
+import sushi from "./sushi-icon.png";
+import lobster from "./lobster.png";
+import bulb from "./bulb.png";
+import pasta from "./pasta.png";
+import contemporary from "./contemporary.png";
+import steak from "./steak.png";
+import american from "./american.png";
+import wine from "./wine.png";
 
 function Splash() {
     const dispatch = useDispatch();
@@ -60,6 +68,12 @@ function Splash() {
         2: "$$",
         3: "$$$",
         4: "$$$$"
+    }
+
+    const imgStyle = {
+        height: "40px",
+        width: "40px",
+        paddingBottom: "21px"
     }
 
     // console.log("AAA", businessesSortedByRating)
@@ -240,7 +254,52 @@ function Splash() {
                     </div>
                 </div>
             </div>
-        </div >
+            <div className="categories-wrapper">
+                <div className='categories-container'>
+                    <div className="categories-header">
+                        Categories
+                    </div>
+                    <div className='categories-filters'>
+                        <div className="categories-filters-rows">
+                            <NavLink to={`/search_results/${"Japanese"}`} className="category">
+                                <img src={sushi} style={imgStyle}></img>
+                                Japanese
+                            </NavLink>
+                            <NavLink to={`/search_results/${"Seafood"}`} className="category">
+                                <img src={lobster} style={imgStyle}></img>
+                                Seafood
+                            </NavLink>
+                            <NavLink to={`/search_results/${"Innovative"}`} className="category">
+                                <img src={bulb} style={imgStyle}></img>
+                                Innovative
+                            </NavLink>
+                            <NavLink to={`/search_results/${"Italian"}`} className="category">
+                                <img src={pasta} style={imgStyle}></img>
+                                Italian
+                            </NavLink>
+                        </div>
+                        <div className='categories-filters-rows'>
+                            <NavLink to={`/search_results/${"Contemporary"}`} className="category">
+                                <img src={contemporary} style={imgStyle}></img>
+                                Contemporary
+                            </NavLink>
+                            <NavLink to={`/search_results/${"Korean"}`} className="category">
+                                <img src={steak} style={imgStyle}></img>
+                                Korean
+                            </NavLink>
+                            <NavLink to={`/search_results/${"American"}`} className="category">
+                                <img src={american} style={imgStyle}></img>
+                                American
+                            </NavLink>
+                            <NavLink to={`/search_results/${"French"}`} className="category">
+                                <img src={wine} style={imgStyle}></img>
+                                French
+                            </NavLink>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     )
 }
 
