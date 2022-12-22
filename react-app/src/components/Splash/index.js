@@ -90,6 +90,7 @@ function Splash() {
 
     return (
         <div className='splash-wrapper'>
+            <div className='splash-image-blur'></div>
             <div className='image-slideshow'></div>
             <div className='charts-wrapper'>
                 <div className='charts-container'>

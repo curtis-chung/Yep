@@ -32,7 +32,7 @@ const SplashNavBar = () => {
         for (let i = 0; i < allBiz.length; i++) {
           if (allBiz[i].business_name.toLowerCase().includes(search.toLowerCase()) || allBiz[i].business_type.toLowerCase().includes(search.toLowerCase())) {
             matches.push([allBiz[i].business_name, allBiz[i].id]);
-            console.log(matches)
+            // console.log(matches)
           }
         }
         setSearchResults(matches);
@@ -81,7 +81,7 @@ const SplashNavBar = () => {
                   e.stopPropagation()
                   handleSearchInputShadow()
                   setSearchOpen(true)
-                  { console.log("Galio", search, match) }
+                  // { console.log("Galio", search, match) }
                 }}
                 value={search}
                 onChange={(e) => {

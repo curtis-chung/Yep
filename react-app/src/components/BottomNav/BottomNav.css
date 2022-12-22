@@ -26,7 +26,7 @@
 .bottom-nav-inner {
     display: flex;
     max-width: 1224px;
-    width: 80%;
+    width: 95%;
     flex-direction: column;
     box-sizing: border-box;
     /* border: solid 3px green; */
@@ -37,7 +37,7 @@
 .bottom-inner-links {
     display: flex;
     flex-direction: row;
-    justify-content: center;
+    justify-content: space-between;
     box-sizing: border-box;
     height: 124px;
     width: 100%;

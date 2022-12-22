@@ -19,7 +19,7 @@
     flex-direction: column;
     position: absolute;
     top: 75px;
-    margin-left: 170px;
+    right: 40px;
     /* border: 1px solid white; */
     border-radius: 4px;
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
