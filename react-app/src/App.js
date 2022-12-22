@@ -18,6 +18,7 @@ import ReviewForm from './components/ReviewForm.js';
 import EditForm from './components/EditBusiness';
 import EditReviewForm from './components/EditReview';
 import SearchResults from './components/SearchResults';
+import ScrollToTop from './components/ScrollToTop';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -36,6 +37,7 @@ function App() {
 
   return (
     <BrowserRouter>
+      <ScrollToTop />
       <Switch>
         <Route path='/login' exact={true}>
           <TopRedNav />

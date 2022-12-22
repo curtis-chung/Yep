@@ -9,6 +9,7 @@ import userLogo from "./amazon-customer-icon.jpg"
 import ReviewDropdown from '../ReviewDropDown';
 import SimpleMap from '../GoogleMaps';
 import BizImageModal from '../BizImage';
+import YelpStars from '../Star';
 
 function Business() {
     const dispatch = useDispatch();
@@ -175,14 +176,7 @@ function Business() {
                             </div>
                             <div className="biz-image-info-2">
                                 <div className="currBizRating">
-                                    {[...Array(5)].map((star, i) => {
-                                        {/* console.log("rating", rating) */ }
-                                        if (i < Math.floor(rating)) return <i class="fa-solid fa-star" />;
-                                        else if (rating % Math.floor(rating) >= 0.5) {
-                                            rating = 0;
-                                            return <i class="fa-regular fa-star-half-stroke" />;
-                                        } else return <i class="fa-regular fa-star" />;
-                                    })}
+                                    <YelpStars currBizRating={currBizRating} height="32" width="176" />
                                 </div>
                                 &nbsp;
                                 &nbsp;
@@ -313,15 +307,7 @@ function Business() {
                                         </div>
                                     </div>
                                     <div className="stars">
-                                        {[...Array(5)].map((star, i) => {
-                                            let reviewRating = review.stars
-                                            {/* console.log("rating", rating) */ }
-                                            if (i < Math.floor(reviewRating)) return <i class="fa-solid fa-star" />;
-                                            else if (reviewRating % Math.floor(reviewRating) >= 0.5) {
-                                                reviewRating = 0;
-                                                return <i class="fa-regular fa-star-half-stroke" />;
-                                            } else return <i class="fa-regular fa-star" />;
-                                        })}
+                                        <YelpStars currBizRating={review.stars} height="20" width="108" />
                                         &nbsp;
                                         {reviewDate}
                                     </div>

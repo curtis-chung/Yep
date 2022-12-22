@@ -131,7 +131,7 @@ function SearchResults() {
                                         <div className='search-chart-body-card-details-div search-chart-body-card-name' style={{ marginTop: "8px" }}>
                                             {i + 1}. {business.business_name}
                                         </div>
-                                        <div className="currBizRating" style={{ marginTop: "8px" }}>
+                                        <div className="currBizRating" style={{ marginTop: "8px", color: "#d32323" }}>
                                             {[...Array(5)].map((star, i) => {
                                                 {/* console.log("rating", rating) */ }
                                                 if (i < Math.floor(rating)) return <i class="fa-solid fa-star" />;
