@@ -215,6 +215,7 @@
     height: 34px;
     cursor: pointer;
     overflow: hidden;
+    z-index: 100;
     /* border: solid 1px red; */
 }
 

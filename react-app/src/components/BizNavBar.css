@@ -1,5 +1,10 @@
-.biz-nav-bar {
-    background-color: white;
+.biz-nav-bar-container {
+    display: flex;
+    height: 108px;
+    width: 100%;
+    padding: 24px 40px;
+    box-sizing: border-box;
+    z-index: 100;
 }
 
 .biz-small-login-button {

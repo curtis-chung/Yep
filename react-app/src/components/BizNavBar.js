@@ -61,7 +61,7 @@ const BizNavBar = () => {
     }
 
     return (
-        <div className='nav-bar-container biz-nav-bar'>
+        <div className='biz-nav-bar-container biz-nav-bar'>
             <div className='nav-bar-left'>
                 <NavLink to="/">
                     <img
