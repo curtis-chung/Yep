@@ -5,85 +5,25 @@ import { useDispatch, useSelector } from 'react-redux';
 import review from "./review.png"
 import "./Review.css"
 import * as businessActions from "../../store/business"
+import SearchBar from '../SearchBar';
 
 const ReviewSplash = () => {
-    const dispatch = useDispatch();
-    const history = useHistory();
-    const user = useSelector(state => state.session.user);
-    const [search, setSearch] = useState('');
-    const [searchOpen, setSearchOpen] = useState(false);
-    const [searchResults, setSearchResults] = useState([]);
     const [stars, setStars] = useState("");
     const allBiz = useSelector((state) => {
         let allBiz = Object.values(state?.business?.allBusinesses)
         // console.log("allBiz", allBiz)
-        return allBiz.sort((a, b) => parseFloat(b.num_reviews) - parseFloat(a.num_reviews))
-    })
-
-    const [match, setMatch] = useState()
-
-    useEffect(() => {
-        dispatch(businessActions.getAllBusinesses())
-
-        if (search.length > 0) {
-            let matches = [];
-            setSearchOpen(true);
-            function handleSearch(search) {
-                for (let i = 0; i < allBiz.length; i++) {
-                    if (allBiz[i].business_name.toLowerCase().includes(search.toLowerCase()) || allBiz[i].business_type.toLowerCase().includes(search.toLowerCase())) {
-                        matches.push([allBiz[i].business_name, allBiz[i].id]);
-                        // console.log(matches)
-                    }
-                }
-                setSearchResults(matches);
-            }
-            handleSearch(search);
-            document.addEventListener("click", () => {
-                setSearchOpen(false)
-            })
-            setMatch(matches)
-        } else {
-            setSearchOpen(false);
+        for (let i = allBiz.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [allBiz[i], allBiz[j]] = [allBiz[j], allBiz[i]];
         }
-    }, [search]);
-
-    function handleSearchInputShadow() {
-        const searchInput = document.getElementById('type-search');
-        const searchDiv = document.getElementsByClassName(
-            'search-bar-type'
-        );
-        searchDiv[0].classList.add('search-bar-div-focus');
-        searchInput.addEventListener('focusout', () => {
-            searchDiv[0].classList.remove('search-bar-div-focus');
-        });
-    }
+        return allBiz;
+    })
 
     const myStyle = {
         width: "200px",
         height: "200px",
         borderRadius: "4px",
         objectFit: "cover"
-    }
-
-    const redStyle = {
-        color: "#d32323"
-    }
-
-    const grayStyle = {
-        color: "rgba(110,112,114,1)",
-        fontWeight: "400"
-    }
-
-    const circleStyle = {
-        fontSize: "3px",
-        color: "gray"
-    }
-
-    const numDollarSigns = {
-        1: "$",
-        2: "$$",
-        3: "$$$",
-        4: "$$$$"
     }
 
     return (
@@ -98,58 +38,7 @@ const ReviewSplash = () => {
                             Review anything from your favorite patio spot to your local coffee shop.
                         </div>
                         <div className='reviewSplash-top-search' style={{ marginTop: "24px", zIndex: "2" }}>
-                            <div className="reviewSplash-search-bar-div">
-                                <div className='search-bar-div-top'>
-                                    <div className="search-bar search-bar-type">
-                                        <input
-                                            id="type-search"
-                                            placeholder="food, drinks"
-                                            className='search-bar-input search-bar-input-left'
-                                            onClick={(e) => {
-                                                e.stopPropagation()
-                                                handleSearchInputShadow()
-                                                setSearchOpen(true)
-                                                // { console.log("Galio", search, match) }
-                                            }}
-                                            value={search}
-                                            onChange={(e) => {
-                                                setSearch(e.target.value);
-                                            }}
-                                            autoComplete="off"
-                                        />
-                                    </div>
-                                    <div className='search-bar-divider'></div>
-                                    <div className="search-bar search-bar-location">
-                                        <input
-                                            id="type-search"
-                                            placeholder="address, neighborhood, city, state or zip"
-                                            className='search-bar-input search-bar-location'
-                                            value="New York, NY"
-                                        />
-                                    </div>
-                                    <button
-                                        className="magnifying-glasses-submit-button"
-                                        onClick={() => {
-                                            history.push(`/search_results/${search}`)
-                                        }}>
-                                        <i className="fa-solid fa-magnifying-glass" id="magnifying-glass" />
-                                    </button>
-                                </div>
-                                {searchOpen &&
-                                    searchResults.length > 0 &&
-                                    searchResults.map((result) => (
-                                        <div
-                                            className="search-results"
-                                            key={result}
-                                            onClick={() => {
-                                                history.push(`/biz/${result[1]}`);
-                                                history.go(0);
-                                            }}
-                                        >
-                                            <span id="search-result-ticker">{result[0]}</span>
-                                        </div>
-                                    ))}
-                            </div>
+                            <SearchBar />
                         </div>
                     </div>
                     <div className='reviewSplash-top-right'>
