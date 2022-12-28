@@ -19,6 +19,7 @@ import EditForm from './components/EditBusiness';
 import EditReviewForm from './components/EditReview';
 import SearchResults from './components/SearchResults';
 import ScrollToTop from './components/ScrollToTop';
+import ReviewSplash from './components/Review';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -80,6 +81,10 @@ function App() {
         <Route path='/search_results/:search' exact={true}>
           <BizNavBar />
           <SearchResults />
+        </Route>
+        <Route path='/writeareview' exact={true}>
+          <TopRedNav />
+          <ReviewSplash />
         </Route>
         <Route path='/' exact={true} >
           <SplashNavBar />

@@ -37,7 +37,3 @@
 .biz-fake-buttons:hover {
     background-color: hsl(240, 3%, 94%, 0.5);
 }
-
-.write-a-review {
-    cursor: not-allowed;
-}

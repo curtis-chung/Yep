@@ -162,6 +162,7 @@
     align-items: center;
     justify-content: center;
     text-decoration: none;
+    cursor: pointer;
 }
 
 .fake-buttons:hover {
@@ -194,7 +195,7 @@
 }
 
 .write-a-review {
-    cursor: not-allowed;
+    /* cursor: not-allowed; */
     margin-left: 30px;
 }
 
