@@ -85,6 +85,7 @@ function App() {
         <Route path='/writeareview' exact={true}>
           <TopRedNav />
           <ReviewSplash />
+          <BottomNav />
         </Route>
         <Route path='/' exact={true} >
           <SplashNavBar />

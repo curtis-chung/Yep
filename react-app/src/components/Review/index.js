@@ -9,6 +9,7 @@ import SearchBar from '../SearchBar';
 
 const ReviewSplash = () => {
     const [stars, setStars] = useState("");
+    // const [randomBiz, setRandomBiz] = useState([])
     const allBiz = useSelector((state) => {
         let allBiz = Object.values(state?.business?.allBusinesses)
         // console.log("allBiz", allBiz)
@@ -16,6 +17,8 @@ const ReviewSplash = () => {
             const j = Math.floor(Math.random() * (i + 1));
             [allBiz[i], allBiz[j]] = [allBiz[j], allBiz[i]];
         }
+
+        // setRandomBiz(allBiz)
         return allBiz;
     })
 

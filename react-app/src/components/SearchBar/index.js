@@ -20,6 +20,12 @@ const SearchBar = () => {
     useEffect(() => {
         dispatch(businessActions.getAllBusinesses())
 
+        return () => {
+            dispatch(businessActions.cleanUpBusinesses())
+        }
+    }, [dispatch])
+
+    useEffect(() => {
         if (search.length > 0) {
             let matches = [];
             setSearchOpen(true);

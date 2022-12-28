@@ -12,7 +12,8 @@
 .nav-bar-left {
     /* border: 3px solid orange; */
     width: 25%;
-    min-width: 112px;
+    /* min-width: 112px; */
+    min-width: 70px;
     display: flex;
     justify-content: flex-start;
     align-self: center;
@@ -29,7 +30,7 @@
 
 .nav-bar-right {
     /* border: 3px solid turquoise; */
-    /* min-width: 439px; */
+    min-width: 441px;
     width: 25%;
     display: flex;
     justify-content: flex-end;
