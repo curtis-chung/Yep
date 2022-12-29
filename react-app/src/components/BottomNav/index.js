@@ -81,38 +81,45 @@ function BottomNav() {
                             <div className='bottom-link-list'>
                                 <a target='_blank' href='https://www.appacademy.io' className='hover-underline'>App Academy</a>
                             </div>
+                            <span className='bottom-link-titles' style={{ marginTop: "16px" }}>Developer</span>
+                            <div className='bottom-link-list'>
+                                <a target='_blank' href='https://www.linkedin.com/in/chungcurtis/' className='hover-underline'>Curtis Chung</a>
+                            </div>
                         </div>
                     </div>
                     <div className='bottom-text-box'>
                         <div className="bottom-text-box-header">
-                            <span className='bottom-link-titles'>Developer</span>
+                            <span className='bottom-link-titles'>Let's Connect</span>
                             <div className='bottom-link-list'>
-                                Curtis Chung
                                 <span className="bottom-nav-contacts">
-                                    <a target='_blank' href='https://www.linkedin.com/in/chungcurtis/'>
+                                    <a className="footer-logo" target='_blank' href='https://www.linkedin.com/in/chungcurtis/'>
                                         <img
                                             className='linked'
                                             src={linkedInLogo}
                                             alt='linkedInLogo'
                                         />
                                     </a>
-                                    <a target='_blank' href='https://angel.co/u/curtis-chung'>
+                                    <a className="footer-logo" target='_blank' href='https://angel.co/u/curtis-chung'>
                                         <img
                                             className='linked'
                                             src={angelListLogo}
                                             alt='angelListLogo'
                                         />
                                     </a>
-                                    <a target='_blank' href='https://curtis-chung.github.io'>
+                                </span>
+                            </div>
+                            <div className='bottom-link-list'>
+                                <span className="bottom-nav-contacts">
+                                    <a className="footer-logo" target='_blank' href='https://curtis-chung.github.io'>
                                         <img
                                             className='linked'
                                             src={pf}
                                             alt='personalPageLogo'
                                         />
                                     </a>
-                                    <a target='_blank' href='https://github.com/curtis-chung'>
+                                    <a className="footer-logo" target='_blank' href='https://github.com/curtis-chung'>
                                         <img
-                                            className='git'
+                                            className='linked'
                                             src={gitHubLogo}
                                             alt='linkedInLogo'
                                         />
@@ -123,23 +130,29 @@ function BottomNav() {
                     </div>
                     <div className='bottom-text-box'>
                         <div className="bottom-text-box-header">
-                            <span className='bottom-link-titles'>Technology</span>
+                            <span className='bottom-link-titles'>Tech Stack</span>
                             <div className='bottom-link-list business-reviews-bottom-div'>
+                                <span>Javascript</span>
                                 <span>React</span>
                                 <span>Redux</span>
                                 <span>Python</span>
                                 <span>Flask</span>
+                                <span>SQLAlchemy</span>
+                                <span>HTML5</span>
+                                <span>CSS3</span>
                             </div>
                         </div>
                     </div>
-                    <div className='last-bottom-text-box'>
-                        <span className='bottom-link-titles'>Language</span>
-                        <div className='last-bottom-link-list'>
-                            <span>English</span>
-                        </div>
-                        <span className='bottom-link-titles'>Country</span>
-                        <div className='last-bottom-link-list'>
-                            <span>United States</span>
+                    <div className='bottom-text-box'>
+                        <div className="bottom-text-box-header">
+                            <span className='bottom-link-titles'>Language</span>
+                            <div className='bottom-link-list business-reviews-bottom-div'>
+                                <span>English</span>
+                            </div>
+                            <span className='bottom-link-titles' style={{ marginTop: "16px" }}>Location</span>
+                            <div className='bottom-link-list business-reviews-bottom-div'>
+                                <span>New York City</span>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -148,8 +161,10 @@ function BottomNav() {
                         style={{ flexDirection: 'row', alignSelf: 'flex-end' }}
                     >© 2022 Ravenhood. All rights reserved.</span>
                 </div> */}
+            </div>
+            <div style={{ width: "95%", maxWidth: "1144px" }}>
                 <div className='bottom-copyright'>
-                    <span className='bottom-copyright-list'>Copyright © 2022 Yep Inc. &nbsp; <img className="bottom-nav-img" src={burst} alt="yep logo" /> &nbsp; and related marks are registered trademarks of Yep.</span>
+                    <span className='bottom-copyright-list'>Copyright © 2022 Yep Inc., an <a style={{ fontWeight: "600", textDecoration: "None", margin: "0 2px", color: "black" }} target='_blank' href='https://www.yelp.com/'>Yelp</a> and <a style={{ fontWeight: "600", textDecoration: "None", margin: "0 2px", color: "black" }} target='_blank' href='https://resy.com/'>Resy</a> inspired clone by Curtis Chung - All Rights Reserved.</span>
                 </div>
             </div>
         </div>

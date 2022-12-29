@@ -10,28 +10,31 @@
     /* position: absolute; */
     bottom: 0;
     width: 100%;
-    max-height: 200px;
-    min-height: 200px;
+    max-height: 300px;
+    min-height: 300px;
     /* position: fixed; */
     /* border: 3px solid red; */
 }
 
 .bottom-nav-contacts {
     display: flex;
-    align-items: center;
-    justify-content: center;
+    /* align-items: center;
+    justify-content: center; */
     margin-top: 7px;
 }
 
 .bottom-nav-inner {
     display: flex;
-    max-width: 1224px;
+    max-width: 1144px;
     width: 95%;
     flex-direction: column;
     box-sizing: border-box;
     /* border: solid 3px green; */
-    justify-content: center;
-    align-items: center;
+    /* justify-content: center; */
+    align-items: flex-start;
+    border-bottom: 1px solid black;
+    padding-bottom: 24px;
+    margin-bottom: 24px;
 }
 
 .bottom-inner-links {
@@ -39,7 +42,7 @@
     flex-direction: row;
     justify-content: space-between;
     box-sizing: border-box;
-    height: 124px;
+    /* height: 124px; */
     width: 100%;
     /* border: solid 3px pink; */
     gap: 40px;
@@ -59,8 +62,8 @@
 .bottom-text-box-header {
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    /* justify-content: center; */
+    align-items: flex-start;
 }
 
 .bottom-link-titles {
@@ -75,7 +78,7 @@
     font-weight: 500;
     line-height: 20px;
     height: 100%;
-    align-items: center;
+    /* align-items: center; */
     /* border: solid 1px red; */
     margin-top: 4px;
 }
@@ -129,22 +132,31 @@
     font-weight: 400;
     color: gray;
     /* line-height: 28px; */
-    height: 20px;
+    /* height: 20px; */
     margin: 4px 0 16px 0;
     /* border: solid 1px red; */
 }
 
-.linked,
-.git {
-    width: 17px;
-    height: 17px;
+.footer-logo {
+    /* border: 1px solid red; */
+    width: 40px;
+    height: 40px;
     margin-right: 7px;
+}
+
+.linked {
+    height: 100%;
+    width: 100%;
 }
 
 .hover-underline {
     color: black;
     font-weight: 500;
     text-decoration: none;
+}
+
+.hover-underline:hover {
+    text-decoration: underline;
 }
 
 .business-reviews-bottom-div {
