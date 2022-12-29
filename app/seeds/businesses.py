@@ -6,7 +6,7 @@ def seed_businesses():
 
     # 3 Michelin Stars
     Masa = Business(
-        user_id="1",
+        user_id="2",
         business_name='Masa',
         address="10 Columbus Circle",
         city='New York',
@@ -22,7 +22,7 @@ def seed_businesses():
     )
 
     LeBernardin = Business(
-        user_id="1",
+        user_id="2",
         business_name='Le Bernardin',
         address="155 W. 51st St",
         city='New York',
@@ -38,7 +38,7 @@ def seed_businesses():
     )
 
     ElevenMadisonPark = Business(
-        user_id="1",
+        user_id="2",
         business_name='Eleven Madison Park',
         address="11 Madison Ave.",
         city='New York',
@@ -54,7 +54,7 @@ def seed_businesses():
     )
 
     PerSe = Business(
-        user_id="1",
+        user_id="2",
         business_name='Per Se',
         address="10 Columbus Circle.",
         city='New York',
@@ -70,7 +70,7 @@ def seed_businesses():
     )
 
     ChefTable = Business(
-        user_id="1",
+        user_id="2",
         business_name="Chef's Table at Brooklyn Fare",
         address="431 W. 37th St.",
         city='New York',
@@ -87,7 +87,7 @@ def seed_businesses():
 
     # 2 Michelin Stars
     TheModern = Business(
-        user_id="1",
+        user_id="2",
         business_name="The Modern",
         address="9 W. 53rd St.",
         city='New York',
@@ -103,7 +103,7 @@ def seed_businesses():
     )
 
     Atomix = Business(
-        user_id="1",
+        user_id="2",
         business_name="Atomix",
         address="104 E. 30th St.",
         city='New York',
@@ -120,7 +120,7 @@ def seed_businesses():
 
     # 1 Michelin Star
     DonAngie = Business(
-        user_id="1",
+        user_id="2",
         business_name="Don Angie",
         address="103 Greenwich Ave.",
         city='New York',
@@ -136,7 +136,7 @@ def seed_businesses():
     )
 
     JejuNoodleBar = Business(
-        user_id="1",
+        user_id="2",
         business_name="Jeju Noodle Bar",
         address="679 Greenwich St.",
         city='New York',
@@ -152,7 +152,7 @@ def seed_businesses():
     )
 
     MusketRoom = Business(
-        user_id="1",
+        user_id="2",
         business_name="The Musket Room",
         address="265 Elizabeth St.",
         city='New York',
@@ -167,6 +167,70 @@ def seed_businesses():
         price="3"
     )
 
+    Rolos = Business(
+        user_id="2",
+        business_name="Rolo's",
+        address="853 Onderdonk Ave.",
+        city='New York',
+        state="NY",
+        postal_code="11385",
+        lat="40.702839696738614",
+        lng="-73.903508",
+        phone_number="7184176567",
+        web_address="https://www.rolosnyc.com/",
+        operating_time="Mon-2:00PM-10:00PM,Tue-2:00PM-10:00PM,Wed-2:00PM-10:00PM,Thu-2:00PM-10:00PM,Fri-2:00PM-10:00PM,Sat-2:00PM-10:00PM,Sun-Closed",
+        business_type="American",
+        price="2"
+    )
+
+    Jiang = Business(
+        user_id="2",
+        business_name="Jiang Nan",
+        address="133-42 39th Ave.",
+        city='New York',
+        state="NY",
+        postal_code="11354",
+        lat="40.75985289006228",
+        lng="-73.83275108465611",
+        phone_number="7183538855",
+        web_address="http://www.jiangnanny.com/",
+        operating_time="Mon-2:00PM-10:00PM,Tue-2:00PM-10:00PM,Wed-2:00PM-10:00PM,Thu-2:00PM-10:00PM,Fri-2:00PM-10:00PM,Sat-2:00PM-10:00PM,Sun-Closed",
+        business_type="Chinese",
+        price="2"
+    )
+
+    Momofuku = Business(
+        user_id="2",
+        business_name="Momofuku Noodle Bar",
+        address="171 First Ave.",
+        city='New York',
+        state="NY",
+        postal_code="10003",
+        lat="40.72988668370398",
+        lng="-73.98433416931222",
+        phone_number="2127777773",
+        web_address="https://momofuku.com/",
+        operating_time="Mon-2:00PM-10:00PM,Tue-2:00PM-10:00PM,Wed-2:00PM-10:00PM,Thu-2:00PM-10:00PM,Fri-2:00PM-10:00PM,Sat-2:00PM-10:00PM,Sun-Closed",
+        business_type="Asian",
+        price="2"
+    )
+
+    Noz = Business(
+        user_id="2",
+        business_name="Sushi Noz",
+        address="181 E. 78th St.",
+        city='New York',
+        state="NY",
+        postal_code="10075",
+        lat="40.77424624254102",
+        lng="-73.95810333862443",
+        phone_number="9173381792",
+        web_address="https://www.sushinoz.com/",
+        operating_time="Mon-2:00PM-10:00PM,Tue-2:00PM-10:00PM,Wed-2:00PM-10:00PM,Thu-2:00PM-10:00PM,Fri-2:00PM-10:00PM,Sat-2:00PM-10:00PM,Sun-Closed",
+        business_type="Japanese",
+        price="4"
+    )
+
 
     db.session.add(Masa)
     db.session.add(LeBernardin)
@@ -178,6 +242,10 @@ def seed_businesses():
     db.session.add(DonAngie)
     db.session.add(JejuNoodleBar)
     db.session.add(MusketRoom)
+    db.session.add(Rolos)
+    db.session.add(Jiang)
+    db.session.add(Momofuku)
+    db.session.add(Noz)
     db.session.commit()
 
 

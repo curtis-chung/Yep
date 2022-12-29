@@ -261,6 +261,131 @@ def seed_business_images():
         url = "https://axwwgrkdco.cloudimg.io/v7/__gmpics__/c18e2138e1b242aa9b56f892d7a04fc0?width=1000",
         preview = False
     )
+    RolosImage1 = BusinessImage(
+        business_id = "11",
+        url = "https://axwwgrkdco.cloudimg.io/v7/__gmpics__/0dcd783b79ca47ba87530809df20f9b8?width=1000",
+        preview = True
+    )
+    RolosImage2 = BusinessImage(
+        business_id = "11",
+        url = "https://axwwgrkdco.cloudimg.io/v7/__gmpics__/598a1716d9f54e7cb92bb35281e063ce?width=1000",
+        preview = False
+    )
+    RolosImage3 = BusinessImage(
+        business_id = "11",
+        url = "https://axwwgrkdco.cloudimg.io/v7/__gmpics__/b5ba85147dd54cabac1e2ef497bca9fb?width=1000",
+        preview = False
+    )
+    RolosImage4 = BusinessImage(
+        business_id = "11",
+        url = "https://axwwgrkdco.cloudimg.io/v7/__gmpics__/11a165e138d149dab4596b0bb8467ea9?width=1000",
+        preview = False
+    )
+    RolosImage5 = BusinessImage(
+        business_id = "11",
+        url = "https://axwwgrkdco.cloudimg.io/v7/__gmpics__/5453d2746ab345e3a6d6ff756aaa129c?width=1000",
+        preview = False
+    )
+    JiangImage1 = BusinessImage(
+        business_id = "12",
+        url = "https://axwwgrkdco.cloudimg.io/v7/__gmpics__/077cbc13daff43cda9dc54fb02a78639?width=1000",
+        preview = True
+    )
+    JiangImage2 = BusinessImage(
+        business_id = "12",
+        url = "https://axwwgrkdco.cloudimg.io/v7/__gmpics__/0861bba0c7cc453389ea2887db4f5622?width=1000",
+        preview = False
+    )
+    JiangImage3 = BusinessImage(
+        business_id = "12",
+        url = "https://axwwgrkdco.cloudimg.io/v7/__gmpics__/59d0abe13510487da43a1cfd9b8ddb02?width=1000",
+        preview = False
+    )
+    JiangImage4 = BusinessImage(
+        business_id = "12",
+        url = "https://axwwgrkdco.cloudimg.io/v7/__gmpics__/e09dd0530ae2432d8a3bd6920336cbd6?width=1000",
+        preview = False
+    )
+    JiangImage5 = BusinessImage(
+        business_id = "12",
+        url = "https://axwwgrkdco.cloudimg.io/v7/__gmpics__/4a170a9876ea4c7b8e88e90758fc93bd?width=1000",
+        preview = False
+    )
+    MomofukuImage1 = BusinessImage(
+        business_id = "13",
+        url = "https://axwwgrkdco.cloudimg.io/v7/__gmpics__/7e397ebd8c44465a8aa055c154e2e9d7?width=1000",
+        preview = True
+    )
+    MomofukuImage2 = BusinessImage(
+        business_id = "13",
+        url = "https://axwwgrkdco.cloudimg.io/v7/__gmpics__/337d8cc9dbaa461e8f6fb9602028c59b?width=1000",
+        preview = False
+    )
+    MomofukuImage3 = BusinessImage(
+        business_id = "13",
+        url = "https://axwwgrkdco.cloudimg.io/v7/__gmpics__/18febd23e9e544c9b4122967879bf043?width=1000",
+        preview = False
+    )
+    MomofukuImage4 = BusinessImage(
+        business_id = "13",
+        url = "https://axwwgrkdco.cloudimg.io/v7/__gmpics__/8fa3d536adea46acbfc84edb1fe6a4c7?width=1000",
+        preview = False
+    )
+    MomofukuImage5 = BusinessImage(
+        business_id = "13",
+        url = "https://s3-media0.fl.yelpcdn.com/bphoto/tpxnaBydb0iTVCutNG3cSg/o.jpg",
+        preview = False
+    )
+    NozImage1 = BusinessImage(
+        business_id = "14",
+        url = "https://axwwgrkdco.cloudimg.io/v7/__gmpics__/e68ff7ea348e46ee84640c127cf499bc?width=1000",
+        preview = True
+    )
+    NozImage2 = BusinessImage(
+        business_id = "14",
+        url = "https://axwwgrkdco.cloudimg.io/v7/__gmpics__/276bf53a2d234a6cb139e5200ef2b351?width=1000",
+        preview = False
+    )
+    NozImage3 = BusinessImage(
+        business_id = "14",
+        url = "https://axwwgrkdco.cloudimg.io/v7/__gmpics__/a49276602fe44f649b62fd73e462a51d?width=1000",
+        preview = False
+    )
+    NozImage4 = BusinessImage(
+        business_id = "14",
+        url = "https://axwwgrkdco.cloudimg.io/v7/__gmpics__/e318de9a4bed4639bbf0c253da27761f?width=1000",
+        preview = False
+    )
+    NozImage5 = BusinessImage(
+        business_id = "14",
+        url = "https://axwwgrkdco.cloudimg.io/v7/__gmpics__/0ff419535a424e42aca8a44b6e5aaf92?width=1000",
+        preview = False
+    )
+    NozImage6 = BusinessImage(
+        business_id = "14",
+        url = "https://axwwgrkdco.cloudimg.io/v7/__gmpics__/1c0952baaa5443f5be4d69630ea2f01e?width=1000",
+        preview = False
+    )
+    NozImage7 = BusinessImage(
+        business_id = "14",
+        url = "https://axwwgrkdco.cloudimg.io/v7/__gmpics__/bd9f2801ceae40d88dd4803514420fc6?width=1000",
+        preview = False
+    )
+    NozImage8 = BusinessImage(
+        business_id = "14",
+        url = "https://axwwgrkdco.cloudimg.io/v7/__gmpics__/eaf13f08f25f464a9488883cea54cc27?width=1000",
+        preview = False
+    )
+    NozImage9 = BusinessImage(
+        business_id = "14",
+        url = "https://axwwgrkdco.cloudimg.io/v7/__gmpics__/0950679437e04a10a5817f31c87c60af?width=1000",
+        preview = False
+    )
+    NozImage10 = BusinessImage(
+        business_id = "14",
+        url = "https://axwwgrkdco.cloudimg.io/v7/__gmpics__/9e8bd7ba599e49599c29b73490a303e4?width=1000",
+        preview = False
+    )
 
     db.session.add(MasaBusinessImage1)
     db.session.add(MasaBusinessImage2)
@@ -312,6 +437,31 @@ def seed_business_images():
     db.session.add(MusketRoomImage3)
     db.session.add(MusketRoomImage4)
     db.session.add(MusketRoomImage5)
+    db.session.add(RolosImage1)
+    db.session.add(RolosImage2)
+    db.session.add(RolosImage3)
+    db.session.add(RolosImage4)
+    db.session.add(RolosImage5)
+    db.session.add(JiangImage1)
+    db.session.add(JiangImage2)
+    db.session.add(JiangImage3)
+    db.session.add(JiangImage4)
+    db.session.add(JiangImage5)
+    db.session.add(MomofukuImage1)
+    db.session.add(MomofukuImage2)
+    db.session.add(MomofukuImage3)
+    db.session.add(MomofukuImage4)
+    db.session.add(MomofukuImage5)
+    db.session.add(NozImage1)
+    db.session.add(NozImage2)
+    db.session.add(NozImage3)
+    db.session.add(NozImage4)
+    db.session.add(NozImage5)
+    db.session.add(NozImage6)
+    db.session.add(NozImage7)
+    db.session.add(NozImage8)
+    db.session.add(NozImage9)
+    db.session.add(NozImage10)
     db.session.commit()
 
 
