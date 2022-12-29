@@ -12,6 +12,7 @@ function SearchResults() {
     const { search } = useParams();
     const history = useHistory();
     let resultsFound = false;
+    let noSearchParams = false;
     const [selected, setSelected] = useState(false);
 
     const businessImagesArray = useSelector((state) => {
@@ -20,15 +21,21 @@ function SearchResults() {
         return urlArray
     })
 
+    console.log(search)
+
     const businessesSortedByReviewsDes = useSelector((state) => {
         let businessArray = Object.values(state?.business?.allBusinesses)
 
         let matches = [];
 
+        if (search === "noparams") return businessArray.sort((a, b) => parseFloat(b.num_reviews) - parseFloat(a.num_reviews))
+
+        if (search === "notfound") return businessArray.sort((a, b) => parseFloat(b.num_reviews) - parseFloat(a.num_reviews))
+
         for (let i = 0; i < businessArray.length; i++) {
             if (businessArray[i].business_name.toLowerCase().includes(search.toLowerCase()) || businessArray[i].business_type.toLowerCase().includes(search.toLowerCase())) {
                 matches.push(businessArray[i]);
-                resultsFound = true
+                resultsFound = true;
             }
         }
 
@@ -112,8 +119,13 @@ function SearchResults() {
                         </div>
                     )}
                     {!resultsFound && (
-                        <div className='search-chart-title'>
-                            No "{search}" results found in New York, NY
+                        <div>
+                            <div className='search-chart-title'>
+                                Sorry, we couldn't find any results
+                            </div>
+                            <div style={{ fontSize: "20px", fontWeight: "600", padding: "20px 0" }}>
+                                Explore other options
+                            </div>
                         </div>
                     )}
                     <div className='search-chart-body'>

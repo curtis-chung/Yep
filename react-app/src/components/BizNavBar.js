@@ -60,6 +60,16 @@ const BizNavBar = () => {
         });
     }
 
+    function handleSubmit() {
+        // console.log(search)
+
+        if (!search.length) return history.push(`/search_results/noparams`)
+
+        if (!searchResults.length) return history.push(`/search_results/notfound`)
+
+        if (search.length) return history.push(`/search_results/${search}`)
+    }
+
     return (
         <div className='biz-nav-bar-container biz-nav-bar'>
             <div className='nav-bar-left'>
@@ -83,7 +93,6 @@ const BizNavBar = () => {
                                     e.stopPropagation()
                                     handleSearchInputShadow()
                                     setSearchOpen(true)
-                                    { console.log("Galio", search, match) }
                                 }}
                                 value={search}
                                 onChange={(e) => {
@@ -103,9 +112,7 @@ const BizNavBar = () => {
                         </div>
                         <button
                             className="magnifying-glasses-submit-button"
-                            onClick={() => {
-                                history.push(`/search_results/${search}`)
-                            }}>
+                            onClick={handleSubmit}>
                             <i className="fa-solid fa-magnifying-glass" id="magnifying-glass" />
                         </button>
                     </div>
