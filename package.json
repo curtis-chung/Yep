@@ -3,6 +3,7 @@
     "@googlemaps/react-wrapper": "^1.1.35",
     "@react-google-maps/api": "^2.17.1",
     "google-map-react": "^2.2.0",
-    "react-geocode": "^0.2.3"
+    "react-geocode": "^0.2.3",
+    "react-paginate": "^8.1.4"
   }
 }
