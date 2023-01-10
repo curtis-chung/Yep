@@ -1,6 +1,6 @@
 from flask import Blueprint, jsonify, redirect, request
 from flask_login import current_user, login_required
-from app.models import Business, BusinessImage, Review, User, db, Image
+from app.models import Business, BusinessImage, Review, User, db
 from app.forms import BusinessForm, ReviewForm, BusinessImageForm
 from .auth_routes import validation_errors_to_error_messages
 from flask_login import current_user, login_required

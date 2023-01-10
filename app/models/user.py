@@ -21,7 +21,7 @@ class User(db.Model, UserMixin):
     # relationship attributes
     businesses = db.relationship("Business", cascade="all, delete", back_populates="user")
     reviews = db.relationship("Review", cascade="all, delete", back_populates="user")
-    images = db.relationship("Image", back_populates="user")
+    # images = db.relationship("Image", back_populates="user")
 
 
 

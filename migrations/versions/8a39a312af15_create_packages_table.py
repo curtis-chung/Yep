@@ -1,9 +1,9 @@
 from app.models import db, environment, SCHEMA
 """create packages table
 
-Revision ID: cbeddd60d49e
+Revision ID: 8a39a312af15
 Revises:
-Create Date: 2023-01-10 04:26:35.103853
+Create Date: 2023-01-10 16:31:19.328637
 
 """
 from alembic import op
@@ -11,7 +11,7 @@ import sqlalchemy as sa
 
 
 # revision identifiers, used by Alembic.
-revision = 'cbeddd60d49e'
+revision = '8a39a312af15'
 down_revision = None
 branch_labels = None
 depends_on = None
@@ -48,13 +48,6 @@ def upgrade():
     sa.Column('price', sa.Integer(), nullable=False),
     sa.Column('created_at', sa.DateTime(), nullable=False),
     sa.Column('updated_at', sa.DateTime(), nullable=False),
-    sa.ForeignKeyConstraint(['user_id'], ['users.id'], ),
-    sa.PrimaryKeyConstraint('id')
-    )
-    op.create_table('images',
-    sa.Column('id', sa.Integer(), nullable=False),
-    sa.Column('user_id', sa.Integer(), nullable=True),
-    sa.Column('url', sa.String(), nullable=False),
     sa.ForeignKeyConstraint(['user_id'], ['users.id'], ),
     sa.PrimaryKeyConstraint('id')
     )
@@ -110,7 +103,6 @@ def downgrade():
     op.drop_table('review_images')
     op.drop_table('reviews')
     op.drop_table('business_images')
-    op.drop_table('images')
     op.drop_table('businesses')
     op.drop_table('users')
     # ### end Alembic commands ###
