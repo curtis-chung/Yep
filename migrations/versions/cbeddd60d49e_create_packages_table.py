@@ -1,7 +1,8 @@
+from app.models import db, environment, SCHEMA
 """create packages table
 
 Revision ID: cbeddd60d49e
-Revises: 
+Revises:
 Create Date: 2023-01-10 04:26:35.103853
 
 """

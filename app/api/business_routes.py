@@ -9,8 +9,6 @@ from app.s3_helpers import (
 
 business_routes = Blueprint('business', __name__)
 
-
-
 """
 Query for all businesses owned by current user and returns them in a dictionary
 """
@@ -270,5 +268,5 @@ def upload_image(bizId):
 @business_routes.route('/<int:bizId>/images')
 def get_all_images(bizId):
     images = BusinessImage.query.filter_by(business_id = bizId).all()
-    print("@@@@@@@@@@@@@@@@@@@", images)
+    # print("@@@@@@@@@@@@@@@@@@@", images)
     return {"images": [image.to_dict() for image in images]}
