@@ -57,19 +57,3 @@ for (let i; i < a.length; i++) {
     c = a[i].split("(")
     b.push(c)
 }
-
-
-from app.models import db, environment, SCHEMA
-
-if environment == "production":
-    op.execute(f"ALTER TABLE users SET SCHEMA {SCHEMA};")
-if environment == "production":
-    op.execute(f"ALTER TABLE businesses SET SCHEMA {SCHEMA};")
-if environment == "production":
-    op.execute(f"ALTER TABLE images SET SCHEMA {SCHEMA};")
-if environment == "production":
-    op.execute(f"ALTER TABLE business_images SET SCHEMA {SCHEMA};")
-if environment == "production":
-    op.execute(f"ALTER TABLE reviews SET SCHEMA {SCHEMA};")
-if environment == "production":
-    op.execute(f"ALTER TABLE review_images SET SCHEMA {SCHEMA};")

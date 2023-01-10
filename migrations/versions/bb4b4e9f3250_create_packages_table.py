@@ -1,9 +1,9 @@
 from app.models import db, environment, SCHEMA
 """create packages table
 
-Revision ID: 8a39a312af15
+Revision ID: bb4b4e9f3250
 Revises:
-Create Date: 2023-01-10 16:31:19.328637
+Create Date: 2023-01-10 16:59:58.585269
 
 """
 from alembic import op
@@ -11,7 +11,7 @@ import sqlalchemy as sa
 
 
 # revision identifiers, used by Alembic.
-revision = '8a39a312af15'
+revision = 'bb4b4e9f3250'
 down_revision = None
 branch_labels = None
 depends_on = None
@@ -30,6 +30,8 @@ def upgrade():
     sa.PrimaryKeyConstraint('id'),
     sa.UniqueConstraint('email')
     )
+    if environment == "production":
+        op.execute(f"ALTER TABLE users SET SCHEMA {SCHEMA};")
     op.create_table('businesses',
     sa.Column('id', sa.Integer(), nullable=False),
     sa.Column('user_id', sa.Integer(), nullable=False),
@@ -51,6 +53,8 @@ def upgrade():
     sa.ForeignKeyConstraint(['user_id'], ['users.id'], ),
     sa.PrimaryKeyConstraint('id')
     )
+    if environment == "production":
+        op.execute(f"ALTER TABLE businesses SET SCHEMA {SCHEMA};")
     op.create_table('business_images',
     sa.Column('id', sa.Integer(), nullable=False),
     sa.Column('business_id', sa.Integer(), nullable=False),
@@ -61,6 +65,8 @@ def upgrade():
     sa.ForeignKeyConstraint(['business_id'], ['businesses.id'], ),
     sa.PrimaryKeyConstraint('id')
     )
+    if environment == "production":
+        op.execute(f"ALTER TABLE business_images SET SCHEMA {SCHEMA};")
     op.create_table('reviews',
     sa.Column('id', sa.Integer(), nullable=False),
     sa.Column('user_id', sa.Integer(), nullable=False),
@@ -73,6 +79,8 @@ def upgrade():
     sa.ForeignKeyConstraint(['user_id'], ['users.id'], ),
     sa.PrimaryKeyConstraint('id')
     )
+    if environment == "production":
+        op.execute(f"ALTER TABLE reviews SET SCHEMA {SCHEMA};")
     op.create_table('review_images',
     sa.Column('id', sa.Integer(), nullable=False),
     sa.Column('review_id', sa.Integer(), nullable=False),
@@ -83,19 +91,9 @@ def upgrade():
     sa.PrimaryKeyConstraint('id'),
     sa.UniqueConstraint('url')
     )
-    # ### end Alembic commands ###
-    if environment == "production":
-        op.execute(f"ALTER TABLE users SET SCHEMA {SCHEMA};")
-    if environment == "production":
-        op.execute(f"ALTER TABLE businesses SET SCHEMA {SCHEMA};")
-    if environment == "production":
-        op.execute(f"ALTER TABLE images SET SCHEMA {SCHEMA};")
-    if environment == "production":
-        op.execute(f"ALTER TABLE business_images SET SCHEMA {SCHEMA};")
-    if environment == "production":
-        op.execute(f"ALTER TABLE reviews SET SCHEMA {SCHEMA};")
     if environment == "production":
         op.execute(f"ALTER TABLE review_images SET SCHEMA {SCHEMA};")
+    # ### end Alembic commands ###
 
 
 def downgrade():
