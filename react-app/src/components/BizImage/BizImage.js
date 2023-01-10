@@ -3,8 +3,9 @@ import * as sessionActions from '../../store/session';
 import { useDispatch, useSelector } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 import "./BizImage.css"
+import ViewImages from '../AWS/ViewImage';
 
-function BizImages({ clickedX, bizImgArr, businessById }) {
+function BizImages({ clickedX, bizImgArr, businessById, bizId }) {
 
     return (
         <div className='img-modal-container'>
@@ -13,16 +14,8 @@ function BizImages({ clickedX, bizImgArr, businessById }) {
                 <button onClick={clickedX} className='close-button'>Close &nbsp;<i class="fa-solid fa-x"></i></button>
             </div>
             <div className="container-body">
-                <div className='image-container'>
-                    {/* {console.log(bizImgArr)} */}
-                    {bizImgArr.map(image => {
-                        return (
-                            <img className="biz-images" src={image} onError={({ currentTarget }) => {
-                                currentTarget.onerror = null;
-                                currentTarget.src = "https://www.electricmirror.com/wp-content/uploads/2022/05/image-coming-soon.jpg";
-                            }} />
-                        )
-                    })}
+                <div>
+                    <ViewImages bizId={bizId} />
                 </div>
             </div>
         </div>

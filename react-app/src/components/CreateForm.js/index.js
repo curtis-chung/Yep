@@ -4,6 +4,12 @@ import { useHistory, Redirect, useParams } from "react-router-dom";
 import * as businessActions from "../../store/business"
 import "./CreateForm.css"
 import newBiz from "./new_biz.png"
+import UploadPicture from "../AWS";
+import pic1 from "./1.png"
+import pic2 from "./2.png"
+import pic3 from "./3.png"
+import pic4 from "./4.png"
+import pic5 from "./5.png"
 
 const days = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
 const hours = [
@@ -88,8 +94,10 @@ const CreateForm = () => {
     const [imgUrl4, setImgUrl4] = useState("");
     const [imgUrl5, setImgUrl5] = useState("");
     const [errors, setErrors] = useState({});
-
+    const [bizCreated, setBizCreated] = useState(false)
+    const [newBizId, setNewBizId] = useState()
     // console.log("errors", errors)
+    console.log(newBizId, typeof newBizId)
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -126,23 +134,24 @@ const CreateForm = () => {
         // console.log(createdBiz.errors)
         if (createdBiz.errors) setErrors(createdBiz.errors)
         else {
-            const imageArr = [imgUrl1, imgUrl2, imgUrl3, imgUrl4, imgUrl5]
+            setBizCreated(true)
+            setNewBizId(createdBiz?.id)
+            // const imageArr = [imgUrl1, imgUrl2, imgUrl3, imgUrl4, imgUrl5]
 
-            imageArr.forEach(async (imageUrl, i) => {
-                let preview = false;
-                if (i === 0) {
-                    preview = true
-                };
-                if (imageUrl === "") {
-                    imageUrl = "https://www.electricmirror.com/wp-content/uploads/2022/05/image-coming-soon.jpg"
-                }
+            // imageArr.forEach(async (imageUrl, i) => {
+            //     let preview = false;
+            //     if (i === 0) {
+            //         preview = true
+            //     };
+            //     if (imageUrl === "") {
+            //         imageUrl = "https://www.electricmirror.com/wp-content/uploads/2022/05/image-coming-soon.jpg"
+            //     }
 
-                const imageData = { url: imageUrl, preview: preview }
-                await dispatch(businessActions.createBusinessImages(imageData, createdBiz.id))
-            })
+            //     const imageData = { url: imageUrl, preview: preview }
+            // await dispatch(businessActions.createBusinessImages(imageData, createdBiz.id))
 
-            await dispatch(businessActions.cleanUpBusinesses())
-            history.push(`/biz/${createdBiz?.id}`)
+            // await dispatch(businessActions.cleanUpBusinesses())
+            // history.push(`/biz/${createdBiz?.id}`)
         }
     }
 
@@ -178,7 +187,7 @@ const CreateForm = () => {
 
     return (
         <div className="create-biz-page">
-            <div className="create-biz-left">
+            {!bizCreated && (<div className="create-biz-left">
                 <div className="create-biz-container-body">
                     <div className="create-biz-container-title">
                         Add Your Business
@@ -398,7 +407,7 @@ const CreateForm = () => {
                                     <div className='errors'>{errors.price}</div>
                                 )}
                             </div>
-                            <div className="create-biz-url-cards">
+                            {/* <div className="create-biz-url-cards">
                                 Biz Images
                                 <input
                                     type="text"
@@ -440,7 +449,7 @@ const CreateForm = () => {
                                     placeholder="Photo URL (Optional)"
                                     className="create-biz-input-fields"
                                 />
-                            </div>
+                            </div> */}
                         </div>
                         <div className="agreement">
                             By continuing, you agree to Yep's Business Terms and acknowledge our Privacy Policy.
@@ -450,10 +459,39 @@ const CreateForm = () => {
                         </div>
                     </form>
                 </div>
-            </div>
-            <div className="create-biz-right">
+            </div>)}
+            {!bizCreated && (<div className="create-biz-right">
                 <img src={newBiz} />
-            </div>
+            </div>)}
+
+            {bizCreated && (
+                <div className="upload-photo-container">
+                    <div className="upload-photo-title">{business_name}: Add Photos</div>
+                    <div className="browse-files-container">
+                        <img src={pic1} style={{ marginBottom: "18px" }} />
+                        <div className="browse-file-title">Upload photos here</div>
+                        <UploadPicture bizId={newBizId} />
+                    </div>
+                    <div className="upload-photo-footer">
+                        <div className="upload-photo-logos">
+                            <img src={pic2} />
+                            <div className="upload-photo-text">Refrain from posting shaky or out of focus photos.</div>
+                        </div>
+                        <div className="upload-photo-logos">
+                            <img src={pic3} />
+                            <div className="upload-photo-text">Your photos should be well lit and bright. Don’t be afraid to use the flash on your camera.</div>
+                        </div>
+                        <div className="upload-photo-logos">
+                            <img src={pic4} />
+                            <div className="upload-photo-text">If you’re applying filters, don’t overdo them. Subtlety is key.</div>
+                        </div>
+                        <div className="upload-photo-logos">
+                            <img src={pic5} />
+                            <div className="upload-photo-text">                      Lastly, please only post photos of the business.</div>
+                        </div>
+                    </div>
+                </div>
+            )}
         </div>
     );
 }

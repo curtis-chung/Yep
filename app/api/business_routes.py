@@ -1,8 +1,11 @@
 from flask import Blueprint, jsonify, redirect, request
 from flask_login import current_user, login_required
-from app.models import Business, BusinessImage, Review, User, db
+from app.models import Business, BusinessImage, Review, User, db, Image
 from app.forms import BusinessForm, ReviewForm, BusinessImageForm
 from .auth_routes import validation_errors_to_error_messages
+from flask_login import current_user, login_required
+from app.s3_helpers import (
+    upload_file_to_s3, allowed_file, get_unique_filename)
 
 business_routes = Blueprint('business', __name__)
 
@@ -91,7 +94,7 @@ def update_business(id):
     form = BusinessForm()
     form['csrf_token'].data = request.cookies['csrf_token']
 
-    print("CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC", id)
+    # print("CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC", id)
 
     if form.validate_on_submit():
         data = form.data
@@ -111,7 +114,7 @@ def update_business(id):
 
         db.session.commit()
         return curr_business.to_dict()
-    print("66666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666", form.errors)
+    # print("66666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666", form.errors)
     return {"errors":validation_errors_to_error_messages(form.errors)}, 401
 
 
@@ -214,22 +217,58 @@ def curr_biz_reviews(id):
 """
 Post a new business images
 """
-@business_routes.route('/<int:id>/images', methods=["POST"])
+# @business_routes.route('/<int:id>/images', methods=["POST"])
+# @login_required
+# def create_new_business_images(id):
+#     form = BusinessImageForm()
+#     form['csrf_token'].data = request.cookies['csrf_token']
+
+#     if form.validate_on_submit():
+#         data = form.data
+
+#         new_business_images = BusinessImage(
+#             business_id = id,
+#             url = data["url"],
+#             preview = data["preview"],
+#         )
+#         db.session.add(new_business_images)
+#         db.session.commit()
+#         return new_business_images.to_dict()
+#     # print("CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC", form.errors)
+#     return {"errors":validation_errors_to_error_messages(form.errors)}, 401
+
+@business_routes.route('/<int:bizId>/images', methods=["POST"])
 @login_required
-def create_new_business_images(id):
-    form = BusinessImageForm()
-    form['csrf_token'].data = request.cookies['csrf_token']
+def upload_image(bizId):
+    if "image" not in request.files:
+        return {"errors": "image required"}, 400
 
-    if form.validate_on_submit():
-        data = form.data
+    image = request.files["image"]
 
-        new_business_images = BusinessImage(
-            business_id = id,
-            url = data["url"],
-            preview = data["preview"],
-        )
-        db.session.add(new_business_images)
-        db.session.commit()
-        return new_business_images.to_dict()
-    # print("CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC", form.errors)
-    return {"errors":validation_errors_to_error_messages(form.errors)}, 401
+    if not allowed_file(image.filename):
+        return {"errors": "file type not permitted"}, 400
+
+    image.filename = get_unique_filename(image.filename)
+
+    upload = upload_file_to_s3(image)
+    # print("UPLOADDDDDDDDDDDDDDDDDDDDDDDDDDDD@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@", upload)
+
+    if "url" not in upload:
+        print("upload",  upload)
+        # if the dictionary doesn't have a url key
+        # it means that there was an error when we tried to upload
+        # so we send back that error message
+        return upload, 400
+
+    url = upload["url"]
+    # flask_login allows us to get the current user from the request
+    new_image = BusinessImage(url=url, business_id=bizId, preview=True)
+    db.session.add(new_image)
+    db.session.commit()
+    return {"url": url}
+
+@business_routes.route('/<int:bizId>/images')
+def get_all_images(bizId):
+    images = BusinessImage.query.filter_by(business_id = bizId).all()
+    print("@@@@@@@@@@@@@@@@@@@", images)
+    return {"images": [image.to_dict() for image in images]}

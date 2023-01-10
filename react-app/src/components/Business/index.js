@@ -83,10 +83,10 @@ function Business() {
     }
 
     const currBizImages = useSelector((state) => {
-        return state?.business?.businessById?.prev_image
+        return (state?.business?.businessById?.prev_image)
     })
 
-    // console.log("currBizImages", currBizImages)
+    console.log("currBizImages", currBizImages)
 
     const currBizRating = useSelector((state) => {
         return state?.business?.businessById?.avg_rating
@@ -226,14 +226,14 @@ function Business() {
                                     </div>
                                 </div>
                                 <div>
-                                    <BizImageModal bizImgArr={currBizImages} businessById={businessById} />
+                                    <BizImageModal bizImgArr={currBizImages} businessById={businessById} bizId={bizId} />
                                 </div>
                             </div>
                         </div>
                     </div>
                     <div className='biz-image-div'>
                         <div className='biz-image-blur'></div>
-                        {currBizImages && currBizImages.map(image => {
+                        {currBizImages.length > 1 && currBizImages.map(image => {
                             return (
                                 <img className="biz-image" src={image} onError={({ currentTarget }) => {
                                     currentTarget.onerror = null;
@@ -241,6 +241,18 @@ function Business() {
                                 }} />
                             )
                         })}
+                        {currBizImages.length === 1 && (
+                            <>
+                                <img className="biz-image" src={currBizImages[0]} onError={({ currentTarget }) => {
+                                    currentTarget.onerror = null;
+                                    currentTarget.src = "https://www.electricmirror.com/wp-content/uploads/2022/05/image-coming-soon.jpg";
+                                }} />
+                                <img className="biz-image" src="https://www.electricmirror.com/wp-content/uploads/2022/05/image-coming-soon.jpg" />
+                                <img className="biz-image" src="https://www.electricmirror.com/wp-content/uploads/2022/05/image-coming-soon.jpg" />
+                                <img className="biz-image" src="https://www.electricmirror.com/wp-content/uploads/2022/05/image-coming-soon.jpg" />
+                                <img className="biz-image" src="https://www.electricmirror.com/wp-content/uploads/2022/05/image-coming-soon.jpg" />
+                            </>
+                        )}
                     </div>
                 </div>
             </div>
