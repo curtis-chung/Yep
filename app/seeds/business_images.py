@@ -525,6 +525,18 @@ def seed_business_images():
     db.session.add(NozImage8)
     db.session.add(NozImage9)
     db.session.add(NozImage10)
+    db.session.add(AttaboyImage1)
+    db.session.add(AttaboyImage2)
+    db.session.add(AttaboyImage3)
+    db.session.add(AttaboyImage4)
+    db.session.add(AttaboyImage5)
+    db.session.add(AttaboyImage6)
+    db.session.add(DeathCoImage1)
+    db.session.add(DeathCoImage2)
+    db.session.add(DeathCoImage3)
+    db.session.add(DeathCoImage4)
+    db.session.add(DeathCoImage5)
+    db.session.add(DeathCoImage6)
     db.session.commit()
 
 
