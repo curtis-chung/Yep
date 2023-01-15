@@ -387,6 +387,69 @@ def seed_business_images():
         preview = False
     )
 
+    AttaboyImage1 = BusinessImage(
+        business_id = "15",
+        url = "https://s3-media0.fl.yelpcdn.com/bphoto/Uh7vEEKxPvgw3kexFzuz9Q/o.jpg",
+        preview = True
+    )
+    AttaboyImage2 = BusinessImage(
+        business_id = "15",
+        url = "https://s3-media0.fl.yelpcdn.com/bphoto/AKFH3Uqws1CF5I49bXSSmg/o.jpg",
+        preview = False
+    )
+    AttaboyImage3 = BusinessImage(
+        business_id = "15",
+        url = "https://s3-media0.fl.yelpcdn.com/bphoto/-D2jeoqpcY89QLOlby-SiA/o.jpg",
+        preview = False
+    )
+    AttaboyImage4 = BusinessImage(
+        business_id = "15",
+        url = "https://s3-media0.fl.yelpcdn.com/bphoto/MqK_ChY4wWaMCvMze1HnCQ/o.jpg",
+        preview = False
+    )
+    AttaboyImage5 = BusinessImage(
+        business_id = "15",
+        url = "https://s3-media0.fl.yelpcdn.com/bphoto/3QP3P5g6uTZq8STCXBnjbg/o.jpg",
+        preview = False
+    )
+    AttaboyImage6 = BusinessImage(
+        business_id = "15",
+        url = "https://s3-media0.fl.yelpcdn.com/bphoto/en-9SicCANBW5pCPY9PneQ/o.jpg",
+        preview = False
+    )
+
+
+    DeathCoImage1 = BusinessImage(
+        business_id = "16",
+        url = "https://s3-media0.fl.yelpcdn.com/bphoto/UiyHj0kMLusSJYzs8QfoCg/o.jpg",
+        preview = True
+    )
+    DeathCoImage2 = BusinessImage(
+        business_id = "16",
+        url = "https://s3-media0.fl.yelpcdn.com/bphoto/tkZOzYvYHN_wgWwBHxC18w/o.jpg",
+        preview = False
+    )
+    DeathCoImage3 = BusinessImage(
+        business_id = "16",
+        url = "https://s3-media0.fl.yelpcdn.com/bphoto/iCUMu1MXKEmtiaEefOlgRw/o.jpg",
+        preview = False
+    )
+    DeathCoImage4 = BusinessImage(
+        business_id = "16",
+        url = "https://s3-media0.fl.yelpcdn.com/bphoto/vWywdkVMYwqxU36Rdn-EDQ/o.jpg",
+        preview = False
+    )
+    DeathCoImage5 = BusinessImage(
+        business_id = "16",
+        url = "https://s3-media0.fl.yelpcdn.com/bphoto/YX7oUCMXhNUfGX1r72m8IA/o.jpg",
+        preview = False
+    )
+    DeathCoImage6 = BusinessImage(
+        business_id = "16",
+        url = "https://s3-media0.fl.yelpcdn.com/bphoto/8gDVDSFHN7iV48Ca0U-t2Q/o.jpg",
+        preview = False
+    )
+
     db.session.add(MasaBusinessImage1)
     db.session.add(MasaBusinessImage2)
     db.session.add(MasaBusinessImage3)

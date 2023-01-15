@@ -231,6 +231,38 @@ def seed_businesses():
         price="4"
     )
 
+    Attaboy = Business(
+        user_id="2",
+        business_name="Attaboy",
+        address="134 Eldridge St",
+        city='New York',
+        state="NY",
+        postal_code="10002",
+        lat="",
+        lng="",
+        phone_number="9173381792",
+        web_address="https://attaboy.us/nyc/",
+        operating_time="Mon-2:00PM-10:00PM,Tue-2:00PM-10:00PM,Wed-2:00PM-10:00PM,Thu-2:00PM-10:00PM,Fri-2:00PM-10:00PM,Sat-2:00PM-10:00PM,Sun-Closed",
+        business_type="Cocktail Bars",
+        price="2"
+    )
+
+    DeathCo = Business(
+        user_id="2",
+        business_name="Death & Co",
+        address="433 E 6th St",
+        city='New York',
+        state="NY",
+        postal_code="10009",
+        lat="",
+        lng="",
+        phone_number="2123880882",
+        web_address="http://www.deathandcompany.com",
+        operating_time="Mon-2:00PM-10:00PM,Tue-2:00PM-10:00PM,Wed-2:00PM-10:00PM,Thu-2:00PM-10:00PM,Fri-2:00PM-10:00PM,Sat-2:00PM-10:00PM,Sun-Closed",
+        business_type="Cocktail Bars",
+        price="3"
+    )
+
 
     db.session.add(Masa)
     db.session.add(LeBernardin)
@@ -246,6 +278,8 @@ def seed_businesses():
     db.session.add(Jiang)
     db.session.add(Momofuku)
     db.session.add(Noz)
+    db.session.add(Attaboy)
+    db.session.add(DeathCo)
     db.session.commit()
 
 
