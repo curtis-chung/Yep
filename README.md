@@ -106,9 +106,11 @@ Frameworks, Platforms, Libraries and APIs
 [![Flask][Flask.py]][Flask-url]
 ![HTML5][HTML.html]
 ![CSS3][CSS.css]
+![AWS][AWS]
 
 Database
 
+![PostgreSQL][PostgreSQL]
 [![SQLite][SQLite.sq]][SQLite-url]
 
 Cloud Application Hosting
@@ -190,3 +192,5 @@ This is an example of how to list things you need to use the software and how to
 [Google-url]: https://google.com/maps
 [GitHub-color]: https://img.shields.io/badge/github-%23121011.svg?style=for-the-badge&logo=github&logoColor=white
 [curtis-GitHub]: https://github.com/curtis-chung
+[AWS]: https://img.shields.io/badge/Amazon_AWS-FF9900?style=for-the-badge&logo=amazonaws&logoColor=white
+[PostgreSQL]: https://img.shields.io/badge/PostgreSQL-316192?style=for-the-badge&logo=postgresql&logoColor=white
